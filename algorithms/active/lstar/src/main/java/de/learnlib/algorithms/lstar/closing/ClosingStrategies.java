@@ -36,13 +36,13 @@ public final class ClosingStrategies {
     /**
      * Closing strategy that randomly selects one representative row to close from each equivalence class.
      */
-    public static final ClosingStrategy<@Nullable Object, @Nullable Object> CLOSE_RANDOM = new CloseRandomStrategy();
+    public static final ClosingStrategy<Object, Object> CLOSE_RANDOM = new CloseRandomStrategy();
 
     /**
      * Closing strategy that selects the first row from each equivalence class as representative.
      */
-    public static final ClosingStrategy<@Nullable Object, @Nullable Object> CLOSE_FIRST =
-            new ClosingStrategy<@Nullable Object, @Nullable Object>() {
+    public static final ClosingStrategy<Object, Object> CLOSE_FIRST =
+            new ClosingStrategy<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<Row<RI>> selectClosingRows(List<List<Row<RI>>> unclosedClasses,
@@ -65,8 +65,8 @@ public final class ClosingStrategies {
      * Closing strategy that selects the shortest row of each equivalence class (more precisely: a row which's prefix
      * has minimal length in the respective class) as representative.
      */
-    public static final ClosingStrategy<@Nullable Object, @Nullable Object> CLOSE_SHORTEST =
-            new ClosingStrategy<@Nullable Object, @Nullable Object>() {
+    public static final ClosingStrategy<Object, Object> CLOSE_SHORTEST =
+            new ClosingStrategy<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<Row<RI>> selectClosingRows(List<List<Row<RI>>> unclosedClasses,
@@ -100,8 +100,8 @@ public final class ClosingStrategies {
      * Closing strategy that selects the lexicographically minimal row (wrt. its prefix) of each equivalence class as
      * representative.
      */
-    public static final ClosingStrategy<@Nullable Object, @Nullable Object> CLOSE_LEX_MIN =
-            new ClosingStrategy<@Nullable Object, @Nullable Object>() {
+    public static final ClosingStrategy<Object, Object> CLOSE_LEX_MIN =
+            new ClosingStrategy<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<Row<RI>> selectClosingRows(List<List<Row<RI>>> unclosedClasses,
@@ -135,7 +135,7 @@ public final class ClosingStrategies {
     }
 
     @SuppressWarnings("unchecked")
-    public static ClosingStrategy<@Nullable Object, @Nullable Object>[] values() {
+    public static ClosingStrategy<Object, Object>[] values() {
         return new ClosingStrategy[] {CLOSE_RANDOM, CLOSE_FIRST, CLOSE_SHORTEST, CLOSE_LEX_MIN};
     }
 

@@ -42,7 +42,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractDFAPassiveLearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<LearningExample.DFALearningExample<?>> examples = LearningExamples.createDFAExamples();
         final List<PassiveLearnerVariantITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

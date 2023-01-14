@@ -26,11 +26,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class STNodeImpl<I> implements STNode<I> {
 
-    private final @Nullable STNodeImpl<I> parent;
-    private final @Nullable I symbol;
+    private final STNodeImpl<I> parent;
+    private final I symbol;
     private final Map<I, STNodeImpl<I>> children;
 
-    STNodeImpl(@Nullable STNodeImpl<I> parent, @Nullable I symbol) {
+    STNodeImpl(STNodeImpl<I> parent, I symbol) {
         this.parent = parent;
         this.symbol = symbol;
         this.children = new HashMap<>();

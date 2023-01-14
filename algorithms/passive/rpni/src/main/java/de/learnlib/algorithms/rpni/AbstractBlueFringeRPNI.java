@@ -161,7 +161,7 @@ public abstract class AbstractBlueFringeRPNI<I, D, SP, TP, M> implements Passive
      * @return a valid {@link RedBlueMerge} object representing a possible merge of {@code qb} into {@code qr}, or
      * {@code null} if the merge is impossible
      */
-    protected @Nullable RedBlueMerge<SP, TP, BlueFringePTAState<SP, TP>> tryMerge(BlueFringePTA<SP, TP> pta,
+    protected RedBlueMerge<SP, TP, BlueFringePTAState<SP, TP>> tryMerge(BlueFringePTA<SP, TP> pta,
                                                                                   BlueFringePTAState<SP, TP> qr,
                                                                                   BlueFringePTAState<SP, TP> qb) {
         return pta.tryMerge(qr, qb);

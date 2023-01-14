@@ -19,7 +19,6 @@ import de.learnlib.api.setting.LearnLibSettingsSource;
 import net.automatalib.commons.util.settings.AbstractSystemPropertiesSource;
 import org.kohsuke.MetaInfServices;
 
-@MetaInfServices(LearnLibSettingsSource.class)
 public class LearnLibSystemPropertiesSource extends AbstractSystemPropertiesSource implements LearnLibSettingsSource {
 
 }

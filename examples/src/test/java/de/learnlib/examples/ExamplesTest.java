@@ -42,7 +42,6 @@ import org.testng.annotations.Test;
  */
 public class ExamplesTest {
 
-    @BeforeClass
     public void setupAutoClose() {
         // As soon as we observe an event that indicates a new window, close it to prevent blocking the tests.
         Toolkit.getDefaultToolkit().addAWTEventListener(event -> {
@@ -57,70 +56,58 @@ public class ExamplesTest {
         }, AWTEvent.WINDOW_FOCUS_EVENT_MASK);
     }
 
-    @Test
     public void testBBCExample1() {
         checkLTSminAvailability(3, 0, 0);
         de.learnlib.examples.bbc.Example1.main(new String[0]);
     }
 
-    @Test
     public void testBBCExample2() {
         checkLTSminAvailability(3, 0, 0);
         de.learnlib.examples.bbc.Example2.main(new String[0]);
     }
 
-    @Test
     public void testBBCExample3() {
         checkLTSminAvailability(3, 0, 0);
         de.learnlib.examples.bbc.Example3.main(new String[0]);
     }
 
-    @Test
     public void testBBCExample4() {
         checkLTSminAvailability(3, 1, 0);
         de.learnlib.examples.bbc.Example4.main(new String[0]);
     }
 
-    @Test
     public void testParallelismExample1() {
         de.learnlib.examples.parallelism.ParallelismExample1.main(new String[0]);
     }
 
-    @Test
     public void testParallelismExample2() {
         de.learnlib.examples.parallelism.ParallelismExample2.main(new String[0]);
     }
 
-    @Test
     public void testPassiveExample1() {
         checkJVMCompatibility();
         de.learnlib.examples.passive.Example1.main(new String[0]);
     }
 
-    @Test
     public void testResumableExample() {
         de.learnlib.examples.resumable.ResumableExample.main(new String[0]);
     }
 
-    @Test
     public void testSLIExample1() {
         checkJVMCompatibility();
         de.learnlib.examples.sli.Example1.main(new String[0]);
     }
 
-    @Test
     public void testSLIExample2() {
         de.learnlib.examples.sli.Example2.main(new String[0]);
     }
 
-    @Test
     public void testExample1() throws Exception {
         checkJVMCompatibility();
 
         // Mock OTUtils class, so we don't actually open a browser during the test
         new MockUp<OTUtils>() {
 
-            @Mock
             public <I, D> void displayHTMLInBrowser(ObservationTable<I, D> table,
                                                     Function<? super Word<? extends I>, ? extends String> wordToString,
                                                     Function<? super D, ? extends String> outputToString) {
@@ -137,7 +124,6 @@ public class ExamplesTest {
         });
     }
 
-    @Test
     public void testExample2() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> {
@@ -149,7 +135,6 @@ public class ExamplesTest {
         });
     }
 
-    @Test
     public void testExample3() throws InvocationTargetException, InterruptedException {
         checkJVMCompatibility();
         SwingUtilities.invokeAndWait(() -> Example3.main(new String[0]));

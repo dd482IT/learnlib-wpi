@@ -25,7 +25,7 @@ public class PTATransition<S extends AbstractBasePTAState<?, ?, S>> {
     private final S source;
     private final int index;
 
-    public PTATransition(S source, @NonNegative int index) {
+    public PTATransition(S source, int index) {
         this.source = Objects.requireNonNull(source);
         if (index < 0) {
             throw new IllegalArgumentException();
@@ -38,11 +38,11 @@ public class PTATransition<S extends AbstractBasePTAState<?, ?, S>> {
     }
 
 
-    public @NonNegative int getIndex() {
+    public int getIndex() {
         return index;
     }
 
-    public @Nullable S getTarget() {
+    public S getTarget() {
         return source.getSuccessor(index);
     }
 

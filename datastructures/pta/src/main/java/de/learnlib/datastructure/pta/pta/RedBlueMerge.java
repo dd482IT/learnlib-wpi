@@ -151,7 +151,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
         return true;
     }
 
-    private S cloneTopSucc(S succ, int i, Deque<FoldRecord<S>> stack, @Nullable ArrayStorage<TP> newTPs) {
+    private S cloneTopSucc(S succ, int i, Deque<FoldRecord<S>> stack, ArrayStorage<TP> newTPs) {
         S succClone = (newTPs != null) ? succ.copy(newTPs) : succ.copy();
         if (succClone == succ) {
             return succ;
@@ -207,7 +207,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
         return topClone;
     }
 
-    private @Nullable ArrayStorage<TP> getTransProperties(S q) {
+    private ArrayStorage<TP> getTransProperties(S q) {
         if (q.isRed()) {
             int qId = q.id;
             ArrayStorage<TP> props = transPropMod.get(qId);
@@ -229,7 +229,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
         return q.property;
     }
 
-    private @Nullable S getSucc(S q, int i) {
+    private S getSucc(S q, int i) {
         if (q.isRed()) {
             int qId = q.id;
             ArrayStorage<S> modSuccs = succMod.get(qId);
@@ -244,7 +244,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
         updateRedTransition(redSrc, input, tgt, null);
     }
 
-    private void updateRedTransition(S redSrc, int input, S tgt, @Nullable TP transProp) {
+    private void updateRedTransition(S redSrc, int input, S tgt, TP transProp) {
         assert redSrc.isRed();
 
         int id = redSrc.id;
@@ -318,7 +318,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
      * can be merged, a new {@link ArrayStorage} containing the result of the merge is returned. <li>otherwise
      * (i.e., if no merge is possible), {@code null} is returned. </ul>
      */
-    private @Nullable ArrayStorage<TP> mergeTransProperties(ArrayStorage<TP> tps1, ArrayStorage<TP> tps2) {
+    private ArrayStorage<TP> mergeTransProperties(ArrayStorage<TP> tps1, ArrayStorage<TP> tps2) {
         int len = tps1.size();
         int i;
 
@@ -433,7 +433,7 @@ public class RedBlueMerge<SP, TP, S extends AbstractBlueFringePTAState<SP, TP, S
             private Set<S> states;
 
             @Override
-            public @Nullable S getSuccessor(Pair<S, Integer> transition) {
+            public S getSuccessor(Pair<S, Integer> transition) {
                 final S source = transition.getFirst();
                 final Integer input = transition.getSecond();
 

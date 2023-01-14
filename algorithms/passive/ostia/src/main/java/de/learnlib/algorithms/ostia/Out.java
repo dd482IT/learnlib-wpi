@@ -22,9 +22,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class Out {
 
-    @Nullable IntQueue str;
+    IntQueue str;
 
-    Out(@Nullable IntQueue str) {
+    Out(IntQueue str) {
         this.str = str;
     }
 

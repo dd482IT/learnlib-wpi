@@ -38,12 +38,10 @@ public class ATRManagerTest {
         ALPHABET = new DefaultSPAAlphabet<>(internalAlphabet, callAlphabet, returnSymbol);
     }
 
-    @DataProvider
     public static Object[] atrManager() {
         return new Object[] {new DefaultATRManager<>(ALPHABET), new OptimizingATRManager<>(ALPHABET)};
     }
 
-    @Test(dataProvider = "atrManager")
     public void testScanning(ATRManager<Character> manager) {
 
         final Word<Character> word = Word.fromCharSequence("ABaRCbRR");

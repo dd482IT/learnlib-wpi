@@ -30,8 +30,8 @@ public class State extends StateParent {
     /**
      * The IntQueue is consumed and should not be reused after calling this method.
      */
-    void prependButIgnoreMissingStateOutput(@Nullable IntQueue prefix) {
-        for (@Nullable Edge edge : transitions) {
+    void prependButIgnoreMissingStateOutput(IntQueue prefix) {
+        for (Edge edge : transitions) {
             if (edge != null) {
                 edge.out = IntQueue.copyAndConcat(prefix, edge.out);
             }

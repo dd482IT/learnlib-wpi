@@ -33,7 +33,7 @@ class ChildrenMealy<I, D> implements Children<I, D> {
     private final Map<D, AbstractDTNode<I, D>> children = new HashMap<>();
 
     @Override
-    public @Nullable AbstractDTNode<I, D> child(D out) {
+    public AbstractDTNode<I, D> child(D out) {
         return children.get(out);
     }
 

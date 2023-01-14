@@ -35,33 +35,6 @@ import net.automatalib.automata.transducers.MooreMachine;
 import net.automatalib.words.Word;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-@GenerateRefinement(name = "DFAEQOracleChain",
-                    generics = "I",
-                    parentGenerics = {@Generic(clazz = DFA.class, generics = {"?", "I"}),
-                                      @Generic("I"),
-                                      @Generic(clazz = Boolean.class)},
-                    parameterMapping = @Map(from = EquivalenceOracle.class,
-                                            to = DFAEquivalenceOracle.class,
-                                            withGenerics = "I"),
-                    interfaces = @Interface(clazz = DFAEquivalenceOracle.class, generics = "I"))
-@GenerateRefinement(name = "MealyEQOracleChain",
-                    generics = {"I", "O"},
-                    parentGenerics = {@Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
-                                      @Generic("I"),
-                                      @Generic(clazz = Word.class, generics = "O")},
-                    parameterMapping = @Map(from = EquivalenceOracle.class,
-                                            to = MealyEquivalenceOracle.class,
-                                            withGenerics = {"I", "O"}),
-                    interfaces = @Interface(clazz = MealyEquivalenceOracle.class, generics = {"I", "O"}))
-@GenerateRefinement(name = "MooreEQOracleChain",
-                    generics = {"I", "O"},
-                    parentGenerics = {@Generic(clazz = MooreMachine.class, generics = {"?", "I", "?", "O"}),
-                                      @Generic("I"),
-                                      @Generic(clazz = Word.class, generics = "O")},
-                    parameterMapping = @Map(from = EquivalenceOracle.class,
-                                            to = MooreEquivalenceOracle.class,
-                                            withGenerics = {"I", "O"}),
-                    interfaces = @Interface(clazz = MooreEquivalenceOracle.class, generics = {"I", "O"}))
 public class EQOracleChain<A, I, D> implements EquivalenceOracle<A, I, D> {
 
     private final List<EquivalenceOracle<? super A, I, D>> oracles;
@@ -80,7 +53,7 @@ public class EQOracleChain<A, I, D> implements EquivalenceOracle<A, I, D> {
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         for (EquivalenceOracle<? super A, I, D> eqOracle : oracles) {
             DefaultQuery<I, D> ceQry = eqOracle.findCounterExample(hypothesis, inputs);
             if (ceQry != null) {

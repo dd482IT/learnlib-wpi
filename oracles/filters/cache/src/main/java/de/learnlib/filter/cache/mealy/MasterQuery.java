@@ -39,15 +39,15 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 final class MasterQuery<I, O> extends AbstractQuery<I, Word<O>> {
 
-    private final @Nullable Mapping<? super O, ? extends O> errorSyms;
-    private final @Nullable List<Query<I, Word<O>>> slaves;
+    private final Mapping<? super O, ? extends O> errorSyms;
+    private final List<Query<I, Word<O>>> slaves;
     private Word<O> answer;
 
     MasterQuery(Word<I> word) {
         this(word, (Mapping<? super O, ? extends O>) null);
     }
 
-    MasterQuery(Word<I> word, @Nullable Mapping<? super O, ? extends O> errorSyms) {
+    MasterQuery(Word<I> word, Mapping<? super O, ? extends O> errorSyms) {
         super(word);
         this.errorSyms = errorSyms;
         this.slaves = new ArrayList<>();

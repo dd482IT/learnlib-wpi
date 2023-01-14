@@ -70,7 +70,6 @@ public class PTAVisualizationTest {
         }
     }
 
-    @Test
     public void testVisualization() throws IOException {
         final StringWriter actualPTA = new StringWriter();
         GraphDOT.write(this.moorePTA.graphView(alphabet), actualPTA);

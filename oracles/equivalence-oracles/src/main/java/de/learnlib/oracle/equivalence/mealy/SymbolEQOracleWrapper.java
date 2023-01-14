@@ -34,7 +34,7 @@ public class SymbolEQOracleWrapper<A extends DetSuffixOutputAutomaton<?, I, ?, W
     }
 
     @Override
-    public @Nullable DefaultQuery<I, O> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, O> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         DefaultQuery<I, Word<O>> wordCeQry = wordEqOracle.findCounterExample(hypothesis, inputs);
         if (wordCeQry == null) {
             return null;

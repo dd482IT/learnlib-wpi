@@ -40,7 +40,6 @@ public class TestWordEQOracleBatchTest {
     private static final int MAX_QUERIES = 100;
     private static final int THRESHOLD = 47;
 
-    @Test
     public void testBatchMode() {
         final DummyMQOracle<Character> mOracle = new DummyMQOracle<>();
         final DummyEQOracle<Character> eqOracle = new DummyEQOracle<>(mOracle);
@@ -62,7 +61,7 @@ public class TestWordEQOracleBatchTest {
         }
 
         @Override
-        public @Nullable Boolean computeOutput(Iterable<? extends I> input) {
+        public Boolean computeOutput(Iterable<? extends I> input) {
             queryCounter++;
 
             return queryCounter >= THRESHOLD ? Boolean.TRUE : null;

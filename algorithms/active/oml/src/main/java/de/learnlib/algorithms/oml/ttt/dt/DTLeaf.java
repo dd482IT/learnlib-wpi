@@ -33,7 +33,7 @@ public class DTLeaf<I, D> extends AbstractDTNode<I, D> {
     private final List<PTNode<I, D>> shortPrefixes;
     private final List<PTNode<I, D>> longPrefixes;
 
-    public DTLeaf(@Nullable DTInnerNode<I, D> parent, AbstractDecisionTree<I, D> tree, PTNode<I, D> u) {
+    public DTLeaf(DTInnerNode<I, D> parent, AbstractDecisionTree<I, D> tree, PTNode<I, D> u) {
         super(parent, tree);
         this.shortPrefixes = new ArrayList<>();
         this.longPrefixes = new ArrayList<>();

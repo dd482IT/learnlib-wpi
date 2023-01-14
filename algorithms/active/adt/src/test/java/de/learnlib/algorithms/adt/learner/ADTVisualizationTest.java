@@ -34,7 +34,7 @@ import org.testng.annotations.Test;
 public class ADTVisualizationTest extends AbstractVisualizationTest<ADTLearner<Input, String>> {
 
     @Override
-    protected ADTLearner<Input, String> getLearnerBuilder(@UnderInitialization ADTVisualizationTest this,
+    protected ADTLearner<Input, String> getLearnerBuilder(ADTVisualizationTest this,
                                                           Alphabet<Input> alphabet,
                                                           SUL<Input, String> sul) {
         return new ADTLearnerBuilder<Input, String>().withAlphabet(alphabet)
@@ -42,7 +42,6 @@ public class ADTVisualizationTest extends AbstractVisualizationTest<ADTLearner<I
                                                      .create();
     }
 
-    @Test
     public void testVisualization() throws IOException {
         final String expectedADT = resourceAsString("/adt.dot");
 

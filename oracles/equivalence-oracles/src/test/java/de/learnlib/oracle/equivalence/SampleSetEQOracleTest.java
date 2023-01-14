@@ -44,7 +44,6 @@ public class SampleSetEQOracleTest extends AbstractEQOracleTest<SuffixOutput<Cha
     private List<Word<Character>> expectedTestWords;
     private List<Word<Character>> testedWords;
 
-    @BeforeClass
     public void setUp() {
 
         this.oracle = new SampleSetEQOracle<>(true);
@@ -68,7 +67,6 @@ public class SampleSetEQOracleTest extends AbstractEQOracleTest<SuffixOutput<Cha
         return Word.fromList(RandomUtil.sample(alphabet, TEST_WORD_LENGTH, random));
     }
 
-    @Test(dependsOnMethods = "testGeneratedEQQueries")
     public void testName() {
         Assert.assertEquals(this.expectedTestWords, this.testedWords);
     }

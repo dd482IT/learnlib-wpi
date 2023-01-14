@@ -40,7 +40,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractDFALearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<DFALearningExample<?>> examples = LearningExamples.createDFAExamples();
         final List<UniversalDeterministicLearnerITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

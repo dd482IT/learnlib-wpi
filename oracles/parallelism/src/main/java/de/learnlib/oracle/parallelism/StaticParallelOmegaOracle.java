@@ -38,7 +38,7 @@ public class StaticParallelOmegaOracle<S, I, D>
         implements ParallelOmegaOracle<S, I, D> {
 
     public StaticParallelOmegaOracle(Collection<? extends OmegaMembershipOracle<S, I, D>> oracles,
-                                     @NonNegative int minBatchSize,
+                                     int minBatchSize,
                                      PoolPolicy policy) {
         super(oracles, minBatchSize, policy);
     }

@@ -76,7 +76,7 @@ public class ExampleRandomStateLocalInputMealy<I, O> implements StateLocalInputM
         }
 
         final CompactMealy<I, O> minimized = Automata.invasiveMinimize(source, alphabet);
-        final MutableMapping<Integer, @Nullable Collection<I>> enabledInputs = source.createStaticStateMapping();
+        final MutableMapping<Integer, Collection<I>> enabledInputs = source.createStaticStateMapping();
 
         for (Integer s : minimized) {
             final Collection<I> stateInputs = new HashSet<>(alphabet);
@@ -120,9 +120,9 @@ public class ExampleRandomStateLocalInputMealy<I, O> implements StateLocalInputM
     private static class MockedSLIMealy<S, I, T, O> implements StateLocalInputMealyMachine<S, I, T, O> {
 
         private final MealyMachine<S, I, T, O> delegate;
-        private final Mapping<S, @Nullable Collection<I>> localInputs;
+        private final Mapping<S, Collection<I>> localInputs;
 
-        MockedSLIMealy(MealyMachine<S, I, T, O> delegate, Mapping<S, @Nullable Collection<I>> localInputs) {
+        MockedSLIMealy(MealyMachine<S, I, T, O> delegate, Mapping<S, Collection<I>> localInputs) {
             this.delegate = delegate;
             this.localInputs = localInputs;
         }
@@ -144,7 +144,7 @@ public class ExampleRandomStateLocalInputMealy<I, O> implements StateLocalInputM
         }
 
         @Override
-        public @Nullable T getTransition(S state, I input) {
+        public T getTransition(S state, I input) {
             return this.delegate.getTransition(state, input);
         }
 
@@ -154,7 +154,7 @@ public class ExampleRandomStateLocalInputMealy<I, O> implements StateLocalInputM
         }
 
         @Override
-        public @Nullable S getInitialState() {
+        public S getInitialState() {
             return this.delegate.getInitialState();
         }
     }

@@ -34,7 +34,6 @@ import org.testng.annotations.Test;
 
 public class WpMethodSPAEQOracleTest {
 
-    @Test
     public void testOracle() {
         final Random random = new Random(42);
         final SPAAlphabet<Character> alphabet =

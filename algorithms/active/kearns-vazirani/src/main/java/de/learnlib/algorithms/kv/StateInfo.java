@@ -40,7 +40,7 @@ public final class StateInfo<I, D> {
     public final Word<I> accessSequence;
     public AbstractWordBasedDTNode<I, D, StateInfo<I, D>> dtNode;
     //private TLongList incoming;
-    private @Nullable List<Long> incoming; // TODO: replace with primitive specialization
+    private List<Long> incoming; // TODO: replace with primitive specialization
 
     public StateInfo(int id, Word<I> accessSequence) {
         this.accessSequence = accessSequence.trimmed();

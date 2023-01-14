@@ -51,7 +51,7 @@ public class MealyCacheConsistencyTest<I, O> implements MealyEquivalenceOracle<I
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
+    public DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
                                                                  Collection<? extends I> inputs) {
         final Word<I> w = incMealy.findSeparatingWord(hypothesis, inputs, false);
 

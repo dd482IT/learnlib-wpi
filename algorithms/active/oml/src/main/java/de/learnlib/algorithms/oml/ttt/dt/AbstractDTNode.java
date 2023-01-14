@@ -26,10 +26,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public abstract class AbstractDTNode<I, D> {
 
-    final @Nullable DTInnerNode<I, D> parent;
+    final DTInnerNode<I, D> parent;
     final AbstractDecisionTree<I, D> tree;
 
-    public AbstractDTNode(@Nullable DTInnerNode<I, D> parent, AbstractDecisionTree<I, D> tree) {
+    public AbstractDTNode(DTInnerNode<I, D> parent, AbstractDecisionTree<I, D> tree) {
         this.parent = parent;
         this.tree = tree;
     }

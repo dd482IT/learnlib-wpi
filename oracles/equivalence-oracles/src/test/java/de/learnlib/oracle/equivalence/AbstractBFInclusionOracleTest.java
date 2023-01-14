@@ -51,7 +51,6 @@ public abstract class AbstractBFInclusionOracleTest<A extends DetOutputAutomaton
         return createBreadthFirstInclusionOracle();
     }
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
 
@@ -60,12 +59,10 @@ public abstract class AbstractBFInclusionOracleTest<A extends DetOutputAutomaton
         automaton = createAutomaton();
     }
 
-    @Test
     public void testIsCounterExample() {
         Assert.assertTrue(bfio.isCounterExample(automaton, query.getInput(), query.getOutput()));
     }
 
-    @Test
     public void testFindCounterExample() {
         final DefaultQuery<Character, D> cex = bfio.findCounterExample(automaton, ALPHABET);
         Assert.assertEquals(cex, query);

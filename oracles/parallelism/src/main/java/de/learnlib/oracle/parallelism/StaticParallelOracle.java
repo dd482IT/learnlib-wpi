@@ -35,7 +35,7 @@ public class StaticParallelOracle<I, D> extends AbstractStaticBatchProcessor<Que
         implements ParallelOracle<I, D> {
 
     public StaticParallelOracle(Collection<? extends MembershipOracle<I, D>> oracles,
-                                @NonNegative int minBatchSize,
+                                int minBatchSize,
                                 PoolPolicy policy) {
         super(oracles, minBatchSize, policy);
     }

@@ -43,7 +43,7 @@ public final class ThreadSafeMealyCacheConsistencyTest<I, O> implements MealyEqu
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
+    public DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
                                                                  Collection<? extends I> inputs) {
         lock.readLock().lock();
         try {

@@ -51,7 +51,6 @@ public class DTLearnerMealy<I, O> extends AbstractDTLearner<MealyMachine<?, I, ?
      * @param suffixFinder
      *         method to use for analyzing counterexamples
      */
-    @GenerateBuilder(defaults = AbstractDTLearner.BuilderDefaults.class)
     public DTLearnerMealy(Alphabet<I> alphabet,
                           MembershipOracle<I, Word<O>> oracle,
                           LocalSuffixFinder<? super I, ? super Word<O>> suffixFinder,
@@ -65,7 +64,7 @@ public class DTLearnerMealy<I, O> extends AbstractDTLearner<MealyMachine<?, I, ?
     }
 
     @Override
-    protected @Nullable Query<I, Word<O>> spQuery(HState<I, Word<O>, Void, O> state) {
+    protected Query<I, Word<O>> spQuery(HState<I, Word<O>, Void, O> state) {
         return null;
     }
 

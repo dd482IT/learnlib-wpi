@@ -41,33 +41,28 @@ public class HistogramOracleTest {
         this.oracle = new HistogramOracle<>(Mockito.mock(MembershipOracle.class), COUNTER_NAME);
     }
 
-    @Test
     public void testInitialState() {
         verifyCounts(0, 0, 0, 0);
     }
 
-    @Test(dependsOnMethods = "testInitialState")
     public void testFirstQueryBatch() {
         Collection<Query<Integer, Word<Character>>> queries = TestQueries.createNoopQueries(2);
         oracle.processQueries(queries);
         verifyCounts(2, 0, 0, 0);
     }
 
-    @Test(dependsOnMethods = "testFirstQueryBatch")
     public void testEmptyQueryBatch() {
         Collection<Query<Integer, Word<Character>>> noQueries = Collections.emptySet();
         oracle.processQueries(noQueries);
         verifyCounts(2, 0, 0, 0);
     }
 
-    @Test(dependsOnMethods = "testEmptyQueryBatch")
     public void testSecondQueryBatch() {
         Collection<Query<Integer, Word<Character>>> queries = TestQueries.createNoopQueries(2, 5, TestQueries.INPUTS);
         oracle.processQueries(queries);
         verifyCounts(4, 10, 2.5, 0);
     }
 
-    @Test(dependsOnMethods = "testSecondQueryBatch")
     public void testSummary() throws IOException {
 
         final String details = oracle.getStatisticalData().getDetails();
@@ -84,7 +79,6 @@ public class HistogramOracleTest {
         }
     }
 
-    @Test
     public void testGetName() {
         Assert.assertEquals(oracle.getStatisticalData().getName(), COUNTER_NAME);
     }

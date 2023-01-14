@@ -40,7 +40,7 @@ public class DynamicParallelOmegaOracle<S, I, D>
         implements ParallelOmegaOracle<S, I, D> {
 
     public DynamicParallelOmegaOracle(Supplier<? extends OmegaMembershipOracle<S, I, D>> oracleSupplier,
-                                      @NonNegative int batchSize,
+                                      int batchSize,
                                       ExecutorService executor) {
         super(oracleSupplier, batchSize, executor);
     }

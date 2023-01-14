@@ -32,7 +32,7 @@ public interface PTNode<I, D> {
 
     DTLeaf<I, D> state();
 
-    @Nullable PTNode<I, D> succ(I a);
+    PTNode<I, D> succ(I a);
 
     void makeShortPrefix();
 }

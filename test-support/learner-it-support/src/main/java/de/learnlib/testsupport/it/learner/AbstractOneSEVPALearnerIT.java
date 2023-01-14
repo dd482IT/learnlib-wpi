@@ -35,7 +35,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractOneSEVPALearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<OneSEVPALearningExample<?>> examples = LearningExamples.createOneSEVPAExamples();
         final List<OneSEVPALearnerITCase<?>> result = new ArrayList<>(examples.size());

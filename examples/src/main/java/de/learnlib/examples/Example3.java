@@ -70,10 +70,10 @@ public class Example3 {
         Example3 example = new Example3();
         System.out.println("--");
         System.out.println("Run experiment 1 (ReuseOracle):");
-        MealyMachine<?, String, ?, @Nullable String> result1 = example.runExperiment1();
+        MealyMachine<?, String, ?, String> result1 = example.runExperiment1();
         System.out.println("--");
         System.out.println("Run experiment 2:");
-        MealyMachine<?, String, ?, @Nullable String> result2 = example.runExperiment2();
+        MealyMachine<?, String, ?, String> result2 = example.runExperiment2();
         System.out.println("--");
         System.out.println("Model 1: " + result1.size() + " states");
         System.out.println("Model 2: " + result2.size() + " states");
@@ -98,7 +98,7 @@ public class Example3 {
     /*
      * A "normal" scenario without reuse filter technique.
      */
-    public MealyMachine<?, String, ?, @Nullable String> runExperiment1() {
+    public MealyMachine<?, String, ?, String> runExperiment1() {
         // For each membership query a new instance of BoundedStringQueue will
         // be created (normal learning scenario without filters)
         FullMembershipQueryOracle oracle = new FullMembershipQueryOracle();
@@ -106,14 +106,14 @@ public class Example3 {
         // construct L* instance (almost classic Mealy version)
         // almost: we use words (Word<String>) in cells of the table
         // instead of single outputs.
-        MealyLearner<String, @Nullable String> lstar;
-        lstar = new ExtensibleLStarMealyBuilder<String, @Nullable String>().withAlphabet(sigma)
+        MealyLearner<String, String> lstar;
+        lstar = new ExtensibleLStarMealyBuilder<String, String>().withAlphabet(sigma)
                                                                            .withInitialSuffixes(initialSuffixes)
                                                                            .withOracle(oracle)
                                                                            .create();
 
         lstar.startLearning();
-        MealyMachine<?, String, ?, @Nullable String> result;
+        MealyMachine<?, String, ?, String> result;
         result = lstar.getHypothesisModel();
 
         System.out.println("Resets:  " + oracle.resets);
@@ -125,21 +125,21 @@ public class Example3 {
     /*
      * Scenario with reuse filter technique.
      */
-    public MealyMachine<?, String, ?, @Nullable String> runExperiment2() {
+    public MealyMachine<?, String, ?, String> runExperiment2() {
         MySystemStateHandler ssh = new MySystemStateHandler();
 
         // This time we use the reuse filter to avoid some resets and
         // save execution of symbols
-        Supplier<ReuseCapableOracle<BoundedStringQueue, String, @Nullable String>> supplier = ReuseCapableImpl::new;
-        ReuseOracle<BoundedStringQueue, String, @Nullable String> reuseOracle =
+        Supplier<ReuseCapableOracle<BoundedStringQueue, String, String>> supplier = ReuseCapableImpl::new;
+        ReuseOracle<BoundedStringQueue, String, String> reuseOracle =
                 new ReuseOracleBuilder<>(sigma, supplier).withSystemStateHandler(ssh).build();
 
         // construct L* instance (almost classic Mealy version)
         // almost: we use words (Word<String>) in cells of the table
         // instead of single outputs.
 
-        MealyLearner<String, @Nullable String> lstar;
-        lstar = new ExtensibleLStarMealyBuilder<String, @Nullable String>().withAlphabet(sigma)
+        MealyLearner<String, String> lstar;
+        lstar = new ExtensibleLStarMealyBuilder<String, String>().withAlphabet(sigma)
                                                                            .withInitialSuffixes(initialSuffixes)
                                                                            .withOracle(reuseOracle)
                                                                            .create();
@@ -147,7 +147,7 @@ public class Example3 {
         lstar.startLearning();
 
         // get learned model
-        MealyMachine<?, String, ?, @Nullable String> result = lstar.getHypothesisModel();
+        MealyMachine<?, String, ?, String> result = lstar.getHypothesisModel();
 
         // now invalidate all system states and count the number of disposed
         // queues (equals number of resets)
@@ -162,7 +162,7 @@ public class Example3 {
         return result;
     }
 
-    private @Nullable String exec(BoundedStringQueue s, String input) {
+    private String exec(BoundedStringQueue s, String input) {
         switch (input) {
             case OFFER_1:
             case OFFER_2:
@@ -197,20 +197,20 @@ public class Example3 {
     /**
      * An oracle that also does the reset by creating a new instance of the {@link BoundedStringQueue}.
      */
-    class FullMembershipQueryOracle implements MealyMembershipOracle<String, @Nullable String> {
+    class FullMembershipQueryOracle implements MealyMembershipOracle<String, String> {
 
         private int resets;
         private int symbols;
 
         @Override
-        public void processQueries(Collection<? extends Query<String, Word<@Nullable String>>> queries) {
-            for (Query<String, Word<@Nullable String>> query : queries) {
+        public void processQueries(Collection<? extends Query<String, Word<String>>> queries) {
+            for (Query<String, Word<String>> query : queries) {
                 resets++;
                 symbols += query.getInput().size();
 
                 BoundedStringQueue s = new BoundedStringQueue();
 
-                WordBuilder<@Nullable String> output = new WordBuilder<>();
+                WordBuilder<String> output = new WordBuilder<>();
                 for (String input : query.getInput()) {
                     output.add(exec(s, input));
                 }
@@ -224,46 +224,46 @@ public class Example3 {
      * An implementation of the {@link ReuseCapableOracle} needed for the {@link ReuseOracle}. It only does resets (by
      * means of creating a new {@link BoundedStringQueue} instance in {@link ReuseCapableOracle#processQuery(Word)}.
      */
-    class ReuseCapableImpl implements ReuseCapableOracle<BoundedStringQueue, String, @Nullable String> {
+    class ReuseCapableImpl implements ReuseCapableOracle<BoundedStringQueue, String, String> {
 
         private int reused;
         private int fullQueries;
         private int symbols;
 
         @Override
-        public QueryResult<BoundedStringQueue, @Nullable String> continueQuery(Word<String> trace,
+        public QueryResult<BoundedStringQueue, String> continueQuery(Word<String> trace,
                                                                                BoundedStringQueue s) {
 
             reused++;
             symbols += trace.size();
 
-            WordBuilder<@Nullable String> output = new WordBuilder<>();
+            WordBuilder<String> output = new WordBuilder<>();
 
             for (String input : trace) {
                 output.add(exec(s, input));
             }
 
-            QueryResult<BoundedStringQueue, @Nullable String> result;
+            QueryResult<BoundedStringQueue, String> result;
             result = new QueryResult<>(output.toWord(), s);
 
             return result;
         }
 
         @Override
-        public QueryResult<BoundedStringQueue, @Nullable String> processQuery(Word<String> trace) {
+        public QueryResult<BoundedStringQueue, String> processQuery(Word<String> trace) {
             fullQueries++;
             symbols += trace.size();
 
             // Suppose the reset would be a time consuming operation
             BoundedStringQueue s = new BoundedStringQueue();
 
-            WordBuilder<@Nullable String> output = new WordBuilder<>();
+            WordBuilder<String> output = new WordBuilder<>();
 
             for (String input : trace) {
                 output.add(exec(s, input));
             }
 
-            QueryResult<BoundedStringQueue, @Nullable String> result;
+            QueryResult<BoundedStringQueue, String> result;
             result = new QueryResult<>(output.toWord(), s);
 
             return result;

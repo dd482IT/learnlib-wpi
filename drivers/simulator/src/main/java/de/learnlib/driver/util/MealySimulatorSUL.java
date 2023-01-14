@@ -111,7 +111,7 @@ public class MealySimulatorSUL<I, O> implements SUL<I, O> {
 
         private final MealyMachine<S, I, T, O> mealy;
         private final O noTransOut;
-        private @Nullable S curr;
+        private S curr;
 
         MealySimulatorSULImpl(MealyMachine<S, I, T, O> mealy, O noTransOut) {
             this.mealy = mealy;

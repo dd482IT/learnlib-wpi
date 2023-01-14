@@ -44,67 +44,57 @@ public class StateLocalInputSULTreeCacheTest
         sliCounter = new SLICounterStateLocalInputSUL<>("sliCounter", resetCounter);
     }
 
-    @Test
     @Override
     public void testNoQueriesReceived() {
         super.testNoQueriesReceived();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), 0);
     }
 
-    @Test(dependsOnMethods = "testNoQueriesReceived")
     @Override
     public void testFirstQuery() {
         super.testFirstQuery();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), oracle.getCache().size());
     }
 
-    @Test(dependsOnMethods = "testFirstQuery")
     @Override
     public void testFirstDuplicate() {
         super.testFirstDuplicate();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), oracle.getCache().size());
     }
 
-    @Test(dependsOnMethods = "testFirstDuplicate")
     @Override
     public void testTwoQueriesOneDuplicate() {
         super.testTwoQueriesOneDuplicate();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), oracle.getCache().size());
     }
 
-    @Test(dependsOnMethods = "testTwoQueriesOneDuplicate")
     @Override
     public void testOneNewQuery() {
         super.testOneNewQuery();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), oracle.getCache().size());
     }
 
-    @Test(dependsOnMethods = "testOneNewQuery")
     @Override
     public void testPrefix() {
         super.testPrefix();
         Assert.assertEquals(sliCounter.getStatisticalData().getCount(), oracle.getCache().size());
     }
 
-    @Test(dependsOnMethods = "testPrefix")
     @Override
     public void testCacheConsistency() {
         super.testCacheConsistency();
     }
 
-    @Test(dependsOnMethods = "testCacheConsistency")
     @Override
     public void testResuming() {
         super.testResuming();
     }
 
-    @Test(dependsOnMethods = "testResuming")
     @Override
     public void testDuplicatesInBatch() {
         super.testDuplicatesInBatch();
     }
 
-    @Test(dependsOnMethods = "testDuplicatesInBatch")
     public void testQueryWithNoContainedAlphabetSymbol() {
         final long oldCount = getNumberOfPosedQueries();
 

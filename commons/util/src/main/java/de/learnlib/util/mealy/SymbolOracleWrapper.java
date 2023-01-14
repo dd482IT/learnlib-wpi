@@ -37,7 +37,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-final class SymbolOracleWrapper<I, O> implements MembershipOracle<I, @Nullable O> {
+final class SymbolOracleWrapper<I, O> implements MembershipOracle<I, O> {
 
     private final MembershipOracle<I, Word<O>> wordOracle;
 
@@ -52,9 +52,9 @@ final class SymbolOracleWrapper<I, O> implements MembershipOracle<I, @Nullable O
     }
 
     @Override
-    public void processQueries(Collection<? extends Query<I, @Nullable O>> queries) {
+    public void processQueries(Collection<? extends Query<I, O>> queries) {
         List<LastSymbolQuery<I, O>> lsQueries = new ArrayList<>(queries.size());
-        for (Query<I, @Nullable O> qry : queries) {
+        for (Query<I, O> qry : queries) {
             lsQueries.add(new LastSymbolQuery<>(qry));
         }
 
@@ -63,9 +63,9 @@ final class SymbolOracleWrapper<I, O> implements MembershipOracle<I, @Nullable O
 
     private static final class LastSymbolQuery<I, O> extends Query<I, Word<O>> {
 
-        private final Query<I, @Nullable O> originalQuery;
+        private final Query<I, O> originalQuery;
 
-        LastSymbolQuery(Query<I, @Nullable O> originalQuery) {
+        LastSymbolQuery(Query<I, O> originalQuery) {
             this.originalQuery = originalQuery;
         }
 

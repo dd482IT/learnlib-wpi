@@ -40,7 +40,6 @@ public class ReuseOracleTest {
     /**
      * {@inheritDoc}.
      */
-    @BeforeMethod
     protected void setUp() {
         // We don't use this oracle, we directly test against the reuse tree!
         final ReuseCapableOracle<Integer, Integer, String> reuseCapableOracle =
@@ -64,7 +63,6 @@ public class ReuseOracleTest {
         reuseOracle = new ReuseOracle.ReuseOracleBuilder<>(alphabet, oracleSupplier).build();
     }
 
-    @Test
     public void testTreeIsEmpty() {
         NodeResult<Integer, Integer, String> node;
 
@@ -82,7 +80,6 @@ public class ReuseOracleTest {
         return Word.fromSymbols(param);
     }
 
-    @Test(dependsOnMethods = {"testTreeIsEmpty"})
     public void testTreeIsAbleToCache() {
         // Add one entry (1,ok)
         ReuseCapableOracle.QueryResult<Integer, String> qr = new ReuseCapableOracle.QueryResult<>(getOutput("ok"), 1);
@@ -98,7 +95,6 @@ public class ReuseOracleTest {
         return Word.fromSymbols(param);
     }
 
-    @Test(dependsOnMethods = {"testTreeIsAbleToCache"})
     public void testTreeDoesNotPump() {
         // Add one entry (0,ok)
         ReuseCapableOracle.QueryResult<Integer, String> qr = new ReuseCapableOracle.QueryResult<>(getOutput("ok"), 0);
@@ -109,7 +105,6 @@ public class ReuseOracleTest {
         Assert.assertNull(known);
     }
 
-    @Test
     public void testNoReusePossible() {
         ReuseCapableOracle.QueryResult<Integer, String> qr =
                 new ReuseCapableOracle.QueryResult<>(getOutput("ok", "ok"), 2);
@@ -129,7 +124,6 @@ public class ReuseOracleTest {
         Assert.assertNull(node);
     }
 
-    @Test
     public void testReusePossible() {
         ReuseCapableOracle.QueryResult<Integer, String> qr =
                 new ReuseCapableOracle.QueryResult<>(getOutput("ok", "ok"), 2);
@@ -163,7 +157,6 @@ public class ReuseOracleTest {
         Assert.assertNull(node);
     }
 
-    @Test(dependsOnMethods = {"testNoReusePossible"})
     public void testReusePossibleWithInvalidation() {
         ReuseCapableOracle.QueryResult<Integer, String> qr =
                 new ReuseCapableOracle.QueryResult<>(getOutput("ok", "ok"), 2);
@@ -210,7 +203,6 @@ public class ReuseOracleTest {
         Assert.assertNotNull(node);
     }
 
-    @Test(expectedExceptions = {ReuseException.class})
     public void testConflictException() {
         /*
          * Create:

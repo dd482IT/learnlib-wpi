@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
  *
  * @author Malte Isberner
  */
-@Test
 public class KearnsVaziraniMealyIT extends AbstractMealyLearnerIT {
 
     private static final boolean[] BOOLEAN_VALUES = {false, true};

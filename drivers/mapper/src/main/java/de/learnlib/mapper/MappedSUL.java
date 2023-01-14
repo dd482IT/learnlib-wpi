@@ -29,7 +29,7 @@ public class MappedSUL<AI, AO, CI, CO> implements SUL<AI, AO> {
     private final SUL<? super CI, ? extends CO> sul;
 
     private boolean inError;
-    private @Nullable AO repeatedErrorOutput;
+    private AO repeatedErrorOutput;
 
     public MappedSUL(SULMapper<? super AI, ? extends AO, ? extends CI, ? super CO> mapper,
                      SUL<? super CI, ? extends CO> sul) {

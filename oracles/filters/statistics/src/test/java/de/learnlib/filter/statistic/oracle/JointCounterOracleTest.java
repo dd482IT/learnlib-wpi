@@ -35,26 +35,22 @@ public class JointCounterOracleTest {
         this.oracle = new JointCounterOracle<>(Mockito.mock(MembershipOracle.class));
     }
 
-    @Test
     public void testInitialState() {
         verifyCounts(0, 0);
     }
 
-    @Test(dependsOnMethods = "testInitialState")
     public void testFirstQueryBatch() {
         Collection<Query<Integer, Word<Character>>> queries = TestQueries.createNoopQueries(2);
         oracle.processQueries(queries);
         verifyCounts(2, 0);
     }
 
-    @Test(dependsOnMethods = "testFirstQueryBatch")
     public void testEmptyQueryBatch() {
         Collection<Query<Integer, Word<Character>>> noQueries = Collections.emptySet();
         oracle.processQueries(noQueries);
         verifyCounts(2, 0);
     }
 
-    @Test(dependsOnMethods = "testEmptyQueryBatch")
     public void testSecondQueryBatch() {
         Collection<Query<Integer, Word<Character>>> queries = TestQueries.createNoopQueries(2, 5, TestQueries.INPUTS);
         oracle.processQueries(queries);

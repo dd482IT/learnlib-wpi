@@ -46,7 +46,7 @@ public interface EmptinessOracle<A extends Output<I, D>, I, D> {
         return Objects.equals(hypothesis.computeOutput(input), output);
     }
 
-    @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs);
+    DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs);
 
     interface DFAEmptinessOracle<I> extends EmptinessOracle<DFA<?, I>, I, Boolean> {}
 

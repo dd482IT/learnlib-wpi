@@ -27,13 +27,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class PTNodeImpl<I, D> implements PTNode<I, D> {
 
-    private final @Nullable PTNodeImpl<I, D> parent;
-    private final @Nullable I symbol;
+    private final PTNodeImpl<I, D> parent;
+    private final I symbol;
     private final Map<I, PTNodeImpl<I, D>> children;
 
     private DTLeaf<I, D> state;
 
-    public PTNodeImpl(@Nullable PTNodeImpl<I, D> parent, @Nullable I symbol) {
+    public PTNodeImpl(PTNodeImpl<I, D> parent, I symbol) {
         this.parent = parent;
         this.symbol = symbol;
         this.children = new HashMap<>();
@@ -70,7 +70,7 @@ public class PTNodeImpl<I, D> implements PTNode<I, D> {
     }
 
     @Override
-    public @Nullable PTNode<I, D> succ(I a) {
+    public PTNode<I, D> succ(I a) {
         return children.get(a);
     }
 

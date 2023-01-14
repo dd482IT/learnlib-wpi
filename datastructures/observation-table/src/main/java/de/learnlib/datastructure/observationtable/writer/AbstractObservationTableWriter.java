@@ -43,7 +43,7 @@ public abstract class AbstractObservationTableWriter<I, D> implements Observatio
         return Objects::toString;
     }
 
-    public void setWordToString(@UnknownInitialization(AbstractObservationTableWriter.class) AbstractObservationTableWriter<I, D> this,
+    public void setWordToString(AbstractObservationTableWriter<I, D> this,
                                 Function<? super Word<? extends I>, ? extends String> wordToString) {
         this.wordToString = safeToStringFunction(wordToString);
     }

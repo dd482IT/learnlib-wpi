@@ -34,7 +34,6 @@ public class RivestSchapireDFA<I> extends ExtensibleLStarDFA<I> {
         this(alphabet, oracle, Collections.emptyList(), ClosingStrategies.CLOSE_FIRST);
     }
 
-    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public RivestSchapireDFA(Alphabet<I> alphabet,
                              MembershipOracle<I, Boolean> oracle,
                              List<Word<I>> initialSuffixes,

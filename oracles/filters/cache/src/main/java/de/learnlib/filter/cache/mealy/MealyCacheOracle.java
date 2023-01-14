@@ -70,16 +70,16 @@ public class MealyCacheOracle<I, O>
     private final MembershipOracle<I, Word<O>> delegate;
     private IncrementalMealyBuilder<I, O> incMealy;
     private final Comparator<? super Query<I, ?>> queryCmp;
-    private final @Nullable Mapping<? super O, ? extends O> errorSyms;
+    private final Mapping<? super O, ? extends O> errorSyms;
 
     MealyCacheOracle(IncrementalMealyBuilder<I, O> incrementalBuilder,
-                     @Nullable Mapping<? super O, ? extends O> errorSyms,
+                     Mapping<? super O, ? extends O> errorSyms,
                      MembershipOracle<I, Word<O>> delegate) {
         this(incrementalBuilder, errorSyms, delegate, new DynamicSymbolComparator<>());
     }
 
     MealyCacheOracle(IncrementalMealyBuilder<I, O> incrementalBuilder,
-                     @Nullable Mapping<? super O, ? extends O> errorSyms,
+                     Mapping<? super O, ? extends O> errorSyms,
                      MembershipOracle<I, Word<O>> delegate,
                      Comparator<I> comparator) {
         this.incMealy = incrementalBuilder;

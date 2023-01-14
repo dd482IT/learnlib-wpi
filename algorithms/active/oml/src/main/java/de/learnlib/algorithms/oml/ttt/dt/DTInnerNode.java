@@ -29,7 +29,7 @@ public class DTInnerNode<I, D> extends AbstractDTNode<I, D> {
     private final STNode<I> suffix;
     private final Children<I, D> children;
 
-    public DTInnerNode(@Nullable DTInnerNode<I, D> parent,
+    public DTInnerNode(DTInnerNode<I, D> parent,
                        AbstractDecisionTree<I, D> tree,
                        Children<I, D> children,
                        STNode<I> suffix) {

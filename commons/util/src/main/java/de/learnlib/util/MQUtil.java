@@ -67,7 +67,7 @@ public final class MQUtil {
             final Word<I> prefix = query.getPrefix();
             final Word<I> loop = query.getLoop();
             final int repeat = query.getRepeat();
-            Pair<@Nullable D, Integer> answer = answerer.answerQuery(prefix, loop, repeat);
+            Pair<D, Integer> answer = answerer.answerQuery(prefix, loop, repeat);
             query.answer(answer.getFirst(), answer.getSecond());
         }
     }

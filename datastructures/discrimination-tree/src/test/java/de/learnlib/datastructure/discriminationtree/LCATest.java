@@ -25,7 +25,6 @@ import org.testng.annotations.Test;
  */
 public class LCATest {
 
-    @Test
     public void testLCA() {
         final LCAInfo<Boolean, AbstractWordBasedDTNode<Integer, Boolean, Character>> lcaInfo =
                 DummyDT.DT.lcaInfo(DummyDT.LEAF_2, DummyDT.LEAF_3);

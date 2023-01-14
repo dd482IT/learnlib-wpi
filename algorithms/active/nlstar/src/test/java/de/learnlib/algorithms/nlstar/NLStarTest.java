@@ -34,7 +34,6 @@ public class NLStarTest {
     /**
      * Test case for the bug described in issue <a href="https://github.com/LearnLib/learnlib/issues/70">#70</a>.
      */
-    @Test
     public void testIssue70() {
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'b');
 

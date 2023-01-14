@@ -59,7 +59,6 @@ public class TTTLearnerVPDA<I> extends DTLearnerVPDA<I> {
 
     private final BlockList<I> blockList = new BlockList<>();
 
-    @GenerateBuilder
     public TTTLearnerVPDA(VPDAlphabet<I> alphabet, MembershipOracle<I, Boolean> oracle, AcexAnalyzer analyzer) {
         super(alphabet, oracle, analyzer);
     }
@@ -196,7 +195,7 @@ public class TTTLearnerVPDA<I> extends DTLearnerVPDA<I> {
         return false;
     }
 
-    private @Nullable OutputInconsistency<I> findOutputInconsistency() {
+    private OutputInconsistency<I> findOutputInconsistency() {
         OutputInconsistency<I> best = null;
 
         for (HypLoc<I> loc : hypothesis.getLocations()) {
@@ -269,7 +268,7 @@ public class TTTLearnerVPDA<I> extends DTLearnerVPDA<I> {
      *
      * @return a splitter for any of the blocks
      */
-    private @Nullable GlobalSplitter<I> findSplitterGlobal() {
+    private GlobalSplitter<I> findSplitterGlobal() {
         DTNode<I> bestBlockRoot = null;
         Splitter<I> bestSplitter = null;
 
@@ -329,7 +328,7 @@ public class TTTLearnerVPDA<I> extends DTLearnerVPDA<I> {
      *
      * @return a splitter for this block, or {@code null} if no such splitter could be found.
      */
-    private @Nullable Splitter<I> findSplitter(DTNode<I> blockRoot) {
+    private Splitter<I> findSplitter(DTNode<I> blockRoot) {
         int alphabetSize =
                 alphabet.getNumInternals() + alphabet.getNumCalls() * alphabet.getNumReturns() * hypothesis.size() * 2;
 

@@ -67,7 +67,7 @@ public abstract class AbstractTestWordEQOracle<A extends Output<I, D>, I, D> imp
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         // Fail fast on empty inputs
         if (inputs.isEmpty()) {
             LOGGER.warn("Passed empty set of inputs to equivalence oracle; no counterexample can be found!");

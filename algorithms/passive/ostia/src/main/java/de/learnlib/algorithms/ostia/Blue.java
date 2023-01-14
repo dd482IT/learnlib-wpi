@@ -30,8 +30,8 @@ class Blue {
         this.parent = parent;
     }
 
-    @Nullable State state() {
-        final @Nullable Edge edge = parent.transitions[symbol];
+    State state() {
+        final Edge edge = parent.transitions[symbol];
         assert edge != null;
         return edge.target;
     }

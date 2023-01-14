@@ -22,7 +22,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class Edge {
 
-    @Nullable IntQueue out;
+    IntQueue out;
     State target;
 
     Edge() {}

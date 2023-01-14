@@ -67,7 +67,7 @@ public abstract class AbstractSULOmegaOracle<S extends Object, I, O, Q> implemen
     @Override
     public void processQueries(Collection<? extends OmegaQuery<I, Word<O>>> queries) {
         for (OmegaQuery<I, Word<O>> q : queries) {
-            final Pair<@Nullable Word<O>, Integer> output = answerQuery(q.getPrefix(), q.getLoop(), q.getRepeat());
+            final Pair<Word<O>, Integer> output = answerQuery(q.getPrefix(), q.getLoop(), q.getRepeat());
             q.answer(output.getFirst(), output.getSecond());
         }
     }
@@ -75,7 +75,7 @@ public abstract class AbstractSULOmegaOracle<S extends Object, I, O, Q> implemen
     protected abstract Q getQueryState(ObservableSUL<S, I, O> sul);
 
     @Override
-    public Pair<@Nullable Word<O>, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat) {
+    public Pair<Word<O>, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat) {
         assert repeat > 0;
         sul.pre();
         try {

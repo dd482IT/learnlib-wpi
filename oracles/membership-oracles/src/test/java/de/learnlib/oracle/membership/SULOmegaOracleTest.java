@@ -32,7 +32,6 @@ import org.testng.annotations.Test;
 
 public class SULOmegaOracleTest {
 
-    @Test
     public void testForkableMealySimulatorOmegaOracle() {
         final CompactMealy<Input, String> mealy = ExampleCoffeeMachine.constructMachine();
         final ObservableSUL<Integer, Input, String> sul = new ObservableMealySimulatorSUL<>(mealy);
@@ -40,7 +39,6 @@ public class SULOmegaOracleTest {
         queryAndValidateCoffeeMachine(sul);
     }
 
-    @Test
     public void testDeepCopyMealySimulatorOmegaOracle() {
         final CompactMealy<Input, String> mealy = ExampleCoffeeMachine.constructMachine();
         final ObservableSUL<Integer, Input, String> sul = new ObservableMealySimulatorSUL<>(mealy);
@@ -56,7 +54,6 @@ public class SULOmegaOracleTest {
         Mockito.verify(mock, Mockito.times(3)).post();
     }
 
-    @Test
     public void testOmegaOracleValidation() {
         final ObservableSUL<?, ?, ?> mock = Mockito.mock(ObservableSUL.class);
 

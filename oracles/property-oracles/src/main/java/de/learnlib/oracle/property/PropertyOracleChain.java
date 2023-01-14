@@ -49,31 +49,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Jeroen Meijer
  */
-@GenerateRefinement(name = "DFAPropertyOracleChain",
-                    generics = {"I", "P"},
-                    parentGenerics = {@Generic("I"),
-                                      @Generic(clazz = DFA.class, generics = {"?", "I"}),
-                                      @Generic("P"),
-                                      @Generic(clazz = Boolean.class)},
-                    parameterMapping = @Map(from = PropertyOracle.class,
-                                            to = DFAPropertyOracle.class,
-                                            withGenerics = {"I", "P"}),
-                    interfaces = @Interface(clazz = DFAPropertyOracle.class, generics = {"I", "P"}))
-@GenerateRefinement(name = "MealyPropertyOracleChain",
-                    generics = {"I", "O", "P"},
-                    parentGenerics = {@Generic("I"),
-                                      @Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
-                                      @Generic("P"),
-                                      @Generic(clazz = Word.class, generics = "O")},
-                    parameterMapping = @Map(from = PropertyOracle.class,
-                                            to = MealyPropertyOracle.class,
-                                            withGenerics = {"I", "O", "P"}),
-                    interfaces = @Interface(clazz = MealyPropertyOracle.class, generics = {"I", "O", "P"}))
-public class PropertyOracleChain<I, A extends Output<I, D>, @Nullable P, D> implements PropertyOracle<I, A, P, D> {
+public class PropertyOracleChain<I, A extends Output<I, D>, P, D> implements PropertyOracle<I, A, P, D> {
 
     private P property;
 
-    private @Nullable DefaultQuery<I, D> counterExample;
+    private DefaultQuery<I, D> counterExample;
 
     private final List<PropertyOracle<I, ? super A, P, D>> oracles;
 
@@ -98,7 +78,7 @@ public class PropertyOracleChain<I, A extends Output<I, D>, @Nullable P, D> impl
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs) {
         for (PropertyOracle<I, ? super A, P, D> oracle : oracles) {
             DefaultQuery<I, D> ceQry = oracle.findCounterExample(hypothesis, inputs);
             if (ceQry != null) {
@@ -110,7 +90,7 @@ public class PropertyOracleChain<I, A extends Output<I, D>, @Nullable P, D> impl
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs) {
         for (PropertyOracle<I, ? super A, P, D> oracle : oracles) {
             DefaultQuery<I, D> ceQry = oracle.disprove(hypothesis, inputs);
             if (ceQry != null) {
@@ -134,7 +114,7 @@ public class PropertyOracleChain<I, A extends Output<I, D>, @Nullable P, D> impl
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> getCounterExample() {
+    public DefaultQuery<I, D> getCounterExample() {
         return counterExample;
     }
 }

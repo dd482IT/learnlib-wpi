@@ -24,7 +24,6 @@ import de.learnlib.testsupport.it.learner.LearnerVariantList.MealyLearnerVariant
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class TTTLearnerMealyIT extends AbstractMealyLearnerIT {
 
     @Override

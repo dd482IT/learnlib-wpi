@@ -38,8 +38,8 @@ public final class GlobalSuffixFinders {
      *
      * @see #findMalerPnueli(Query)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> MALER_PNUELI =
-            new GlobalSuffixFinder<@Nullable Object, @Nullable Object>() {
+    public static final GlobalSuffixFinder<Object, Object> MALER_PNUELI =
+            new GlobalSuffixFinder<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<Word<RI>> findSuffixes(Query<RI, RD> ceQuery,
@@ -61,8 +61,8 @@ public final class GlobalSuffixFinders {
      *
      * @see #findShahbaz(Query, AccessSequenceTransformer)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> SHAHBAZ =
-            new GlobalSuffixFinder<@Nullable Object, @Nullable Object>() {
+    public static final GlobalSuffixFinder<Object, Object> SHAHBAZ =
+            new GlobalSuffixFinder<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<Word<RI>> findSuffixes(Query<RI, RD> ceQuery,
@@ -83,7 +83,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findLinear(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR =
+    public static final GlobalSuffixFinder<Object, Object> FIND_LINEAR =
             fromLocalFinder(LocalSuffixFinders.FIND_LINEAR, false);
 
     /**
@@ -91,7 +91,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findLinear(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR_ALLSUFFIXES =
+    public static final GlobalSuffixFinder<Object, Object> FIND_LINEAR_ALLSUFFIXES =
             fromLocalFinder(LocalSuffixFinders.FIND_LINEAR, true);
 
     /**
@@ -99,7 +99,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findLinearReverse(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR_REVERSE =
+    public static final GlobalSuffixFinder<Object, Object> FIND_LINEAR_REVERSE =
             fromLocalFinder(LocalSuffixFinders.FIND_LINEAR_REVERSE, false);
 
     /**
@@ -107,7 +107,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findLinearReverse(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR_REVERSE_ALLSUFFIXES =
+    public static final GlobalSuffixFinder<Object, Object> FIND_LINEAR_REVERSE_ALLSUFFIXES =
             fromLocalFinder(LocalSuffixFinders.FIND_LINEAR_REVERSE, true);
 
     /**
@@ -115,7 +115,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findRivestSchapire(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> RIVEST_SCHAPIRE =
+    public static final GlobalSuffixFinder<Object, Object> RIVEST_SCHAPIRE =
             fromLocalFinder(LocalSuffixFinders.RIVEST_SCHAPIRE, false);
 
     /**
@@ -123,7 +123,7 @@ public final class GlobalSuffixFinders {
      *
      * @see #findRivestSchapire(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle, boolean)
      */
-    public static final GlobalSuffixFinder<@Nullable Object, @Nullable Object> RIVEST_SCHAPIRE_ALLSUFFIXES =
+    public static final GlobalSuffixFinder<Object, Object> RIVEST_SCHAPIRE_ALLSUFFIXES =
             fromLocalFinder(LocalSuffixFinders.RIVEST_SCHAPIRE, true);
 
     private GlobalSuffixFinders() {
@@ -342,7 +342,7 @@ public final class GlobalSuffixFinders {
     }
 
     @SuppressWarnings("unchecked")
-    public static GlobalSuffixFinder<@Nullable Object, @Nullable Object>[] values() {
+    public static GlobalSuffixFinder<Object, Object>[] values() {
         return new GlobalSuffixFinder[] {MALER_PNUELI,
                                          SHAHBAZ,
                                          FIND_LINEAR,

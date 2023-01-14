@@ -47,21 +47,18 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
     protected OR oracle;
     private List<Query<I, D>> queries;
 
-    @BeforeClass
     public void setup() {
         alphabet = getAlphabet();
         oracle = getCachedOracle();
         queries = new ArrayList<>();
     }
 
-    @Test
     public void testNoQueriesReceived() {
         Assert.assertEquals(queries.size(), 0);
         oracle.processQueries(queries);
         Assert.assertEquals(getNumberOfPosedQueries(), 0);
     }
 
-    @Test(dependsOnMethods = "testNoQueriesReceived")
     public void testFirstQuery() {
         queries.add(new DefaultQuery<>(generateWord()));
 
@@ -70,14 +67,12 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
         Assert.assertEquals(getNumberOfPosedQueries(), 1);
     }
 
-    @Test(dependsOnMethods = "testFirstQuery")
     public void testFirstDuplicate() {
         Assert.assertEquals(queries.size(), 1);
         oracle.processQueries(queries);
         Assert.assertEquals(getNumberOfPosedQueries(), 1);
     }
 
-    @Test(dependsOnMethods = "testFirstDuplicate")
     public void testTwoQueriesOneDuplicate() {
         queries.add(new DefaultQuery<>(generateWord()));
         Assert.assertEquals(queries.size(), 2);
@@ -85,7 +80,6 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
         Assert.assertEquals(getNumberOfPosedQueries(), 2);
     }
 
-    @Test(dependsOnMethods = "testTwoQueriesOneDuplicate")
     public void testOneNewQuery() {
         queries.clear();
         queries.add(new DefaultQuery<>(generateWord()));
@@ -94,7 +88,6 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
         Assert.assertEquals(getNumberOfPosedQueries(), 3);
     }
 
-    @Test(dependsOnMethods = "testOneNewQuery")
     public void testPrefix() {
         Assert.assertFalse(queries.isEmpty());
 
@@ -112,7 +105,6 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
         }
     }
 
-    @Test(dependsOnMethods = "testPrefix")
     public void testCacheConsistency() {
 
         final EquivalenceOracle<A, I, D> eqOracle = oracle.createCacheConsistencyTest();
@@ -129,7 +121,6 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
                                target.computeOutput(invalidTargetCE.getInput()));
     }
 
-    @Test(dependsOnMethods = "testCacheConsistency")
     public void testResuming() {
 
         final OR resumedOracle = getResumedOracle(oracle);
@@ -150,7 +141,6 @@ public abstract class AbstractCacheTest<OR extends LearningCacheOracle<A, I, D>,
         }
     }
 
-    @Test(dependsOnMethods = "testResuming")
     public void testDuplicatesInBatch() {
 
         final long oldCount = getNumberOfPosedQueries();

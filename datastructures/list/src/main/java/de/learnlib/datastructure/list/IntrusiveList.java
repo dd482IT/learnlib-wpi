@@ -31,7 +31,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class IntrusiveList<T extends IntrusiveListElem<T>> extends IntrusiveListElemImpl<T> implements Iterable<T> {
 
-    @EnsuresNonNullIf(expression = "next", result = false)
     public boolean isEmpty() {
         return next == null;
     }
@@ -41,7 +40,7 @@ public class IntrusiveList<T extends IntrusiveListElem<T>> extends IntrusiveList
      *
      * @return any block from the list, or {@code null} if the list is empty.
      */
-    public @Nullable T choose() {
+    public T choose() {
         return next;
     }
 
@@ -63,9 +62,9 @@ public class IntrusiveList<T extends IntrusiveListElem<T>> extends IntrusiveList
 
     private class ListIterator extends AbstractIterator<T> {
 
-        private @Nullable T cursor;
+        private T cursor;
 
-        ListIterator(@Nullable T start) {
+        ListIterator(T start) {
             this.cursor = start;
         }
 

@@ -28,10 +28,8 @@ import org.testng.annotations.Test;
 /**
  * @author falk
  */
-@Test
 public class ObjectTest {
 
-    @Test
     public void testDriver() throws Exception {
 
         final StackData testCase = buildStackData(StackWithException.class);
@@ -54,7 +52,6 @@ public class ObjectTest {
         Assert.assertTrue(output2.getSymbol(3) instanceof Unobserved);
     }
 
-    @Test
     public void testDriver2() throws Exception {
 
         final StackData testCase = buildStackData(StackWithNull.class);

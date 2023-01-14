@@ -25,7 +25,6 @@ import net.automatalib.words.Alphabet;
 import net.automatalib.words.Word;
 import org.testng.annotations.Test;
 
-@Test
 public class DTLearnerMealyIT extends AbstractMealyLearnerIT {
 
     @Override

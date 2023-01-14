@@ -47,7 +47,7 @@ public class SuffixASCIIWriter<I, D> extends AbstractObservationTableWriter<I, D
 
         final StringJoiner joiner = new StringJoiner(SYMBOL_DELIMITER);
 
-        for (@Nullable Object symbol : is) {
+        for (Object symbol : is) {
             String stringRepresentation = Objects.toString(symbol);
             if (stringRepresentation.contains(SYMBOL_DELIMITER) || stringRepresentation.contains(WORD_DELIMITER)) {
                 throw new IllegalArgumentException(

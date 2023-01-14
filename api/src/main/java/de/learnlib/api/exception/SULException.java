@@ -44,7 +44,7 @@ public class SULException extends RuntimeException {
      * @param cause
      *         the exception cause, should <b>never</b> be a subclass of {@link Error}.
      */
-    public SULException(@Nullable Throwable cause) {
+    public SULException(Throwable cause) {
         super(cause);
     }
 

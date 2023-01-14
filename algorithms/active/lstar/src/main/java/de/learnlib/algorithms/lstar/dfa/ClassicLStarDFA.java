@@ -32,7 +32,6 @@ import net.automatalib.words.Word;
  */
 public class ClassicLStarDFA<I> extends ExtensibleLStarDFA<I> {
 
-    @GenerateBuilder
     public ClassicLStarDFA(Alphabet<I> alphabet, MembershipOracle<I, Boolean> oracle) {
         super(alphabet,
               oracle,

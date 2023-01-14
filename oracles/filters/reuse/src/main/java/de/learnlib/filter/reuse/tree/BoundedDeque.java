@@ -82,7 +82,7 @@ public class BoundedDeque<E> extends AbstractCollection<E> {
      *
      * @return the evicted element, {@code null} if the maximum capacity has not been reached
      */
-    public @Nullable E insert(E element) {
+    public E insert(E element) {
         E evicted = null;
         if (size() >= capacity) {
             if (evictPolicy == EvictPolicy.REJECT_NEW) {

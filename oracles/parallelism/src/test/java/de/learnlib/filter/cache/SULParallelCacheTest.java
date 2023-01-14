@@ -38,7 +38,6 @@ public class SULParallelCacheTest
     private final ThreadSafeSULCache<Character, Character> cacheRepresentative;
     private final ParallelOracle<Character, Word<Character>> parallelOracle;
 
-    @Factory(dataProvider = "caches")
     public SULParallelCacheTest(SULCacheCreator<Character, Character, ThreadSafeSULCache<Character, Character>> creator) {
         this.sul = Config.getCounter(Config.TARGET_MODEL_SUL);
 
@@ -49,7 +48,6 @@ public class SULParallelCacheTest
         this.parallelOracle = config.getParallelOracle();
     }
 
-    @DataProvider(name = "caches")
     public static Object[][] cacheProvider() {
         return new SULCacheCreator<?, ?, ?>[][] {{SULCacheCreator.forSupplier(ThreadSafeSULCaches::createCache)},
                                                  {SULCacheCreator.forSupplier(ThreadSafeSULCaches::createDAGCache)},

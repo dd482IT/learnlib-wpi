@@ -40,7 +40,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class ReuseNode<S, I, O> {
 
-    private final @Nullable ReuseEdge<S, I, O>[] edges;
+    private final ReuseEdge<S, I, O>[] edges;
     private final BoundedDeque<S> systemStates;
     private final int id;
 
@@ -65,7 +65,7 @@ public class ReuseNode<S, I, O> {
         return systemStates.peek();
     }
 
-    public @Nullable S addSystemState(S state) {
+    public S addSystemState(S state) {
         return systemStates.insert(state);
     }
 
@@ -85,7 +85,7 @@ public class ReuseNode<S, I, O> {
      * Returns all outgoing {@link ReuseEdge}s from this {@link ReuseNode}. If there are none the returned {@link
      * java.util.Collection} will be empty (but never {@code null}).
      */
-    public Collection<@Nullable ReuseEdge<S, I, O>> getEdges() {
+    public Collection<ReuseEdge<S, I, O>> getEdges() {
         return Arrays.asList(edges);
     }
 
@@ -96,7 +96,7 @@ public class ReuseNode<S, I, O> {
         this.edges[index] = edge;
     }
 
-    public @Nullable ReuseNode<S, I, O> getTargetNodeForInput(int index) {
+    public ReuseNode<S, I, O> getTargetNodeForInput(int index) {
         ReuseEdge<S, I, O> edge = this.getEdgeWithInput(index);
         if (edge == null) {
             return null;
@@ -107,7 +107,7 @@ public class ReuseNode<S, I, O> {
     /**
      * May be {@code null}.
      */
-    public @Nullable ReuseEdge<S, I, O> getEdgeWithInput(int index) {
+    public ReuseEdge<S, I, O> getEdgeWithInput(int index) {
         return this.edges[index];
     }
 

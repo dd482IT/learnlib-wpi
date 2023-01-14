@@ -22,8 +22,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class StateParent {
 
-    @Nullable Out out;
-    @Nullable Edge[] transitions;
+    Out out;
+    Edge[] transitions;
 
     @Override
     public String toString() {

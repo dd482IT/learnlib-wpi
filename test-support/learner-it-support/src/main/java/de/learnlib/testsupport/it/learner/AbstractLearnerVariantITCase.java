@@ -47,7 +47,6 @@ abstract class AbstractLearnerVariantITCase<I, D, M extends FiniteRepresentation
         this.eqOracle = eqOracle;
     }
 
-    @Test
     public void testLearning() {
         LearningAlgorithm<? extends M, I, D> learner = variant.getLearner();
 

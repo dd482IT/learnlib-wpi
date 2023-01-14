@@ -29,7 +29,7 @@ import org.checkerframework.checker.nullness.qual.PolyNull;
 class IntQueue {
 
     int value;
-    @Nullable IntQueue next;
+    IntQueue next;
 
     @Override
     public String toString() {
@@ -43,7 +43,7 @@ class IntQueue {
         return sj.toString();
     }
 
-    static @Nullable IntQueue asQueue(IntSeq str) {
+    static IntQueue asQueue(IntSeq str) {
         IntQueue q = null;
         for (int i = str.size() - 1; i >= 0; i--) {
             IntQueue next = new IntQueue();
@@ -55,7 +55,7 @@ class IntQueue {
         return q;
     }
 
-    static boolean eq(@Nullable IntQueue a, @Nullable IntQueue b) {
+    static boolean eq(IntQueue a, IntQueue b) {
         IntQueue aIter = a;
         IntQueue bIter = b;
         while (aIter != null && bIter != null) {
@@ -68,7 +68,7 @@ class IntQueue {
         return aIter == null && bIter == null;
     }
 
-    static boolean hasCycle(@Nullable IntQueue q) {
+    static boolean hasCycle(IntQueue q) {
         final Set<IntQueue> elements = new HashSet<>();
         IntQueue iter = q;
         while (iter != null) {
@@ -80,7 +80,7 @@ class IntQueue {
         return false;
     }
 
-    static @PolyNull IntQueue copyAndConcat(@Nullable IntQueue q, @PolyNull IntQueue tail) {
+    static IntQueue copyAndConcat(IntQueue q, IntQueue tail) {
         assert !hasCycle(q) && !hasCycle(tail);
         if (q == null) {
             return tail;

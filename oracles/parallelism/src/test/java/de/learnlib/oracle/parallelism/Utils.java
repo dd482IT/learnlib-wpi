@@ -35,7 +35,6 @@ final class Utils {
 
     private Utils() {}
 
-    @DataProvider(name = "policies")
     static Object[][] createPolicies() {
         return new Object[][] {new Object[] {PoolPolicy.CACHED}, new Object[] {PoolPolicy.FIXED}};
     }

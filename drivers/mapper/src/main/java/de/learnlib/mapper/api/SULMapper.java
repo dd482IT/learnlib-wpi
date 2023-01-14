@@ -118,7 +118,7 @@ public interface SULMapper<AI, AO, CI, CO> extends SynchronousMapper<AI, AO, CI,
             this(output, null);
         }
 
-        private MappedException(AO thisStepOutput, @Nullable AO subsequentStepsOutput) {
+        private MappedException(AO thisStepOutput, AO subsequentStepsOutput) {
             this.thisStepOutput = thisStepOutput;
             this.subsequentStepsOutput = Optional.ofNullable(subsequentStepsOutput);
         }

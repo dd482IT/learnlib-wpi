@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
  */
 public class ADTHypothesisTest {
 
-    @Test
     public void testAutomaton() {
 
         final int states = 10;

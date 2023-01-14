@@ -119,7 +119,7 @@ public abstract class Query<I, D> {
     }
 
     @Override
-    public final boolean equals(@Nullable Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }

@@ -59,7 +59,7 @@ public interface AutomatonOracle<A extends DeterministicAutomaton<?, I, ?>, I, D
      *
      * @return the next input word, or {@code null} if t here is no next input.
      */
-    @Nullable Word<I> nextInput();
+    Word<I> nextInput();
 
     /**
      * Add a new input word.
@@ -151,7 +151,7 @@ public interface AutomatonOracle<A extends DeterministicAutomaton<?, I, ?>, I, D
      *
      * @return the counterexample, or {@code null} if a counter example does not exist.
      */
-    default @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis,
+    default DefaultQuery<I, D> findCounterExample(A hypothesis,
                                                             Collection<? extends I> inputs,
                                                             int maxQueries) {
         pre();
@@ -181,7 +181,7 @@ public interface AutomatonOracle<A extends DeterministicAutomaton<?, I, ?>, I, D
      *
      * @return the counter example, or {@code null} if a counter example does not exist
      */
-    default @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    default DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         return findCounterExample(hypothesis, inputs, (int) (hypothesis.size() * getMultiplier()));
     }
 

@@ -36,7 +36,6 @@ public class DFAParallelCacheTest extends AbstractParallelCacheTest<DFA<?, Chara
     private final ThreadSafeDFACacheOracle<Character> cacheRepresentative;
     private final ParallelOracle<Character, Boolean> parallelOracle;
 
-    @Factory(dataProvider = "caches")
     public DFAParallelCacheTest(DFACacheCreator<Character, ThreadSafeDFACacheOracle<Character>> creator) {
         this.sul = Config.getCounter(Config.TARGET_MODEL_DFA);
 
@@ -47,7 +46,6 @@ public class DFAParallelCacheTest extends AbstractParallelCacheTest<DFA<?, Chara
         this.parallelOracle = config.getParallelOracle();
     }
 
-    @DataProvider(name = "caches")
     public static Object[][] cacheProvider() {
         return new DFACacheCreator<?, ?>[][] {{DFACacheCreator.forSupplier(ThreadSafeDFACaches::createCache)},
                                               {DFACacheCreator.forSupplier(ThreadSafeDFACaches::createDAGCache)},

@@ -41,7 +41,7 @@ public class ThreadSafeMealyCacheOracle<I, O> extends MealyCacheOracle<I, O> {
     private final ReadWriteLock lock;
 
     ThreadSafeMealyCacheOracle(IncrementalMealyBuilder<I, O> incMealy,
-                               @Nullable Mapping<? super O, ? extends O> errorSyms,
+                               Mapping<? super O, ? extends O> errorSyms,
                                MembershipOracle<I, Word<O>> delegate,
                                ReadWriteLock lock) {
         super(incMealy, errorSyms, delegate);
@@ -49,7 +49,7 @@ public class ThreadSafeMealyCacheOracle<I, O> extends MealyCacheOracle<I, O> {
     }
 
     ThreadSafeMealyCacheOracle(IncrementalMealyBuilder<I, O> incMealy,
-                               @Nullable Mapping<? super O, ? extends O> errorSyms,
+                               Mapping<? super O, ? extends O> errorSyms,
                                MembershipOracle<I, Word<O>> delegate,
                                Comparator<I> comparator,
                                ReadWriteLock lock) {

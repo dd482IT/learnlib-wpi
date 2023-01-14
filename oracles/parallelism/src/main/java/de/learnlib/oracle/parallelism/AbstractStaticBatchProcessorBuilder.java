@@ -40,10 +40,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public abstract class AbstractStaticBatchProcessorBuilder<Q, P extends BatchProcessor<Q>, OR> {
 
-    private final @Nullable Collection<? extends P> oracles;
-    private final @Nullable Supplier<? extends P> oracleSupplier;
-    private @NonNegative int minBatchSize = AbstractStaticBatchProcessor.MIN_BATCH_SIZE;
-    private @NonNegative int numInstances = AbstractStaticBatchProcessor.NUM_INSTANCES;
+    private final Collection<? extends P> oracles;
+    private final Supplier<? extends P> oracleSupplier;
+    private int minBatchSize = AbstractStaticBatchProcessor.MIN_BATCH_SIZE;
+    private int numInstances = AbstractStaticBatchProcessor.NUM_INSTANCES;
     private PoolPolicy poolPolicy = AbstractStaticBatchProcessor.POOL_POLICY;
 
     public AbstractStaticBatchProcessorBuilder(Collection<? extends P> oracles) {
@@ -57,7 +57,7 @@ public abstract class AbstractStaticBatchProcessorBuilder<Q, P extends BatchProc
         this.oracleSupplier = oracleSupplier;
     }
 
-    public AbstractStaticBatchProcessorBuilder<Q, P, OR> withMinBatchSize(@NonNegative int minBatchSize) {
+    public AbstractStaticBatchProcessorBuilder<Q, P, OR> withMinBatchSize(int minBatchSize) {
         this.minBatchSize = minBatchSize;
         return this;
     }
@@ -67,7 +67,7 @@ public abstract class AbstractStaticBatchProcessorBuilder<Q, P extends BatchProc
         return this;
     }
 
-    public AbstractStaticBatchProcessorBuilder<Q, P, OR> withNumInstances(@NonNegative int numInstances) {
+    public AbstractStaticBatchProcessorBuilder<Q, P, OR> withNumInstances(int numInstances) {
         this.numInstances = numInstances;
         return this;
     }

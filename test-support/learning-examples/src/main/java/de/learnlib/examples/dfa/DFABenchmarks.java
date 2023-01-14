@@ -34,7 +34,7 @@ public final class DFABenchmarks {
         // prevent instantiation
     }
 
-    public static @Nullable DFALearningExample<Integer> loadLearnLibV2Benchmark(String name) {
+    public static DFALearningExample<Integer> loadLearnLibV2Benchmark(String name) {
         final String resourceName = "/automata/learnlibv2/" + name + ".dfa.gz";
         final InputStream resourceStream = DFABenchmarks.class.getResourceAsStream(resourceName);
 

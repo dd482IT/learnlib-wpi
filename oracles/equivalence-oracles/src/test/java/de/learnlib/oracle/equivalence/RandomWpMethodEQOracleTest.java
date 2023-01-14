@@ -49,7 +49,6 @@ public class RandomWpMethodEQOracleTest extends AbstractEQOracleTest<DFA<?, Stri
         MAX_LENGTH = 5;
     }
 
-    @BeforeClass
     public void setUp() {
         this.numberOfGeneratedQueries = 0;
         this.dfa = ExamplePaulAndMary.constructMachine();
@@ -58,7 +57,6 @@ public class RandomWpMethodEQOracleTest extends AbstractEQOracleTest<DFA<?, Stri
         this.characterizingSet = new HashSet<>(Automata.characterizingSet(this.dfa, getAlphabet()));
     }
 
-    @Test(dependsOnMethods = "testGeneratedEQQueries")
     public void testNumberOfTotalQueries() {
         Assert.assertEquals(this.numberOfGeneratedQueries, MAX_TESTS);
     }

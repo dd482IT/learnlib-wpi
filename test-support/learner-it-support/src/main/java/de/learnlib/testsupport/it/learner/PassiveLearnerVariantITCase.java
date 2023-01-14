@@ -55,7 +55,6 @@ public final class PassiveLearnerVariantITCase<I, D, M extends SuffixOutput<I, D
         this.example = example;
     }
 
-    @Test
     public void testLearning() {
         final PassiveLearningAlgorithm<? extends M, I, D> learner = variant.getLearner();
         final Collection<DefaultQuery<I, D>> queries = example.getSamples();

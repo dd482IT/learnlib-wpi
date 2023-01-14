@@ -130,7 +130,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
      */
     Row<I> getRow(int idx);
 
-    default @Nullable Row<I> getRow(Word<I> prefix) {
+    default Row<I> getRow(Word<I> prefix) {
         for (Row<I> row : getAllRows()) {
             if (prefix.equals(row.getLabel())) {
                 return row;
@@ -185,7 +185,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
         return findUnclosedRow() == null;
     }
 
-    default @Nullable Row<I> findUnclosedRow() {
+    default Row<I> findUnclosedRow() {
         final boolean[] spContents = new boolean[numberOfDistinctRows()];
 
         for (Row<I> spRow : getShortPrefixRows()) {
@@ -201,7 +201,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
         return null;
     }
 
-    default @Nullable Word<I> findDistinguishingSuffix(Inconsistency<I> inconsistency) {
+    default Word<I> findDistinguishingSuffix(Inconsistency<I> inconsistency) {
         int suffixIndex = findDistinguishingSuffixIndex(inconsistency);
         if (suffixIndex != NO_DISTINGUISHING_SUFFIX) {
             return null;
@@ -217,7 +217,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
      *
      * @return the suffix distinguishing the contents of the two rows
      */
-    default @Nullable Word<I> findDistinguishingSuffix(Row<I> row1, Row<I> row2) {
+    default Word<I> findDistinguishingSuffix(Row<I> row1, Row<I> row2) {
         int suffixIndex = findDistinguishingSuffixIndex(row1, row2);
         if (suffixIndex != NO_DISTINGUISHING_SUFFIX) {
             return null;
@@ -229,7 +229,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
      * @return the suffix (column) index where the contents of the rows differ, or {@code #NO_DISTINGUISHING_SUFFIX} if
      * the contents of the rows are equal.
      */
-    default @Signed int findDistinguishingSuffixIndex(Inconsistency<I> inconsistency) {
+    default int findDistinguishingSuffixIndex(Inconsistency<I> inconsistency) {
         Row<I> row1 = inconsistency.getFirstRow();
         Row<I> row2 = inconsistency.getSecondRow();
         int symIdx = getInputAlphabet().getSymbolIndex(inconsistency.getSymbol());
@@ -246,7 +246,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
      * @return the suffix (column) index where the contents of the rows differ, or {@code #NO_DISTINGUISHING_SUFFIX} if
      * the contents of the rows are equal.
      */
-    default @Signed int findDistinguishingSuffixIndex(Row<I> row1, Row<I> row2) {
+    default int findDistinguishingSuffixIndex(Row<I> row1, Row<I> row2) {
         for (int i = 0; i < getSuffixes().size(); i++) {
             if (!Objects.equals(cellContents(row1, i), cellContents(row2, i))) {
                 return i;
@@ -283,7 +283,7 @@ public interface ObservationTable<I, D> extends AccessSequenceTransformer<I> {
         return findInconsistency() == null;
     }
 
-    default @Nullable Inconsistency<I> findInconsistency() {
+    default Inconsistency<I> findInconsistency() {
         @SuppressWarnings("unchecked")
         final Row<I>[] canonicalRows = (Row<I>[]) new Row<?>[numberOfDistinctRows()];
         final Alphabet<I> alphabet = getInputAlphabet();

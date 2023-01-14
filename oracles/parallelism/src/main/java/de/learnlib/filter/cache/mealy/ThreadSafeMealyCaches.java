@@ -91,7 +91,7 @@ public final class ThreadSafeMealyCaches {
      * @see IncrementalMealyDAGBuilder
      */
     public static <I, O> Supplier<ThreadSafeMealyCacheOracle<I, O>> createDAGCache(Alphabet<I> alphabet,
-                                                                                   @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                   Mapping<? super O, ? extends O> errorSyms,
                                                                                    Supplier<? extends MembershipOracle<I, Word<O>>> oracleSupplier) {
         // explicit type declaration is necessary to help the compiler
         final Function<Alphabet<I>, IncrementalMealyBuilder<I, O>> builder = IncrementalMealyDAGBuilder::new;
@@ -143,7 +143,7 @@ public final class ThreadSafeMealyCaches {
      * @see IncrementalMealyDAGBuilder
      */
     public static <I, O> Collection<ThreadSafeMealyCacheOracle<I, O>> createDAGCache(Alphabet<I> alphabet,
-                                                                                     @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                     Mapping<? super O, ? extends O> errorSyms,
                                                                                      Collection<? extends MembershipOracle<I, Word<O>>> oracles) {
         // explicit type declaration is necessary to help the compiler
         final Function<Alphabet<I>, IncrementalMealyBuilder<I, O>> builder = IncrementalMealyDAGBuilder::new;
@@ -193,7 +193,7 @@ public final class ThreadSafeMealyCaches {
      * @see IncrementalMealyTreeBuilder
      */
     public static <I, O> Supplier<ThreadSafeMealyCacheOracle<I, O>> createTreeCache(Alphabet<I> alphabet,
-                                                                                    @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                    Mapping<? super O, ? extends O> errorSyms,
                                                                                     Supplier<? extends MembershipOracle<I, Word<O>>> oracleSupplier) {
         // explicit type declaration is necessary to help the compiler
         final Function<Alphabet<I>, IncrementalMealyBuilder<I, O>> builder = IncrementalMealyTreeBuilder::new;
@@ -245,7 +245,7 @@ public final class ThreadSafeMealyCaches {
      * @see IncrementalMealyTreeBuilder
      */
     public static <I, O> Collection<ThreadSafeMealyCacheOracle<I, O>> createTreeCache(Alphabet<I> alphabet,
-                                                                                      @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                      Mapping<? super O, ? extends O> errorSyms,
                                                                                       Collection<? extends MembershipOracle<I, Word<O>>> oracles) {
         // explicit type declaration is necessary to help the compiler
         final Function<Alphabet<I>, IncrementalMealyBuilder<I, O>> builder = IncrementalMealyTreeBuilder::new;
@@ -291,7 +291,7 @@ public final class ThreadSafeMealyCaches {
      *
      * @see DynamicIncrementalMealyTreeBuilder
      */
-    public static <I, O> Supplier<ThreadSafeMealyCacheOracle<I, O>> createDynamicTreeCache(@Nullable Mapping<? super O, ? extends O> errorSyms,
+    public static <I, O> Supplier<ThreadSafeMealyCacheOracle<I, O>> createDynamicTreeCache(Mapping<? super O, ? extends O> errorSyms,
                                                                                            Supplier<? extends MembershipOracle<I, Word<O>>> oracleSupplier) {
         final ReadWriteLock lock = new ReentrantReadWriteLock();
         final IncrementalMealyBuilder<I, O> incremental = new DynamicIncrementalMealyTreeBuilder<>();
@@ -339,7 +339,7 @@ public final class ThreadSafeMealyCaches {
      *
      * @see DynamicIncrementalMealyTreeBuilder
      */
-    public static <I, O> Collection<ThreadSafeMealyCacheOracle<I, O>> createDynamicTreeCache(@Nullable Mapping<? super O, ? extends O> errorSyms,
+    public static <I, O> Collection<ThreadSafeMealyCacheOracle<I, O>> createDynamicTreeCache(Mapping<? super O, ? extends O> errorSyms,
                                                                                              Collection<? extends MembershipOracle<I, Word<O>>> oracles) {
         final ReadWriteLock lock = new ReentrantReadWriteLock();
         final IncrementalMealyBuilder<I, O> incremental = new DynamicIncrementalMealyTreeBuilder<>();
@@ -353,7 +353,7 @@ public final class ThreadSafeMealyCaches {
     }
 
     private static <I, O> Supplier<ThreadSafeMealyCacheOracle<I, O>> createSupplierBasedCache(Alphabet<I> alphabet,
-                                                                                              @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                              Mapping<? super O, ? extends O> errorSyms,
                                                                                               Supplier<? extends MembershipOracle<I, Word<O>>> oracleSupplier,
                                                                                               Function<? super Alphabet<I>, ? extends IncrementalMealyBuilder<I, O>> builder) {
         final ReadWriteLock lock = new ReentrantReadWriteLock();
@@ -362,7 +362,7 @@ public final class ThreadSafeMealyCaches {
     }
 
     private static <I, O> Collection<ThreadSafeMealyCacheOracle<I, O>> createCollectionBasedCache(Alphabet<I> alphabet,
-                                                                                                  @Nullable Mapping<? super O, ? extends O> errorSyms,
+                                                                                                  Mapping<? super O, ? extends O> errorSyms,
                                                                                                   Collection<? extends MembershipOracle<I, Word<O>>> oracles,
                                                                                                   Function<? super Alphabet<I>, ? extends IncrementalMealyBuilder<I, O>> builder) {
         final ReadWriteLock lock = new ReentrantReadWriteLock();

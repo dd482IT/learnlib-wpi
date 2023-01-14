@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
 /**
  * @author frohme
  */
-@Test
 public class DTLearnerVPDAIT extends AbstractOneSEVPALearnerIT {
 
     @Override

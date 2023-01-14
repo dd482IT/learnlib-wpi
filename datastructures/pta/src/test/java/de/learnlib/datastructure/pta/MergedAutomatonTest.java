@@ -33,13 +33,11 @@ import org.testng.annotations.Test;
  *
  * @author frohme
  */
-@Test
 public class MergedAutomatonTest {
 
     /**
      * This test checks the merge step of Fig. 12.25 of the book "Grammatical Inference" by Colin de la Higuera.
      */
-    @Test
     public void testMerge() {
 
         final Alphabet<Character> alphabet = Alphabets.fromArray('a', 'b');

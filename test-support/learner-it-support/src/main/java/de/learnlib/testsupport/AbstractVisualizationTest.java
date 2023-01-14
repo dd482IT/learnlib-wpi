@@ -66,7 +66,7 @@ public abstract class AbstractVisualizationTest<L extends LearningAlgorithm<? ex
         }
     }
 
-    protected abstract L getLearnerBuilder(@UnderInitialization AbstractVisualizationTest<L> this,
+    protected abstract L getLearnerBuilder(AbstractVisualizationTest<L> this,
                                            Alphabet<Input> alphabet,
                                            SUL<Input, String> sul);
 }

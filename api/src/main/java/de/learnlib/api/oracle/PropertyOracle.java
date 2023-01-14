@@ -63,7 +63,7 @@ public interface PropertyOracle<I, A extends Output<I, D>, P, D> extends Inclusi
      *
      * @return the property.
      */
-    @Pure P getProperty();
+    P getProperty();
 
     /**
      * Returns the counterexample for the property if {@link #isDisproved()}, {@code null} otherwise.
@@ -73,7 +73,7 @@ public interface PropertyOracle<I, A extends Output<I, D>, P, D> extends Inclusi
      *
      * @return the counterexample for the property if {@link #isDisproved()}, {@code null} otherwise.
      */
-    @Nullable DefaultQuery<I, D> getCounterExample();
+    DefaultQuery<I, D> getCounterExample();
 
     /**
      * Try to disprove the property with the given {@code hypothesis}.
@@ -84,7 +84,7 @@ public interface PropertyOracle<I, A extends Output<I, D>, P, D> extends Inclusi
      * @return the {@link DefaultQuery} that is a counterexample the property, or {@code null}, if the property
      * could not be disproved.
      */
-    @Nullable DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs);
+    DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs);
 
     /**
      * Try to find a counterexample to the given {@code hypothesis} if the property can not be disproved.
@@ -96,7 +96,7 @@ public interface PropertyOracle<I, A extends Output<I, D>, P, D> extends Inclusi
      * null}, a counterexample could not be found or the property could be disproved.
      */
     @Override
-    default @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    default DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         return isDisproved() || disprove(hypothesis, inputs) != null ? null : doFindCounterExample(hypothesis, inputs);
     }
 
@@ -106,7 +106,7 @@ public interface PropertyOracle<I, A extends Output<I, D>, P, D> extends Inclusi
      *
      * @see #findCounterExample(Output, Collection)
      */
-    @Nullable DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs);
+    DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs);
 
     interface DFAPropertyOracle<I, P> extends PropertyOracle<I, DFA<?, I>, P, Boolean>, DFAInclusionOracle<I> {}
 

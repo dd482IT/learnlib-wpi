@@ -37,7 +37,6 @@ public class IncrementalWMethodEQOracleTest extends AbstractEQOracleTest<DFA<?, 
     private Set<Word<String>> transitionCover;
     private Set<Word<String>> characterizingSet;
 
-    @BeforeClass
     public void setUp() {
         this.dfa = ExamplePaulAndMary.constructMachine();
 
@@ -47,7 +46,6 @@ public class IncrementalWMethodEQOracleTest extends AbstractEQOracleTest<DFA<?, 
 
     // TODO: this currently seems necessary to fix test scheduling (removing this breaks _other_ tests?!?).
     // Check with newer versions of TestNG again.
-    @Test(dependsOnMethods = "testGeneratedEQQueries")
     public void testNGFix() {}
 
     @Override

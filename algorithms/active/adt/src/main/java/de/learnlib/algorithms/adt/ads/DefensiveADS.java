@@ -62,11 +62,11 @@ public final class DefensiveADS<S, I, O> {
     /**
      * The states, whose outgoing {@link #refinementInput}-transitions need to be closed.
      */
-    private @Nullable Set<S> refinementStates;
+    private Set<S> refinementStates;
     /**
      * The output for which the outgoing transitions of {@link #refinementStates} are undefined.
      */
-    private @Nullable I refinementInput;
+    private I refinementInput;
 
     private DefensiveADS(final MealyMachine<S, I, ?, O> automaton,
                          final Alphabet<I> alphabet,

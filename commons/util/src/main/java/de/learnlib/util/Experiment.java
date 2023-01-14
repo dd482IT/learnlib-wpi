@@ -45,7 +45,7 @@ public class Experiment<A extends Object> {
     private boolean logModels;
     private boolean profile;
     private final Counter rounds = new Counter("learning rounds", "#");
-    private @Nullable A finalHypothesis;
+    private A finalHypothesis;
 
     public <I, D> Experiment(LearningAlgorithm<? extends A, I, D> learningAlgorithm,
                              EquivalenceOracle<? super A, I, D> equivalenceAlgorithm,

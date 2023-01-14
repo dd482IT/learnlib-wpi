@@ -40,7 +40,7 @@ public class SimulatorEQOracle<I> implements EquivalenceOracle<OneSEVPA<?, I>, I
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Boolean> findCounterExample(final OneSEVPA<?, I> hypothesis,
+    public DefaultQuery<I, Boolean> findCounterExample(final OneSEVPA<?, I> hypothesis,
                                                                  final Collection<? extends I> inputs) {
         if (!(inputs instanceof VPDAlphabet)) {
             throw new IllegalArgumentException("Inputs are not an VPD alphabet");

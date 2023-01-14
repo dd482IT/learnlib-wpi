@@ -24,7 +24,7 @@ import de.learnlib.datastructure.observationtable.ObservationTable;
 import de.learnlib.datastructure.observationtable.Row;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class CloseRandomStrategy implements ClosingStrategy<@Nullable Object, @Nullable Object> {
+public class CloseRandomStrategy implements ClosingStrategy<Object, Object> {
 
     private final Random random;
 

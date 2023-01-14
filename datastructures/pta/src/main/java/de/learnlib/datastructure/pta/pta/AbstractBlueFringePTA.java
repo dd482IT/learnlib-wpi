@@ -29,15 +29,15 @@ public abstract class AbstractBlueFringePTA<SP, TP, S extends AbstractBlueFringe
 
     protected final List<S> redStates = new ArrayList<>();
 
-    public AbstractBlueFringePTA(@NonNegative int alphabetSize, S root) {
+    public AbstractBlueFringePTA(int alphabetSize, S root) {
         super(alphabetSize, root);
     }
 
-    public S getRedState(@NonNegative int id) {
+    public S getRedState(int id) {
         return redStates.get(id);
     }
 
-    public @NonNegative int getNumRedStates() {
+    public int getNumRedStates() {
         return redStates.size();
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractBlueFringePTA<SP, TP, S extends AbstractBlueFringe
         redStates.add(qb);
     }
 
-    public @Nullable RedBlueMerge<SP, TP, S> tryMerge(S qr, S qb) {
+    public RedBlueMerge<SP, TP, S> tryMerge(S qr, S qb) {
         RedBlueMerge<SP, TP, S> merge = new RedBlueMerge<>(this, qr, qb);
         if (!merge.merge()) {
             return null;

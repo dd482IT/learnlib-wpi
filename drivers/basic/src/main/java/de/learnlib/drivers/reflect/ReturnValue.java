@@ -26,11 +26,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class ReturnValue extends MethodOutput {
 
-    private final @Nullable Object ret;
+    private final Object ret;
 
     private final String id;
 
-    public ReturnValue(@Nullable Object ret) {
+    public ReturnValue(Object ret) {
         this.ret = ret;
         this.id = String.valueOf(ret);
     }
@@ -41,7 +41,7 @@ public class ReturnValue extends MethodOutput {
     }
 
     @Override
-    public final boolean equals(@Nullable Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -61,7 +61,7 @@ public class ReturnValue extends MethodOutput {
     /**
      * @return the cause
      */
-    public @Nullable Object getValue() {
+    public Object getValue() {
         return ret;
     }
 

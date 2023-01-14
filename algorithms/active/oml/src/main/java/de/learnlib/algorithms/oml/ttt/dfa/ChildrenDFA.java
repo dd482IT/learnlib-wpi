@@ -30,11 +30,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 class ChildrenDFA<I> implements Children<I, Boolean> {
 
-    private @Nullable AbstractDTNode<I, Boolean> trueChild;
-    private @Nullable AbstractDTNode<I, Boolean> falseChild;
+    private AbstractDTNode<I, Boolean> trueChild;
+    private AbstractDTNode<I, Boolean> falseChild;
 
     @Override
-    public @Nullable AbstractDTNode<I, Boolean> child(Boolean out) {
+    public AbstractDTNode<I, Boolean> child(Boolean out) {
         return out ? trueChild : falseChild;
     }
 

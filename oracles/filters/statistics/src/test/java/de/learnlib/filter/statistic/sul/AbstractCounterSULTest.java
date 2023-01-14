@@ -41,18 +41,15 @@ public abstract class AbstractCounterSULTest {
 
     protected abstract Collection<Query<Integer, Word<Character>>> createQueries(int num);
 
-    @BeforeClass
     public void setUp() {
         this.statisticSUL = getStatisticSUL();
         this.asOracle = getSimulator(this.statisticSUL);
     }
 
-    @Test
     public void testInitialState() {
         Assert.assertEquals(getCount(), 0L);
     }
 
-    @Test(dependsOnMethods = "testInitialState")
     public void testFirstQueryBatch() {
         final Collection<Query<Integer, Word<Character>>> queries = createQueries(2);
         final long oldCount = getCount();
@@ -62,7 +59,6 @@ public abstract class AbstractCounterSULTest {
         Assert.assertEquals(getCount(), oldCount + 2L * getCountIncreasePerQuery());
     }
 
-    @Test(dependsOnMethods = "testFirstQueryBatch")
     public void testEmptyQueryBatch() {
         final Collection<Query<Integer, Word<Character>>> queries = Collections.emptySet();
         final long oldCount = getCount();
@@ -72,7 +68,6 @@ public abstract class AbstractCounterSULTest {
         Assert.assertEquals(getCount(), oldCount);
     }
 
-    @Test(dependsOnMethods = "testEmptyQueryBatch")
     public void testSecondQueryBatch() {
         final Collection<Query<Integer, Word<Character>>> queries = createQueries(1);
         final long oldCount = getCount();
@@ -82,7 +77,6 @@ public abstract class AbstractCounterSULTest {
         Assert.assertEquals(getCount(), oldCount + getCountIncreasePerQuery());
     }
 
-    @Test(dependsOnMethods = "testSecondQueryBatch")
     public void testSharedForkCounter() {
         final MealyMembershipOracle<Integer, Character> mqo1 = getSimulator(statisticSUL.fork());
         final MealyMembershipOracle<Integer, Character> mqo2 = getSimulator(statisticSUL.fork());
@@ -98,7 +92,6 @@ public abstract class AbstractCounterSULTest {
         Assert.assertEquals(getCount(), oldCount + 2L * 3 * getCountIncreasePerQuery());
     }
 
-    @Test
     public void testGetName() {
         Assert.assertEquals(statisticSUL.getStatisticalData().getName(), TestQueries.COUNTER_NAME);
     }

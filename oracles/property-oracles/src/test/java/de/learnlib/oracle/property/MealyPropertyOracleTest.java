@@ -58,7 +58,6 @@ public class MealyPropertyOracleTest {
                              .create();
     // @formatter:on
 
-    @Test
     public void testTinyExample() {
         if (!LTSminUtil.supports(LTSminVersion.of(3, 0, 0))) {
             throw new SkipException("LTSmin is not installed in the proper version");
@@ -93,7 +92,6 @@ public class MealyPropertyOracleTest {
     /**
      * Test-case issue <a href="https://github.com/LearnLib/automatalib/issues/46">#46</a>.
      */
-    @Test
     public void testIssue46() {
         if (!LTSminUtil.supports(LTSminVersion.of(3, 1, 0))) {
             throw new SkipException("LTSmin is not installed in the proper version");

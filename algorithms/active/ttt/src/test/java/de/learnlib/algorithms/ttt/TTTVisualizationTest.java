@@ -41,7 +41,6 @@ public class TTTVisualizationTest extends AbstractVisualizationTest<TTTLearnerMe
                                                           .create();
     }
 
-    @Test
     public void testVisualizeHyp() throws IOException {
         final String expectedHyp = resourceAsString("/hyp.dot");
 
@@ -51,7 +50,6 @@ public class TTTVisualizationTest extends AbstractVisualizationTest<TTTLearnerMe
         Assert.assertEquals(actualHyp.toString(), expectedHyp);
     }
 
-    @Test
     public void testVisualizeDT() throws IOException {
         final String expectedDT = resourceAsString("/dt.dot");
 

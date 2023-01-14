@@ -33,7 +33,6 @@ import org.testng.annotations.BeforeMethod;
  */
 public class DFABFEmptinessOracleTest extends AbstractBFEmptinessOracleTest<DFA<?, Character>, Boolean> {
 
-    @Mock
     private MembershipOracle.DFAMembershipOracle<Character> mo;
 
     @Override
@@ -52,7 +51,6 @@ public class DFABFEmptinessOracleTest extends AbstractBFEmptinessOracleTest<DFA<
         return new DefaultQuery<>(Word.fromSymbols('a'), true);
     }
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
         Mockito.doAnswer(invocation -> {

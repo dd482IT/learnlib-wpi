@@ -36,10 +36,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author Oliver Bauer
  */
 class ReuseTreeDotHelper<S, I, O>
-        extends DefaultVisualizationHelper<@Nullable ReuseNode<S, I, O>, @Nullable ReuseEdge<S, I, O>> {
+        extends DefaultVisualizationHelper<ReuseNode<S, I, O>, ReuseEdge<S, I, O>> {
 
     @Override
-    public boolean getNodeProperties(@Nullable ReuseNode<S, I, O> node, Map<String, String> properties) {
+    public boolean getNodeProperties(ReuseNode<S, I, O> node, Map<String, String> properties) {
         if (node == null) {
             return false;
         }
@@ -56,9 +56,9 @@ class ReuseTreeDotHelper<S, I, O>
     }
 
     @Override
-    public boolean getEdgeProperties(@Nullable ReuseNode<S, I, O> src,
-                                     @Nullable ReuseEdge<S, I, O> edge,
-                                     @Nullable ReuseNode<S, I, O> tgt,
+    public boolean getEdgeProperties(ReuseNode<S, I, O> src,
+                                     ReuseEdge<S, I, O> edge,
+                                     ReuseNode<S, I, O> tgt,
                                      Map<String, String> properties) {
 
         if (src == null || edge == null || tgt == null) {

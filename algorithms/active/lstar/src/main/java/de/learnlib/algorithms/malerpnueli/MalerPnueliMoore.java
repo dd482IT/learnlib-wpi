@@ -33,7 +33,6 @@ public class MalerPnueliMoore<I, O> extends ExtensibleLStarMoore<I, O> {
         this(alphabet, oracle, Collections.emptyList(), ClosingStrategies.CLOSE_FIRST);
     }
 
-    @GenerateBuilder(defaults = BuilderDefaults.class)
     public MalerPnueliMoore(Alphabet<I> alphabet,
                             MembershipOracle<I, Word<O>> oracle,
                             List<Word<I>> initialSuffixes,

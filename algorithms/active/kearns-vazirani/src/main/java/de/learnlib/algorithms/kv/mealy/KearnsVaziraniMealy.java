@@ -70,7 +70,6 @@ public class KearnsVaziraniMealy<I, O>
     protected List<StateInfo<I, Word<O>>> stateInfos = new ArrayList<>();
     private CompactMealy<I, O> hypothesis;
 
-    @GenerateBuilder
     public KearnsVaziraniMealy(Alphabet<I> alphabet,
                                MembershipOracle<I, Word<O>> oracle,
                                boolean repeatedCounterexampleEvaluation,
@@ -138,7 +137,7 @@ public class KearnsVaziraniMealy<I, O>
         Word<I> prefix = effInput.prefix(idx);
         StateInfo<I, Word<O>> srcStateInfo = acex.getStateInfo(idx);
         I sym = effInput.getSymbol(idx);
-        LCAInfo<Word<O>, @Nullable AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> lca =
+        LCAInfo<Word<O>, AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> lca =
                 acex.getLCA(idx + 1);
         assert lca != null;
 
@@ -150,7 +149,7 @@ public class KearnsVaziraniMealy<I, O>
     private void splitState(StateInfo<I, Word<O>> stateInfo,
                             Word<I> newPrefix,
                             I sym,
-                            LCAInfo<Word<O>, @Nullable AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> separatorInfo) {
+                            LCAInfo<Word<O>, AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> separatorInfo) {
         int state = stateInfo.id;
 
         // TLongList oldIncoming = stateInfo.fetchIncoming();
@@ -394,7 +393,7 @@ public class KearnsVaziraniMealy<I, O>
         private final Word<I> ceWord;
         private final MembershipOracle<I, Word<O>> oracle;
         private final StateInfo<I, Word<O>>[] states;
-        private final LCAInfo<Word<O>, @Nullable AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>>[] lcas;
+        private final LCAInfo<Word<O>, AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>>[] lcas;
 
         @SuppressWarnings("unchecked")
         public KVAbstractCounterexample(Word<I> ceWord, Word<O> output, MembershipOracle<I, Word<O>> oracle) {
@@ -424,7 +423,7 @@ public class KearnsVaziraniMealy<I, O>
             return states[idx];
         }
 
-        public LCAInfo<Word<O>, @Nullable AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> getLCA(int idx) {
+        public LCAInfo<Word<O>, AbstractWordBasedDTNode<I, Word<O>, StateInfo<I, Word<O>>>> getLCA(int idx) {
             return lcas[idx];
         }
 

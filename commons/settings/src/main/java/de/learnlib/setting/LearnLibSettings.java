@@ -45,7 +45,7 @@ public final class LearnLibSettings {
         return properties.getProperty(property.getPropertyKey(), defaultValue);
     }
 
-    public @Nullable String getProperty(LearnLibProperty property) {
+    public String getProperty(LearnLibProperty property) {
         return properties.getProperty(property.getPropertyKey());
     }
 
@@ -57,7 +57,7 @@ public final class LearnLibSettings {
         return defaultValue;
     }
 
-    public <E extends Enum<E>> @Nullable E getEnumValue(LearnLibProperty property, Class<E> enumClazz) {
+    public <E extends Enum<E>> E getEnumValue(LearnLibProperty property, Class<E> enumClazz) {
         // TODO: the assumption that enum constants are all-uppercase does not *always* hold!
         return getTypedValue(property, p -> Enum.valueOf(enumClazz, p.toUpperCase(Locale.ROOT)));
     }
@@ -66,7 +66,7 @@ public final class LearnLibSettings {
         return WrapperUtil.booleanValue(getBoolean(property), defaultValue);
     }
 
-    public @Nullable Boolean getBoolean(LearnLibProperty property) {
+    public Boolean getBoolean(LearnLibProperty property) {
         return getTypedValue(property, Boolean::parseBoolean);
     }
 
@@ -74,11 +74,11 @@ public final class LearnLibSettings {
         return WrapperUtil.intValue(getInteger(property), defaultValue);
     }
 
-    public @Nullable Integer getInteger(LearnLibProperty property) {
+    public Integer getInteger(LearnLibProperty property) {
         return getTypedValue(property, Integer::parseInt);
     }
 
-    private <T> @Nullable T getTypedValue(LearnLibProperty property, Function<String, T> valueExtractor) {
+    private <T> T getTypedValue(LearnLibProperty property, Function<String, T> valueExtractor) {
         String prop = getProperty(property);
 
         if (prop == null) {

@@ -30,8 +30,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public interface IntrusiveListElem<T> {
 
-    @Nullable T getNextElement();
+    T getNextElement();
 
-    void setNextElement(@Nullable T nextBlock);
+    void setNextElement(T nextBlock);
 
 }

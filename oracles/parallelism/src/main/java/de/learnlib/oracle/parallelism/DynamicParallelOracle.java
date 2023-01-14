@@ -37,7 +37,7 @@ public class DynamicParallelOracle<I, D> extends AbstractDynamicBatchProcessor<Q
         implements ParallelOracle<I, D> {
 
     public DynamicParallelOracle(Supplier<? extends MembershipOracle<I, D>> oracleSupplier,
-                                 @NonNegative int batchSize,
+                                 int batchSize,
                                  ExecutorService executor) {
         super(oracleSupplier, batchSize, executor);
     }

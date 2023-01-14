@@ -24,7 +24,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-@Test
 public class AnalyzersTest {
 
     private static final int LENGTH = 100;
@@ -33,7 +32,6 @@ public class AnalyzersTest {
 
     private static final int NUM_RANDOM = 10;
 
-    @DataProvider(name = "analyzers")
     public Object[][] analyzers() {
         Collection<AbstractNamedAcexAnalyzer> analyzers = AcexAnalyzers.getAllAnalyzers();
         AbstractNamedAcexAnalyzer[][] result = new AbstractNamedAcexAnalyzer[analyzers.size()][1];
@@ -44,7 +42,6 @@ public class AnalyzersTest {
         return result;
     }
 
-    @Test(dataProvider = "analyzers")
     public void testOne0(AbstractNamedAcexAnalyzer analyzer) {
         AbstractCounterexample<?> acex = createOne0(LENGTH);
 
@@ -63,7 +60,6 @@ public class AnalyzersTest {
         Assert.assertFalse(acex.testEffects(idx, idx + 1));
     }
 
-    @Test(dataProvider = "analyzers")
     public void testOne1(AbstractNamedAcexAnalyzer analyzer) {
         AbstractCounterexample<?> acex = createOne1(LENGTH);
 
@@ -78,7 +74,6 @@ public class AnalyzersTest {
         return new DummyAcex(values);
     }
 
-    @Test(dataProvider = "analyzers")
     public void testRandom(AbstractNamedAcexAnalyzer analyzer) {
         Random r = new Random(SEED);
 

@@ -42,19 +42,16 @@ public abstract class AbstractBFOracleTest<D> {
 
     protected abstract AbstractBFOracle<? extends SimpleDTS<?, Character>, Character, D> createBreadthFirstOracle(double multiplier);
 
-    @BeforeMethod
     public void setUp() {
         mock = MockitoAnnotations.openMocks(this);
         bfo = createBreadthFirstOracle(MULTIPLIER);
     }
 
-    @AfterMethod
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     public void tearDown() throws Exception {
         this.mock.close();
     }
 
-    @Test
     public void testGetMultiplier() {
         Assert.assertEquals(bfo.getMultiplier(), MULTIPLIER);
     }
@@ -62,7 +59,6 @@ public abstract class AbstractBFOracleTest<D> {
     /**
      * Tests breadth-first order.
      */
-    @Test
     public void testNextInput() {
         bfo.pre();
         bfo.addWord(Word.fromLetter('a'));
@@ -72,14 +68,12 @@ public abstract class AbstractBFOracleTest<D> {
         Assert.assertEquals(bfo.nextInput(), Word.fromLetter('b'));
     }
 
-    @Test
     public void testAddWord() {
         bfo.pre();
         bfo.addWord(Word.epsilon());
         Assert.assertEquals(bfo.nextInput(), Word.epsilon());
     }
 
-    @Test
     public void testPre() {
         bfo.pre();
         bfo.addWord(Word.epsilon());

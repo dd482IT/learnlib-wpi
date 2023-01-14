@@ -29,12 +29,12 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author falkhowar
  */
 public class SimplePOJODataMapper
-        implements SULMapper<MethodInput, MethodOutput, ConcreteMethodInput, @Nullable Object> {
+        implements SULMapper<MethodInput, MethodOutput, ConcreteMethodInput, Object> {
 
     private final Constructor<?> initMethod;
     private final Object[] initParams;
 
-    protected @Nullable Object delegate;
+    protected Object delegate;
 
     protected SimplePOJODataMapper(Constructor<?> initMethod, Object... initParams) {
         this.initMethod = initMethod;
@@ -72,7 +72,7 @@ public class SimplePOJODataMapper
     }
 
     @Override
-    public MethodOutput mapOutput(@Nullable Object concreteOutput) {
+    public MethodOutput mapOutput(Object concreteOutput) {
         return new ReturnValue(concreteOutput);
     }
 
@@ -82,7 +82,7 @@ public class SimplePOJODataMapper
     }
 
     @Override
-    public SULMapper<MethodInput, MethodOutput, ConcreteMethodInput, @Nullable Object> fork() {
+    public SULMapper<MethodInput, MethodOutput, ConcreteMethodInput, Object> fork() {
         return new SimplePOJODataMapper(initMethod, initParams);
     }
 

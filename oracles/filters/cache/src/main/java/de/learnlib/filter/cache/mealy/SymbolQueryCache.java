@@ -119,7 +119,7 @@ public class SymbolQueryCache<I, O>
         return this::findCounterexample;
     }
 
-    private @Nullable DefaultQuery<I, Word<O>> findCounterexample(MealyMachine<?, I, ?, O> hypothesis,
+    private DefaultQuery<I, Word<O>> findCounterexample(MealyMachine<?, I, ?, O> hypothesis,
                                                                   Collection<? extends I> alphabet) {
         /*
         TODO: potential optimization: If the hypothesis has undefined transitions, but the cache doesn't, it is a clear

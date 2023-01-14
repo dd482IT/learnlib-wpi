@@ -36,7 +36,7 @@ public final class LocalSuffixFinders {
      *
      * @see #findLinear(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle)
      */
-    public static final LocalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR =
+    public static final LocalSuffixFinder<Object, Object> FIND_LINEAR =
             new AcexLocalSuffixFinder(AcexAnalyzers.LINEAR_FWD, true, "FindLinear");
 
     /**
@@ -45,7 +45,7 @@ public final class LocalSuffixFinders {
      *
      * @see #findLinearReverse(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle)
      */
-    public static final LocalSuffixFinder<@Nullable Object, @Nullable Object> FIND_LINEAR_REVERSE =
+    public static final LocalSuffixFinder<Object, Object> FIND_LINEAR_REVERSE =
             new AcexLocalSuffixFinder(AcexAnalyzers.LINEAR_BWD, true, "FindLinear-Reverse");
 
     /**
@@ -54,7 +54,7 @@ public final class LocalSuffixFinders {
      *
      * @see #findRivestSchapire(Query, AccessSequenceTransformer, SuffixOutput, MembershipOracle)
      */
-    public static final LocalSuffixFinder<@Nullable Object, @Nullable Object> RIVEST_SCHAPIRE =
+    public static final LocalSuffixFinder<Object, Object> RIVEST_SCHAPIRE =
             new AcexLocalSuffixFinder(AcexAnalyzers.BINARY_SEARCH_BWD, true, "RivestSchapire");
 
     private LocalSuffixFinders() {
@@ -152,7 +152,7 @@ public final class LocalSuffixFinders {
     }
 
     @SuppressWarnings("unchecked")
-    public static LocalSuffixFinder<@Nullable Object, @Nullable Object>[] values() {
+    public static LocalSuffixFinder<Object, Object>[] values() {
         return new LocalSuffixFinder[] {FIND_LINEAR, FIND_LINEAR_REVERSE, RIVEST_SCHAPIRE};
     }
 }

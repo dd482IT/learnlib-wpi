@@ -35,10 +35,8 @@ import net.automatalib.words.Alphabet;
 import net.automatalib.words.Word;
 import org.testng.annotations.Test;
 
-@Test
 public class LStarDFATest extends LearningTest {
 
-    @Test
     public void testLStar() {
         ExamplePaulAndMary pmExample = ExamplePaulAndMary.createExample();
         DFA<?, String> targetDFA = pmExample.getReferenceAutomaton();

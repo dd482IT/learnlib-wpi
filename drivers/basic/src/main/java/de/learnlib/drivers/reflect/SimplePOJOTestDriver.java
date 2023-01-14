@@ -33,7 +33,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author falkhowar
  */
 public final class SimplePOJOTestDriver
-        extends TestDriver<MethodInput, MethodOutput, ConcreteMethodInput, @Nullable Object> {
+        extends TestDriver<MethodInput, MethodOutput, ConcreteMethodInput, Object> {
 
     private final GrowingAlphabet<MethodInput> inputs = new GrowingMapAlphabet<>();
 

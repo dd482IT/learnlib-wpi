@@ -41,7 +41,7 @@ final class HypothesisWrapperDFA<I> implements DFA<HState<I, Boolean, Boolean, V
     }
 
     @Override
-    public @Nullable HState<I, Boolean, Boolean, Void> getTransition(HState<I, Boolean, Boolean, Void> state, I input) {
+    public HState<I, Boolean, Boolean, Void> getTransition(HState<I, Boolean, Boolean, Void> state, I input) {
         return dtHypothesis.getSuccessor(state, input);
     }
 

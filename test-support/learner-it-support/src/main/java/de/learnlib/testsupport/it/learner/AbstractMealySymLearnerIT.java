@@ -43,7 +43,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractMealySymLearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<MealyLearningExample<?, ?>> examples = LearningExamples.createMealyExamples();
         final List<UniversalDeterministicLearnerITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

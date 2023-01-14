@@ -42,7 +42,7 @@ abstract class AbstractPropertyOracle<I, A extends Output<I, D>, P, D, R extends
     private final InclusionOracle<A, I, D> inclusionOracle;
     private final EmptinessOracle<R, I, D> emptinessOracle;
     private P property;
-    private @Nullable DefaultQuery<I, D> counterExample;
+    private DefaultQuery<I, D> counterExample;
 
     protected AbstractPropertyOracle(P property,
                                      InclusionOracle<A, I, D> inclusionOracle,
@@ -52,7 +52,7 @@ abstract class AbstractPropertyOracle<I, A extends Output<I, D>, P, D, R extends
         this.emptinessOracle = emptinessOracle;
     }
 
-    protected @Nullable DefaultQuery<I, D> setCounterExample(@Nullable DefaultQuery<I, D> counterExample) {
+    protected DefaultQuery<I, D> setCounterExample(DefaultQuery<I, D> counterExample) {
         this.counterExample = counterExample;
         return counterExample;
     }
@@ -68,20 +68,20 @@ abstract class AbstractPropertyOracle<I, A extends Output<I, D>, P, D, R extends
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> getCounterExample() {
+    public DefaultQuery<I, D> getCounterExample() {
         return counterExample;
     }
 
     protected abstract R modelCheck(A hypothesis, Collection<? extends I> inputs);
 
     @Override
-    public @Nullable DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> doFindCounterExample(A hypothesis, Collection<? extends I> inputs) {
         final A result = modelCheck(hypothesis, inputs);
         return result != null ? inclusionOracle.findCounterExample(result, inputs) : null;
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> disprove(A hypothesis, Collection<? extends I> inputs) {
         final R ce = modelCheck(hypothesis, inputs);
 
         return ce != null ? setCounterExample(emptinessOracle.findCounterExample(ce, inputs)) : null;

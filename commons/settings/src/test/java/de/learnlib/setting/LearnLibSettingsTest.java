@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
  */
 public class LearnLibSettingsTest {
 
-    @BeforeSuite
     public void setUp() {
         final URL resource = LearnLibSettingsTest.class.getResource("/learnlib.properties");
         assert resource != null;
@@ -35,7 +34,6 @@ public class LearnLibSettingsTest {
         System.setProperty("learnlib.properties", properties.getAbsolutePath());
     }
 
-    @Test
     public void testProperties() {
         LearnLibSettings settings = LearnLibSettings.getInstance();
 

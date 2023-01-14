@@ -30,7 +30,7 @@ public class DelegateEQOracle<A, I, D> implements EquivalenceOracle<A, I, D> {
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, D> findCounterExample(A hypothesis, Collection<? extends I> inputs) {
         return delegate.findCounterExample(hypothesis, inputs);
     }
 

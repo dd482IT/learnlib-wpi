@@ -44,7 +44,6 @@ public abstract class AbstractBFEmptinessOracleTest<A extends DetOutputAutomaton
 
     protected abstract DefaultQuery<Character, D> createQuery();
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
         bfeo = createBreadthFirstEmptinessOracle();
@@ -57,13 +56,11 @@ public abstract class AbstractBFEmptinessOracleTest<A extends DetOutputAutomaton
         return createBreadthFirstEmptinessOracle();
     }
 
-    @Test
     public void testFindCounterExample() {
         final DefaultQuery<Character, D> cex = bfeo.findCounterExample(automaton, ALPHABET);
         Assert.assertEquals(cex, query);
     }
 
-    @Test
     public void testIsCounterExample() {
         bfeo.isCounterExample(automaton, query.getInput(), query.getOutput());
     }

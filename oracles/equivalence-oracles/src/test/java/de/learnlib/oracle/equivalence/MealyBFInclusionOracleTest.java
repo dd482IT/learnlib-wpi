@@ -30,10 +30,8 @@ import org.testng.annotations.BeforeMethod;
 
 public class MealyBFInclusionOracleTest extends AbstractBFInclusionOracleTest<MealyMachine<?, Character, ?, Character>, Word<Character>> {
 
-    @Mock
     private MembershipOracle.MealyMembershipOracle<Character, Character> mo;
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
 

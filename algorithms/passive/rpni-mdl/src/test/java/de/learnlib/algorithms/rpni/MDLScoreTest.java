@@ -33,7 +33,6 @@ import org.testng.annotations.Test;
  * Unit test for computing an MDL score. The example is based on chapter 14.4 of the book "Grammatical Inference" by
  * Colin de la Higuera.
  */
-@Test
 public class MDLScoreTest {
 
     private Alphabet<Character> alphabet;
@@ -42,7 +41,6 @@ public class MDLScoreTest {
     private List<Word<Character>> positiveSamples;
     private List<IntSeq> positiveSamplesAsIntSeq;
 
-    @BeforeClass
     public void setUp() {
         alphabet = Alphabets.fromArray('a', 'b');
         alphabetAsInt = Alphabets.fromArray(0, 1);
@@ -60,7 +58,6 @@ public class MDLScoreTest {
         positiveSamplesAsIntSeq = positiveSamples.stream().map(s -> s.asIntSeq(alphabet)).collect(Collectors.toList());
     }
 
-    @Test
     public void testPTAValue() {
         final BlueFringePTA<Boolean, Void> pta = new BlueFringePTA<>(alphabet.size());
 
@@ -76,7 +73,6 @@ public class MDLScoreTest {
         Assert.assertTrue(encodingInformation < 51.68);
     }
 
-    @Test
     public void testFinalHypothesis() {
         final BlueFringeMDLDFA<Integer> learner = new BlueFringeMDLDFA<>(alphabetAsInt);
 

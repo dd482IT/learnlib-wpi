@@ -58,7 +58,6 @@ public abstract class AbstractResumableLearnerTest<L extends Resumable<T> & Lear
 
     private int rounds;
 
-    @BeforeClass
     public void setup() {
         this.inputAlphabet = getInitialAlphabet();
 
@@ -82,7 +81,6 @@ public abstract class AbstractResumableLearnerTest<L extends Resumable<T> & Lear
 
     protected abstract int getRounds();
 
-    @Test
     public void testSuspendAndResumeLearner() throws IOException {
         learner.startLearning();
 

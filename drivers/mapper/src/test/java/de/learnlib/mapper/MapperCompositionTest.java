@@ -30,14 +30,12 @@ public class MapperCompositionTest {
 
     private Mapper<String, String, Character, Character> mapper;
 
-    @BeforeClass
     public void setUp() {
         toUpperCaseMapper = new ToUpperCaseMapper();
         StringMapper<Character> toCharacterMapper = new StringMapper<>(Alphabets.characters('A', 'z'));
         mapper = Mappers.compose(toCharacterMapper, toUpperCaseMapper);
     }
 
-    @Test
     public void testComposition() {
         mapper.pre();
 

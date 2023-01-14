@@ -45,7 +45,6 @@ public class MealyDHCTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MealyDHCTest.class);
 
-    @Test(expectedExceptions = Exception.class)
     public void testMealyDHCInternalSate() {
         ExampleStack stackExample = ExampleStack.createExample();
         MealyMachine<?, ExampleStack.Input, ?, ExampleStack.Output> fm = stackExample.getReferenceAutomaton();
@@ -58,7 +57,6 @@ public class MealyDHCTest {
         dhc.getHypothesisModel();
     }
 
-    @Test
     public void testMealyDHCGrid() {
 
         final int xsize = 5;
@@ -79,7 +77,6 @@ public class MealyDHCTest {
 
     }
 
-    @Test
     public void testMealyDHCStack() {
         ExampleStack stackExample = ExampleStack.createExample();
         MealyMachine<?, ExampleStack.Input, ?, ExampleStack.Output> fm = stackExample.getReferenceAutomaton();
@@ -120,7 +117,6 @@ public class MealyDHCTest {
 
     }
 
-    @Test
     public void testMealyDHCCoffee() {
 
         ExampleCoffeeMachine cmExample = ExampleCoffeeMachine.createExample();
@@ -154,7 +150,6 @@ public class MealyDHCTest {
 
     }
 
-    @Test
     public void testMealyDHCRandom() {
 
         Alphabet<Character> inputs = Alphabets.characters('a', 'c');

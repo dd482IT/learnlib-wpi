@@ -34,7 +34,7 @@ public class SimulatorEQOracle<I> implements EquivalenceOracle<SPA<?, I>, I, Boo
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Boolean> findCounterExample(SPA<?, I> hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, Boolean> findCounterExample(SPA<?, I> hypothesis, Collection<? extends I> inputs) {
         if (!(inputs instanceof SPAAlphabet)) {
             throw new IllegalArgumentException("Inputs are not an SPA alphabet");
         }

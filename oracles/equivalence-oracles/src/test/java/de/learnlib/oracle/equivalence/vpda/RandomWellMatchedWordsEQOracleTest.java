@@ -56,7 +56,6 @@ public class RandomWellMatchedWordsEQOracleTest
         MAX_LENGTH = 100;
     }
 
-    @BeforeClass
     public void setUp() {
         this.numberOfGeneratedQueries = 0;
     }

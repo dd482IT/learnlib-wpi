@@ -43,7 +43,6 @@ public class MealyParallelCacheTest
     private final ThreadSafeMealyCacheOracle<Character, Character> cacheRepresentative;
     private final ParallelOracle<Character, Word<Character>> parallelOracle;
 
-    @Factory(dataProvider = "caches")
     public MealyParallelCacheTest(MealyCacheCreator<Character, Character, ThreadSafeMealyCacheOracle<Character, Character>> creator) {
         this.sul = Config.getCounter(Config.TARGET_MODEL_MEALY);
 
@@ -54,7 +53,6 @@ public class MealyParallelCacheTest
         this.parallelOracle = config.getParallelOracle();
     }
 
-    @DataProvider(name = "caches")
     public static Object[][] cacheProvider() {
         return new MealyCacheCreator<?, ?, ?>[][] {{MealyCacheCreator.forSupplier(ThreadSafeMealyCaches::createDAGCache)},
                                                    {MealyCacheCreator.forSupplier(ThreadSafeMealyCaches::createTreeCache)},

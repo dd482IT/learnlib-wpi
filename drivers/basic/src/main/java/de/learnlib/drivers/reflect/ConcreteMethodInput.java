@@ -28,7 +28,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author falkhowar
  */
-public class ConcreteMethodInput implements ExecutableInput<@Nullable Object> {
+public class ConcreteMethodInput implements ExecutableInput<Object> {
 
     /**
      * corresponding abstract input.
@@ -63,7 +63,7 @@ public class ConcreteMethodInput implements ExecutableInput<@Nullable Object> {
     // RuntimeExceptions are the type of exceptions we allow to handle, therefore we should throw them
     @SuppressWarnings({"PMD.AvoidThrowingRawExceptionTypes", "PMD.PreserveStackTrace"})
     @Override
-    public @Nullable Object execute() {
+    public Object execute() {
         Object out;
         try {
             Object ret = this.input.getMethod().invoke(this.target, getParameterValues());

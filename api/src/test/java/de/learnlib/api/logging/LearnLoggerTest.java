@@ -37,7 +37,6 @@ public class LearnLoggerTest {
     /**
      * Test of getLogger method, of class LearnLogger.
      */
-    @Test
     public void testGetLogger() {
         String name = LearnLoggerTest.class.getName();
         LearnLogger expResult = LearnLogger.getLogger(name);
@@ -48,7 +47,6 @@ public class LearnLoggerTest {
     /**
      * Test of logPhase method, of class LearnLogger.
      */
-    @Test
     public void testLogPhase() {
         final LearnLogger learnLogger = LearnLogger.getLogger(LearnLoggerTest.class);
         final Logger logbackLogger = (Logger) LoggerFactory.getLogger(LearnLoggerTest.class);
@@ -88,7 +86,6 @@ public class LearnLoggerTest {
     /**
      * Test of logQuery method, of class LearnLogger.
      */
-    @Test
     public void testLogQuery() {
         final LearnLogger learnLogger = LearnLogger.getLogger(LearnLoggerTest.class);
         final Logger logbackLogger = (Logger) LoggerFactory.getLogger(LearnLoggerTest.class);

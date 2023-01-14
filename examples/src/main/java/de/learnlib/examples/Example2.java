@@ -178,7 +178,7 @@ public final class Example2 {
         }
 
         // get next element from queue (null for empty queue)
-        public @Nullable String poll() {
+        public String poll() {
             return data.poll();
         }
     }

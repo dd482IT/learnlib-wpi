@@ -111,7 +111,7 @@ public class SimulatorOmegaOracle<S extends Object, I, D> implements SingleQuery
      * @see OmegaQueryAnswerer#answerQuery(Word, Word, int)
      */
     @Override
-    public Pair<@Nullable D, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat) {
+    public Pair<D, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat) {
         assert repeat > 0;
 
         final WordBuilder<I> wb = new WordBuilder<>(prefix.length() + loop.length() * repeat, prefix);

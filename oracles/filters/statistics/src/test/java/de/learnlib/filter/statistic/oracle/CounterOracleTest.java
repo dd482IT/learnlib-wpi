@@ -26,7 +26,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-@Test
 public class CounterOracleTest {
 
     private static final String COUNTER_NAME = "testCounter";
@@ -38,12 +37,10 @@ public class CounterOracleTest {
         this.oracle = new CounterOracle<>(Mockito.mock(MembershipOracle.class), COUNTER_NAME);
     }
 
-    @Test
     public void testInitialState() {
         Assert.assertEquals(oracle.getCount(), 0L);
     }
 
-    @Test(dependsOnMethods = "testInitialState")
     public void testFirstQueryBatch() {
         Collection<Query<Object, Object>> queries = TestQueries.createNoopQueries(2);
         long oldCount = oracle.getCount();
@@ -51,7 +48,6 @@ public class CounterOracleTest {
         Assert.assertEquals(oracle.getCount(), oldCount + 2L);
     }
 
-    @Test(dependsOnMethods = "testFirstQueryBatch")
     public void testEmptyQueryBatch() {
         Collection<Query<Object, Object>> noQueries = Collections.emptySet();
         long oldCount = oracle.getCount();
@@ -59,7 +55,6 @@ public class CounterOracleTest {
         Assert.assertEquals(oracle.getCount(), oldCount);
     }
 
-    @Test(dependsOnMethods = "testEmptyQueryBatch")
     public void testSecondQueryBatch() {
         Collection<Query<Object, Object>> queries = TestQueries.createNoopQueries(1);
         long oldCount = oracle.getCount();
@@ -67,12 +62,10 @@ public class CounterOracleTest {
         Assert.assertEquals(oracle.getCount(), oldCount + 1L);
     }
 
-    @Test
     public void testGetName() {
         Assert.assertEquals(oracle.getCounter().getName(), COUNTER_NAME);
     }
 
-    @AfterMethod
     public void testInvariants() {
         Assert.assertEquals(oracle.getCounter().getCount(), oracle.getCount());
     }

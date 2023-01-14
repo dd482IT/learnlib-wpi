@@ -60,10 +60,10 @@ public abstract class AbstractDynamicBatchProcessor<Q, P extends BatchProcessor<
 
     private final ThreadLocal<P> threadLocalOracle;
     private final ExecutorService executor;
-    private final @NonNegative int batchSize;
+    private final int batchSize;
 
     public AbstractDynamicBatchProcessor(final Supplier<? extends P> oracleSupplier,
-                                         @NonNegative int batchSize,
+                                         int batchSize,
                                          ExecutorService executor) {
         this.threadLocalOracle = ThreadLocal.withInitial(oracleSupplier);
         this.executor = executor;

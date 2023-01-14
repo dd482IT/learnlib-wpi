@@ -32,7 +32,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Malte Isberner
  */
-public class AcexLocalSuffixFinder implements LocalSuffixFinder<@Nullable Object, @Nullable Object> {
+public class AcexLocalSuffixFinder implements LocalSuffixFinder<Object, Object> {
 
     private final AcexAnalyzer analyzer;
     private final boolean reduce;

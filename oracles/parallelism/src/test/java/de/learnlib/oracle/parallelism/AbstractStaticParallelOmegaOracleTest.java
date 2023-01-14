@@ -37,7 +37,6 @@ import org.testng.annotations.Test;
 
 public abstract class AbstractStaticParallelOmegaOracleTest<D> {
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testZeroQueries(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         oracle.processQueries(Collections.emptyList());
@@ -47,7 +46,6 @@ public abstract class AbstractStaticParallelOmegaOracleTest<D> {
         oracle.shutdownNow();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanMin(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         List<OmegaQuery<Integer, D>> queries = createQueries(Utils.MIN_BATCH_SIZE - 1);
@@ -58,7 +56,6 @@ public abstract class AbstractStaticParallelOmegaOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testMin(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         List<OmegaQuery<Integer, D>> queries = createQueries(Utils.MIN_BATCH_SIZE);
@@ -69,7 +66,6 @@ public abstract class AbstractStaticParallelOmegaOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanTwoBatches(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         List<OmegaQuery<Integer, D>> queries = createQueries(2 * Utils.MIN_BATCH_SIZE - 1);
@@ -80,7 +76,6 @@ public abstract class AbstractStaticParallelOmegaOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanSixBatches(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         List<OmegaQuery<Integer, D>> queries = createQueries(5 * Utils.MIN_BATCH_SIZE + Utils.MIN_BATCH_SIZE / 2);
@@ -91,7 +86,6 @@ public abstract class AbstractStaticParallelOmegaOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testFullLoad(PoolPolicy policy) {
         StaticParallelOmegaOracle<?, Integer, D> oracle = getOracle(policy);
         List<OmegaQuery<Integer, D>> queries = createQueries(2 * Utils.NUM_ORACLES * Utils.MIN_BATCH_SIZE);

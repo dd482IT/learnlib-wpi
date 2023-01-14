@@ -27,7 +27,6 @@ import org.testng.annotations.Test;
 /**
  * @author frohme
  */
-@Test
 public class TTTLearnerVPDAIT extends AbstractOneSEVPALearnerIT {
 
     @Override

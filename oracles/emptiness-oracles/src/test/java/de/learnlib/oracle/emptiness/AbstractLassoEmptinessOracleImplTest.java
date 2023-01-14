@@ -65,7 +65,6 @@ public abstract class AbstractLassoEmptinessOracleImplTest<L extends Lasso<Chara
 
     protected abstract DefaultQuery<Character, D> createQuery();
 
-    @BeforeMethod
     public void setUp() {
         mock = MockitoAnnotations.openMocks(this);
         leo = createLassoEmptinessOracleImpl();
@@ -74,13 +73,11 @@ public abstract class AbstractLassoEmptinessOracleImplTest<L extends Lasso<Chara
         output = createOutput();
     }
 
-    @AfterMethod
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     public void tearDown() throws Exception {
         this.mock.close();
     }
 
-    @Test
     public void testProcessInput() {
         Mockito.doAnswer(invocation -> {
             final OmegaQuery<Character, D> q = Objects.requireNonNull(invocation.getArgument(0));
@@ -101,13 +98,11 @@ public abstract class AbstractLassoEmptinessOracleImplTest<L extends Lasso<Chara
         Assert.assertEquals(test.getPeriodicity(), 1);
     }
 
-    @Test
     public void testFindCounterExample() {
         final DefaultQuery<Character, D> cex = leo.findCounterExample(automaton, ALPHABET);
         Assert.assertEquals(cex, query);
     }
 
-    @Test
     public void testIsCounterExample() {
         leo.isCounterExample(automaton, query.getInput(), query.getOutput());
     }

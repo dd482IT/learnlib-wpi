@@ -44,11 +44,11 @@ public abstract class AbstractDynamicBatchProcessorBuilder<Q, P extends BatchPro
 
     private static final int DEFAULT_KEEP_ALIVE_TIME = 60;
 
-    private final @Nullable Supplier<? extends P> oracleSupplier;
-    private final @Nullable Collection<? extends P> oracles;
+    private final Supplier<? extends P> oracleSupplier;
+    private final Collection<? extends P> oracles;
     private ExecutorService customExecutor;
-    private @NonNegative int batchSize = AbstractDynamicBatchProcessor.BATCH_SIZE;
-    private @NonNegative int poolSize = AbstractDynamicBatchProcessor.POOL_SIZE;
+    private int batchSize = AbstractDynamicBatchProcessor.BATCH_SIZE;
+    private int poolSize = AbstractDynamicBatchProcessor.POOL_SIZE;
     private PoolPolicy poolPolicy = AbstractDynamicBatchProcessor.POOL_POLICY;
 
     public AbstractDynamicBatchProcessorBuilder(Supplier<? extends P> oracleSupplier) {
@@ -72,7 +72,7 @@ public abstract class AbstractDynamicBatchProcessorBuilder<Q, P extends BatchPro
         return this;
     }
 
-    public AbstractDynamicBatchProcessorBuilder<Q, P, OR> withPoolSize(@NonNegative int poolSize) {
+    public AbstractDynamicBatchProcessorBuilder<Q, P, OR> withPoolSize(int poolSize) {
         this.poolSize = poolSize;
         return this;
     }

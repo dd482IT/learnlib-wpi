@@ -67,7 +67,7 @@ public interface LassoOracle<L extends Lasso<I, D>, I, D> {
      */
     boolean isCounterExample(Output<I, D> hypothesis, Iterable<? extends I> inputs, D output);
 
-    default @Nullable DefaultQuery<I, D> findCounterExample(L hypothesis, Collection<? extends I> inputs) {
+    default DefaultQuery<I, D> findCounterExample(L hypothesis, Collection<? extends I> inputs) {
         final Word<I> prefix = hypothesis.getPrefix();
         final Word<I> loop = hypothesis.getLoop();
         final int repeat = hypothesis.getUnfolds();

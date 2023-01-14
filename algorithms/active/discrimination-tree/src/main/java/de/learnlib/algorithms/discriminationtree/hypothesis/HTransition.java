@@ -29,10 +29,10 @@ public class HTransition<I, O, SP, TP> {
     private TP property;
 
     // TREE EDGE FIELDS
-    private @Nullable HState<I, O, SP, TP> treeTgt;
+    private HState<I, O, SP, TP> treeTgt;
 
     // NON-TREE EDGE FIELDS
-    private @Nullable AbstractWordBasedDTNode<I, O, HState<I, O, SP, TP>> dt;
+    private AbstractWordBasedDTNode<I, O, HState<I, O, SP, TP>> dt;
 
     public HTransition(HState<I, O, SP, TP> source,
                        I symbol,
@@ -64,12 +64,10 @@ public class HTransition<I, O, SP, TP> {
         return treeTgt;
     }
 
-    @EnsuresNonNullIf(expression = "treeTgt", result = true)
     public boolean isTree() {
         return treeTgt != null;
     }
 
-    @EnsuresNonNullIf(expression = "dt", result = true)
     public boolean isNonTree() {
         return dt != null;
     }

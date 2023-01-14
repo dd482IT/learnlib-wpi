@@ -27,15 +27,15 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class IntrusiveListElemImpl<T> implements IntrusiveListElem<T> {
 
-    protected @Nullable T next;
+    protected T next;
 
     @Override
-    public @Nullable T getNextElement() {
+    public T getNextElement() {
         return next;
     }
 
     @Override
-    public void setNextElement(@Nullable T next) {
+    public void setNextElement(T next) {
         this.next = next;
     }
 }

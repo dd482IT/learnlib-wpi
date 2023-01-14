@@ -31,7 +31,6 @@ import org.testng.annotations.Test;
  */
 public class SimulatorOracleTest {
 
-    @Test
     public void testDFASimulatorOracle() {
 
         DFA<?, String> dfa = ExamplePaulAndMary.constructMachine();

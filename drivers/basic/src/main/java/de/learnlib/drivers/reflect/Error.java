@@ -41,7 +41,7 @@ public class Error extends MethodOutput {
     }
 
     @Override
-    public final boolean equals(@Nullable Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }

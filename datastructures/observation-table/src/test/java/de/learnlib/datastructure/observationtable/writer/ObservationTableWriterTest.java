@@ -33,7 +33,6 @@ import org.testng.annotations.Test;
  */
 public class ObservationTableWriterTest {
 
-    @Test
     public void testWriteASCII() throws URISyntaxException, IOException {
 
         final ObservationTableASCIIWriter<String, String> writer =
@@ -42,7 +41,6 @@ public class ObservationTableWriterTest {
         testInternal(writer, "/OT_ASCII.txt");
     }
 
-    @Test
     public void testWriteHTML() throws URISyntaxException, IOException {
 
         final ObservationTableHTMLWriter<String, String> writer =

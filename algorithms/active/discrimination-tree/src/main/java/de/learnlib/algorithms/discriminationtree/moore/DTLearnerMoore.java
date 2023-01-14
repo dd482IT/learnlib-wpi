@@ -44,7 +44,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DTLearnerMoore<I, O> extends AbstractDTLearner<MooreMachine<?, I, ?, O>, I, Word<O>, O, Void>
         implements MooreLearner<I, O> {
 
-    @GenerateBuilder(defaults = AbstractDTLearner.BuilderDefaults.class)
     public DTLearnerMoore(Alphabet<I> alphabet,
                           MembershipOracle<I, Word<O>> oracle,
                           LocalSuffixFinder<? super I, ? super Word<O>> suffixFinder,
@@ -53,7 +52,7 @@ public class DTLearnerMoore<I, O> extends AbstractDTLearner<MooreMachine<?, I, ?
     }
 
     @Override
-    protected @Nullable Query<I, Word<O>> spQuery(HState<I, Word<O>, O, Void> state) {
+    protected Query<I, Word<O>> spQuery(HState<I, Word<O>, O, Void> state) {
         return new AbstractQuery<I, Word<O>>(state.getAccessSequence(), Word.epsilon()) {
 
             @Override
@@ -64,7 +63,7 @@ public class DTLearnerMoore<I, O> extends AbstractDTLearner<MooreMachine<?, I, ?
     }
 
     @Override
-    protected @Nullable Query<I, Word<O>> tpQuery(HTransition<I, Word<O>, O, Void> transition) {
+    protected Query<I, Word<O>> tpQuery(HTransition<I, Word<O>, O, Void> transition) {
         return null;
     }
 

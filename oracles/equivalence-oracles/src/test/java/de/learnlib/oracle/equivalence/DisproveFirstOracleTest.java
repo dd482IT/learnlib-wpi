@@ -35,24 +35,18 @@ public class DisproveFirstOracleTest {
 
     private AutoCloseable mock;
 
-    @Mock
     private PropertyOracle<Boolean, Output<Boolean, Boolean>, Boolean, Boolean> po1;
 
-    @Mock
     private PropertyOracle<Boolean, Output<Boolean, Boolean>, Boolean, Boolean> po2;
 
     private BlackBoxOracle<Output<Boolean, Boolean>, Boolean, Boolean> oracle;
 
-    @Mock
     private DefaultQuery<Boolean, Boolean> query;
 
-    @Mock
     private Output<Boolean, Boolean> automaton;
 
-    @Mock
     private Alphabet<Boolean> inputs;
 
-    @BeforeMethod
     public void setUp() {
         mock = MockitoAnnotations.openMocks(this);
 
@@ -68,13 +62,11 @@ public class DisproveFirstOracleTest {
         Mockito.when(po2.doFindCounterExample(automaton, inputs)).thenReturn(query);
     }
 
-    @AfterMethod
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     public void tearDown() throws Exception {
         this.mock.close();
     }
 
-    @Test
     public void testGetPropertyOracles() {
         Assert.assertEquals(oracle.getPropertyOracles().size(), 2);
     }
@@ -84,7 +76,6 @@ public class DisproveFirstOracleTest {
      *  1. whether the correct counterexample is given by the {@link DisproveFirstOracle}, and
      *  2. whether {@link PropertyOracle#disprove(Output, Collection)} is called only on {@link #po2}.
      */
-    @Test
     public void testFindCounterExample() {
         final DefaultQuery<Boolean, Boolean> ce = oracle.findCounterExample(automaton, inputs);
 

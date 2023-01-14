@@ -42,7 +42,7 @@ final class ThreadSafeDFACacheConsistencyTest<I> implements DFAEquivalenceOracle
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
         lock.readLock().lock();
         try {
             return delegate.findCounterExample(hypothesis, inputs);

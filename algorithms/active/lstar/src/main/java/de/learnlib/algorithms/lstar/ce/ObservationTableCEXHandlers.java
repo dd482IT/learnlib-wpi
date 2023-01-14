@@ -33,8 +33,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 public final class ObservationTableCEXHandlers {
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> CLASSIC_LSTAR =
-            new ObservationTableCEXHandler<@Nullable Object, @Nullable Object>() {
+    public static final ObservationTableCEXHandler<Object, Object> CLASSIC_LSTAR =
+            new ObservationTableCEXHandler<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<List<Row<RI>>> handleCounterexample(DefaultQuery<RI, RD> ceQuery,
@@ -56,8 +56,8 @@ public final class ObservationTableCEXHandlers {
 
             };
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> SUFFIX1BY1 =
-            new ObservationTableCEXHandler<@Nullable Object, @Nullable Object>() {
+    public static final ObservationTableCEXHandler<Object, Object> SUFFIX1BY1 =
+            new ObservationTableCEXHandler<Object, Object>() {
 
                 @Override
                 public <RI, RD> List<List<Row<RI>>> handleCounterexample(DefaultQuery<RI, RD> ceQuery,
@@ -78,28 +78,28 @@ public final class ObservationTableCEXHandlers {
                 }
             };
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> MALER_PNUELI =
+    public static final ObservationTableCEXHandler<Object, Object> MALER_PNUELI =
             fromGlobalSuffixFinder(GlobalSuffixFinders.MALER_PNUELI);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> SHAHBAZ =
+    public static final ObservationTableCEXHandler<Object, Object> SHAHBAZ =
             fromGlobalSuffixFinder(GlobalSuffixFinders.SHAHBAZ);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> FIND_LINEAR =
+    public static final ObservationTableCEXHandler<Object, Object> FIND_LINEAR =
             fromLocalSuffixFinder(LocalSuffixFinders.FIND_LINEAR, false);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> FIND_LINEAR_ALLSUFFIXES =
+    public static final ObservationTableCEXHandler<Object, Object> FIND_LINEAR_ALLSUFFIXES =
             fromLocalSuffixFinder(LocalSuffixFinders.FIND_LINEAR, true);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> FIND_LINEAR_REVERSE =
+    public static final ObservationTableCEXHandler<Object, Object> FIND_LINEAR_REVERSE =
             fromLocalSuffixFinder(LocalSuffixFinders.FIND_LINEAR_REVERSE, false);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> FIND_LINEAR_REVERSE_ALLSUFFIXES =
+    public static final ObservationTableCEXHandler<Object, Object> FIND_LINEAR_REVERSE_ALLSUFFIXES =
             fromLocalSuffixFinder(LocalSuffixFinders.FIND_LINEAR_REVERSE, true);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> RIVEST_SCHAPIRE =
+    public static final ObservationTableCEXHandler<Object, Object> RIVEST_SCHAPIRE =
             fromLocalSuffixFinder(LocalSuffixFinders.RIVEST_SCHAPIRE, false);
 
-    public static final ObservationTableCEXHandler<@Nullable Object, @Nullable Object> RIVEST_SCHAPIRE_ALLSUFFIXES =
+    public static final ObservationTableCEXHandler<Object, Object> RIVEST_SCHAPIRE_ALLSUFFIXES =
             fromLocalSuffixFinder(LocalSuffixFinders.RIVEST_SCHAPIRE, true);
 
     private ObservationTableCEXHandlers() {
@@ -210,7 +210,7 @@ public final class ObservationTableCEXHandlers {
     }
 
     @SuppressWarnings("unchecked")
-    public static ObservationTableCEXHandler<@Nullable Object, @Nullable Object>[] values() {
+    public static ObservationTableCEXHandler<Object, Object>[] values() {
         return new ObservationTableCEXHandler[] {CLASSIC_LSTAR,
                                                  SUFFIX1BY1,
                                                  MALER_PNUELI,

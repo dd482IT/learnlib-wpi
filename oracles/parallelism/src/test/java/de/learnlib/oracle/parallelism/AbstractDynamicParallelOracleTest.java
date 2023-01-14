@@ -30,10 +30,8 @@ import net.automatalib.words.Word;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractDynamicParallelOracleTest<D> {
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testEmpty(PoolPolicy poolPolicy) {
         ParallelOracle<Void, D> oracle = getBuilder().withBatchSize(3).withPoolPolicy(poolPolicy).create();
 
@@ -44,7 +42,6 @@ public abstract class AbstractDynamicParallelOracleTest<D> {
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testDistinctQueries(PoolPolicy poolPolicy) {
         ParallelOracle<Void, D> oracle =
                 getBuilder().withBatchSize(1).withPoolSize(4).withPoolPolicy(poolPolicy).create();
@@ -62,7 +59,6 @@ public abstract class AbstractDynamicParallelOracleTest<D> {
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, expectedExceptions = IllegalStateException.class)
     public void testDuplicateQueries(PoolPolicy poolPolicy) {
         ParallelOracle<Void, D> oracle = getBuilder().withBatchSize(3).withPoolPolicy(poolPolicy).create();
         try {

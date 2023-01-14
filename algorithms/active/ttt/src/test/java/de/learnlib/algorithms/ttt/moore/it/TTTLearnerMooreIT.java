@@ -24,7 +24,6 @@ import de.learnlib.testsupport.it.learner.LearnerVariantList.MooreLearnerVariant
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class TTTLearnerMooreIT extends AbstractMooreLearnerIT {
 
     @Override

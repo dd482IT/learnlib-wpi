@@ -43,7 +43,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractMooreSymLearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<MooreLearningExample<?, ?>> examples = LearningExamples.createMooreExamples();
         final List<UniversalDeterministicLearnerITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

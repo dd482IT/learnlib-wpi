@@ -34,7 +34,6 @@ import org.testng.annotations.BeforeMethod;
 public class MealyBFEmptinessOracleTest
         extends AbstractBFEmptinessOracleTest<MealyMachine<?, Character, ?, Character>, Word<Character>> {
 
-    @Mock
     private MembershipOracle.MealyMembershipOracle<Character, Character> mo;
 
     @Override
@@ -54,7 +53,6 @@ public class MealyBFEmptinessOracleTest
         return new DefaultQuery<>(Word.epsilon(), Word.fromSymbols('a'), Word.fromSymbols('1'));
     }
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
         Mockito.doAnswer(invocation -> {

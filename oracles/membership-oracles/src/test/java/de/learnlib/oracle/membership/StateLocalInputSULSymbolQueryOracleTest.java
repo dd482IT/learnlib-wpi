@@ -37,7 +37,6 @@ public class StateLocalInputSULSymbolQueryOracleTest {
     private ExampleRandomStateLocalInputMealy<Character, Integer> example;
     private StateLocalInputSUL<Character, Integer> sul;
 
-    @BeforeClass
     public void setUp() {
         final Alphabet<Character> inputs = Alphabets.characters('a', 'c');
         final Alphabet<Integer> outputs = Alphabets.integers(0, 2);
@@ -49,7 +48,6 @@ public class StateLocalInputSULSymbolQueryOracleTest {
         sul = new StateLocalInputMealySimulatorSUL<>(example.getReferenceAutomaton());
     }
 
-    @Test
     public void testResetIdempotency() {
         final StateLocalInputSUL<Character, Integer> mock = Mockito.spy(sul);
         Mockito.doAnswer(invocation -> Collections.singleton('a')).when(mock).currentlyEnabledInputs();
@@ -70,7 +68,6 @@ public class StateLocalInputSULSymbolQueryOracleTest {
         Mockito.verify(mock, Mockito.times(0)).currentlyEnabledInputs();
     }
 
-    @Test
     public void testQueriesAndCleanUp() {
         final StateLocalInputSUL<Character, Integer> mock = Mockito.spy(sul);
         Mockito.doAnswer(invocation -> Collections.singleton('a')).when(mock).currentlyEnabledInputs();

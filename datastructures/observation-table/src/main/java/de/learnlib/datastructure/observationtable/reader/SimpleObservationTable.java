@@ -37,7 +37,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @param <D>
  *         The output domain type.
  */
-public class SimpleObservationTable<I, @Nullable D> implements ObservationTable<I, D> {
+public class SimpleObservationTable<I, D> implements ObservationTable<I, D> {
 
     final List<? extends Word<I>> suffixes;
 

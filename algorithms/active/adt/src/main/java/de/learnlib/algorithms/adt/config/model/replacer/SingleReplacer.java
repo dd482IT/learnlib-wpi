@@ -113,7 +113,6 @@ public class SingleReplacer implements SubtreeReplacer {
      *
      * @return a ReplacementResult for the parent (reset) node, if a valid replacement is found. {@code null} otherwise.
      */
-    @Nullable
     static <S, I, O> ReplacementResult<S, I, O> computeParentExtension(final MealyMachine<S, I, ?, O> hypothesis,
                                                                        final Alphabet<I> inputs,
                                                                        final ADTNode<S, I, O> node,

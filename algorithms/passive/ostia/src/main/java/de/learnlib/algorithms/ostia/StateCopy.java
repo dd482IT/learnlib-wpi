@@ -30,10 +30,10 @@ class StateCopy extends StateParent {
         this.original = original;
     }
 
-    private static @Nullable Edge[] copyTransitions(@Nullable Edge[] transitions) {
-        final @Nullable Edge[] copy = new Edge[transitions.length];
+    private static Edge[] copyTransitions(Edge[] transitions) {
+        final Edge[] copy = new Edge[transitions.length];
         for (int i = 0; i < copy.length; i++) {
-            @Nullable Edge edge = transitions[i];
+            Edge edge = transitions[i];
             copy[i] = edge == null ? null : new Edge(edge);
         }
         return copy;
@@ -47,8 +47,8 @@ class StateCopy extends StateParent {
     /**
      * The IntQueue is consumed and should not be reused after calling this method.
      */
-    void prepend(@Nullable IntQueue prefix) {
-        for (@Nullable Edge edge : transitions) {
+    void prepend(IntQueue prefix) {
+        for (Edge edge : transitions) {
             if (edge != null) {
                 edge.out = IntQueue.copyAndConcat(prefix, edge.out);
             }

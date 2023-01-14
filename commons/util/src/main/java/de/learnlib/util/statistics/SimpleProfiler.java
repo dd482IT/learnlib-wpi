@@ -80,7 +80,7 @@ public final class SimpleProfiler {
      *
      * @return The counter for tracking the passed milliseconds of the timer
      */
-    public static @Nullable Counter cumulated(String name) {
+    public static Counter cumulated(String name) {
         return CUMULATED.get(name);
     }
 

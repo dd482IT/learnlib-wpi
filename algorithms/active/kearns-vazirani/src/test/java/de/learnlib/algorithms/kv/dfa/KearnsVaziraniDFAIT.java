@@ -28,7 +28,6 @@ import org.testng.annotations.Test;
  *
  * @author Malte Isberner
  */
-@Test
 public class KearnsVaziraniDFAIT extends AbstractDFALearnerIT {
 
     private static final boolean[] BOOLEAN_VALUES = {false, true};

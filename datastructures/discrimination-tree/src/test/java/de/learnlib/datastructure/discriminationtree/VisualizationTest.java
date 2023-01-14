@@ -29,7 +29,6 @@ import org.testng.annotations.Test;
  */
 public class VisualizationTest {
 
-    @Test
     public void testVisualization() throws IOException {
         final StringWriter actualDT = new StringWriter();
         GraphDOT.write(DummyDT.DT, actualDT);

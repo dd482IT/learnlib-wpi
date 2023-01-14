@@ -44,7 +44,7 @@ public class ADTResetNode<S, I, O> implements ADTNode<S, I, O> {
     }
 
     @Override
-    public @Nullable I getSymbol() {
+    public I getSymbol() {
         return null;
     }
 
@@ -69,7 +69,7 @@ public class ADTResetNode<S, I, O> implements ADTNode<S, I, O> {
     }
 
     @Override
-    public @Nullable S getHypothesisState() {
+    public S getHypothesisState() {
         return null;
     }
 

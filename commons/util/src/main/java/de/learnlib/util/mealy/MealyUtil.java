@@ -87,7 +87,7 @@ public final class MealyUtil {
         return NO_MISMATCH;
     }
 
-    public static <I, O> @Nullable DefaultQuery<I, Word<O>> shortenCounterExample(MealyMachine<?, I, ?, O> hypothesis,
+    public static <I, O> DefaultQuery<I, Word<O>> shortenCounterExample(MealyMachine<?, I, ?, O> hypothesis,
                                                                                   DefaultQuery<I, Word<O>> ceQuery) {
         Word<I> cePrefix = ceQuery.getPrefix(), ceSuffix = ceQuery.getSuffix();
         Word<O> hypOut = hypothesis.computeSuffixOutput(cePrefix, ceSuffix);
@@ -102,7 +102,7 @@ public final class MealyUtil {
         return new DefaultQuery<>(cePrefix, ceSuffix.prefix(mismatchIdx + 1), ceOut.prefix(mismatchIdx + 1));
     }
 
-    public static <I, O> @Nullable DefaultQuery<I, O> reduceCounterExample(MealyMachine<?, I, ?, O> hypothesis,
+    public static <I, O> DefaultQuery<I, O> reduceCounterExample(MealyMachine<?, I, ?, O> hypothesis,
                                                                            DefaultQuery<I, Word<O>> ceQuery) {
         Word<I> cePrefix = ceQuery.getPrefix(), ceSuffix = ceQuery.getSuffix();
         Word<O> hypOut = hypothesis.computeSuffixOutput(cePrefix, ceSuffix);
@@ -121,7 +121,7 @@ public final class MealyUtil {
         return new MealyLearnerWrapper<>(learner);
     }
 
-    public static <I, O> MembershipOracle<I, @Nullable O> wrapWordOracle(MembershipOracle<I, Word<O>> oracle) {
+    public static <I, O> MembershipOracle<I, O> wrapWordOracle(MembershipOracle<I, Word<O>> oracle) {
         return new SymbolOracleWrapper<>(oracle);
     }
 

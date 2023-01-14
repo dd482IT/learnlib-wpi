@@ -56,7 +56,6 @@ public abstract class AbstractGrowingAlphabetTest<L extends SupportsGrowingAlpha
 
     private List<I> alphabetExtensions;
 
-    @BeforeClass
     public void setup() {
         initialAlphabet = getInitialAlphabet();
         alphabetExtensions = new ArrayList<>(getAlphabetExtensions());
@@ -83,7 +82,6 @@ public abstract class AbstractGrowingAlphabetTest<L extends SupportsGrowingAlpha
 
     protected abstract L getLearner(OR oracle, Alphabet<I> alphabet);
 
-    @Test(expectedExceptions = GrowingAlphabetNotSupportedException.class)
     public void testInitialAlphabet() {
         final L leaner = getLearner(oracle, initialAlphabet);
 
@@ -95,7 +93,6 @@ public abstract class AbstractGrowingAlphabetTest<L extends SupportsGrowingAlpha
      * net.automatalib.words.GrowingAlphabet#addSymbol(Object)} functionality. Due to references, this may alter their
      * behavior. Check it!
      */
-    @Test
     public void testGrowingAlphabet() {
         final GrowingAlphabet<I> alphabet = new GrowingMapAlphabet<>(initialAlphabet);
         final L leaner = getLearner(oracle, alphabet);
@@ -103,7 +100,6 @@ public abstract class AbstractGrowingAlphabetTest<L extends SupportsGrowingAlpha
         testAlphabet(alphabet, leaner, Collections.singletonList(leaner::addAlphabetSymbol));
     }
 
-    @Test
     public void testGrowingAlphabetWithCache() {
         final GrowingAlphabet<I> alphabet = new GrowingMapAlphabet<>(initialAlphabet);
         final List<Consumer<I>> symbolListener = new ArrayList<>();

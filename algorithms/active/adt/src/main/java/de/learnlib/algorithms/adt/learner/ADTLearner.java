@@ -102,7 +102,6 @@ public class ADTLearner<I, O> implements LearningAlgorithm.MealyLearner<I, O>,
         this(alphabet, oracle, leafSplitter, adtExtender, subtreeReplacer, true);
     }
 
-    @GenerateBuilder(defaults = BuilderDefaults.class)
     public ADTLearner(final Alphabet<I> alphabet,
                       final SymbolQueryOracle<I, O> oracle,
                       final LeafSplitter leafSplitter,

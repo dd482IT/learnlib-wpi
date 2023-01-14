@@ -246,7 +246,7 @@ public class ObservationTable<I> {
         return upperRows.size();
     }
 
-    public @Nullable Inconsistency<I> findInconsistency() {
+    public Inconsistency<I> findInconsistency() {
         for (Row<I> row1 : upperRows) {
             for (Row<I> row2 : row1.getCoveredRows()) {
                 assert row2.isShortPrefixRow();

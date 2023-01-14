@@ -42,13 +42,11 @@ public class QuiescenceTest {
     /**
      * {@inheritDoc}.
      */
-    @BeforeClass
     protected void setUp() {
         sigma = Alphabets.integers(0, 3);
         reuseOracle = new ReuseOracle.ReuseOracleBuilder<>(sigma, new TestOracleFactory()).build();
     }
 
-    @Test
     public void simpleTest() {
         MealyLearner<Integer, String> learner =
                 new ExtensibleLStarMealyBuilder<Integer, String>().withAlphabet(sigma).withOracle(reuseOracle).create();

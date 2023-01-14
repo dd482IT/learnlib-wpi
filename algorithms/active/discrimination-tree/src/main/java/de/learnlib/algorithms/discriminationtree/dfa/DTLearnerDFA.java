@@ -53,7 +53,6 @@ public class DTLearnerDFA<I> extends AbstractDTLearner<DFA<?, I>, I, Boolean, Bo
      * @param epsilonRoot
      *         whether or not to ensure the root of the discrimination tree is always labeled using the empty word.
      */
-    @GenerateBuilder
     public DTLearnerDFA(Alphabet<I> alphabet,
                         MembershipOracle<I, Boolean> oracle,
                         LocalSuffixFinder<? super I, ? super Boolean> suffixFinder,
@@ -79,7 +78,7 @@ public class DTLearnerDFA<I> extends AbstractDTLearner<DFA<?, I>, I, Boolean, Bo
     }
 
     @Override
-    protected @Nullable Query<I, Boolean> tpQuery(HTransition<I, Boolean, Boolean, Void> transition) {
+    protected Query<I, Boolean> tpQuery(HTransition<I, Boolean, Boolean, Void> transition) {
         return null;
     }
 

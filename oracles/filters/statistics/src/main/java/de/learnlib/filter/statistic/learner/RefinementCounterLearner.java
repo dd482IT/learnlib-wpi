@@ -44,22 +44,6 @@ import net.automatalib.words.Word;
  * @param <D>
  *         the output type.
  */
-@GenerateRefinement(name = "DFARefinementCounterLearner",
-                    generics = "I",
-                    parentGenerics = {@Generic(clazz = DFA.class, generics = {"?", "I"}),
-                                      @Generic("I"),
-                                      @Generic(clazz = Boolean.class)},
-                    parameterMapping = @Map(from = LearningAlgorithm.class, to = DFALearner.class, withGenerics = "I"),
-                    interfaces = @Interface(clazz = DFAStatisticLearner.class, generics = "I"))
-@GenerateRefinement(name = "MealyRefinementCounterLearner",
-                    generics = {"I", "O"},
-                    parentGenerics = {@Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
-                                      @Generic("I"),
-                                      @Generic(clazz = Word.class, generics = "O")},
-                    parameterMapping = @Map(from = LearningAlgorithm.class,
-                                            to = MealyLearner.class,
-                                            withGenerics = {"I", "O"}),
-                    interfaces = @Interface(clazz = MealyStatisticLearner.class, generics = {"I", "O"}))
 public class RefinementCounterLearner<M, I, D> implements StatisticLearner<M, I, D> {
 
     private final LearningAlgorithm<M, I, D> learningAlgorithm;

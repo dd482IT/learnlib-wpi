@@ -33,7 +33,7 @@ final class DFAHashCacheConsistencyTest<I> implements DFAEquivalenceOracle<I> {
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
         for (Map.Entry<Word<I>, Boolean> cacheEntry : cache.entrySet()) {
             Word<I> input = cacheEntry.getKey();
             Boolean answer = cacheEntry.getValue();

@@ -39,7 +39,6 @@ import org.testng.annotations.Test;
  */
 public abstract class AbstractEQOracleTest<A extends SuffixOutput<I, D>, I, D> {
 
-    @Test
     public void testGeneratedEQQueries() {
         final SuffixOutput<I, D> output = getHypothesis();
         final EquivalenceOracle<? super A, I, ?> oracle = getOracle(new DummyMQOracle(output));

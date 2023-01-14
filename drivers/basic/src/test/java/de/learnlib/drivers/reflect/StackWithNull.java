@@ -41,7 +41,7 @@ public class StackWithNull {
         }
     }
 
-    public @Nullable Object pop() {
+    public Object pop() {
         return back.isEmpty() ? null : back.pop();
     }
 }

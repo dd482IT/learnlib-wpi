@@ -93,9 +93,9 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
         return root;
     }
 
-    private static void buildPttOnward(State ptt, IntSeq input, @Nullable IntQueue output) {
+    private static void buildPttOnward(State ptt, IntSeq input, IntQueue output) {
         State pttIter = ptt;
-        @Nullable IntQueue outputIter = output;
+        IntQueue outputIter = output;
 
         for (int i = 0; i < input.size(); i++) {//input index
             final int symbol = input.get(i);
@@ -166,7 +166,7 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
         while (!blue.isEmpty()) {
             @SuppressWarnings("nullness") // false positive https://github.com/typetools/checker-framework/issues/399
             final @NonNull Blue next = blue.poll();
-            final @Nullable State blueState = next.state();
+            final State blueState = next.state();
             assert blueState != null;
             assert isTree(blueState, new HashSet<>());
             assert uniqueItems(blue);
@@ -211,7 +211,7 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
     }
 
     private static boolean ostiaFold(State red,
-                                     @Nullable IntQueue pushedBack,
+                                     IntQueue pushedBack,
                                      State blueParent,
                                      int symbolIncomingToBlue,
                                      Map<State, StateCopy> mergedStates,
@@ -283,7 +283,7 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
         return true;
     }
 
-    public static @Nullable IntSeq run(State init, IntSeq input) {
+    public static IntSeq run(State init, IntSeq input) {
         final List<Integer> output = new ArrayList<>();
         State iter = init;
         for (int i = 0; i < input.size(); i++) {
@@ -320,7 +320,7 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
         return true;
     }
 
-    private static boolean contains(Queue<Blue> blue, @Nullable State state) {
+    private static boolean contains(Queue<Blue> blue, State state) {
         for (Blue b : blue) {
             if (Objects.equals(state, b.state())) {
                 return true;
@@ -330,7 +330,7 @@ public class OSTIA<I, O> implements PassiveLearningAlgorithm<SubsequentialTransd
     }
 
     private static boolean uniqueItems(Queue<Blue> blue) {
-        final Set<@Nullable State> unique = new HashSet<>();
+        final Set<State> unique = new HashSet<>();
         for (Blue b : blue) {
             if (!unique.add(b.state())) {
                 return false;

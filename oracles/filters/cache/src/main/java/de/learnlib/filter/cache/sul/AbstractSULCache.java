@@ -117,7 +117,7 @@ abstract class AbstractSULCache<I, O, C extends SULCacheState<I, O>>
         private final WordBuilder<O> outputWord = new WordBuilder<>();
 
         private boolean delegatePreCalled;
-        protected @Nullable S current;
+        protected S current;
 
         AbstractSULCacheImpl(IncrementalMealyBuilder<I, O> incMealy,
                              MealyTransitionSystem<S, I, T, O> mealyTs,

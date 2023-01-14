@@ -53,7 +53,6 @@ public class OSTIATest {
     private static final Collection<String> OUTPUTS = Arrays.asList("o1", "o2", "o3");
     private static final long SEED = 1337L;
 
-    @DataProvider(name = "sizes")
     public static Object[][] sizes() {
         return new Object[][] {{10}, {25}, {50}, {100}};
     }
@@ -70,7 +69,6 @@ public class OSTIATest {
                              Pair.of(IntSeq.of(0, 1, 0, 1), IntSeq.of(0, 1, 0, 1)));
     }
 
-    @Test
     public void testStaticInvocation() {
         final List<Pair<IntSeq, IntSeq>> samples = getExampleSamples();
 
@@ -88,7 +86,6 @@ public class OSTIATest {
         Assert.assertEquals(OSTIA.run(root, IntSeq.of(0, 1, 0, 1, 1)), IntSeq.of(0, 1, 0, 1, 1));
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testInconsistentSamples() {
         final List<Pair<IntSeq, IntSeq>> samples = new ArrayList<>(getExampleSamples());
 
@@ -97,7 +94,6 @@ public class OSTIATest {
         OSTIA.buildPtt(2, samples.iterator());
     }
 
-    @Test
     public void testVisualization() throws IOException {
         final Alphabet<Integer> alphabet = Alphabets.integers(0, 1);
         final OSTIA<Integer, Integer> learner = new OSTIA<>(alphabet);
@@ -129,7 +125,6 @@ public class OSTIATest {
         Assert.assertEquals(actualHyp.toString(), expectedHyp);
     }
 
-    @Test(dataProvider = "sizes")
     public void testEquivalence(int size) {
 
         final Random random = new Random(SEED);

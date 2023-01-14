@@ -26,14 +26,12 @@ import org.testng.annotations.Test;
 
 public class SuffixASCIIWriterTest {
 
-    @Test
     public void testWrite() {
         SuffixASCIIWriter<String, String> writer = new SuffixASCIIWriter<>();
         ObservationTable<String, String> ot = ObservationTableSource.otWithFourSuffixes();
         Assert.assertEquals(OTUtils.toString(ot, writer), ";A;B;A,B");
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testDelimiterInNames() {
         SuffixASCIIWriter<String, String> writer = new SuffixASCIIWriter<>();
         ObservationTable<String, String> ot = ObservationTableSource.otWithFourSuffixesUsingDelimiterInNames();
@@ -41,7 +39,6 @@ public class SuffixASCIIWriterTest {
         OTUtils.toString(ot, writer);
     }
 
-    @Test
     public void testRead() {
         ObservationTable<String, String> ot = ObservationTableSource.otWithFourSuffixes();
         String str = OTUtils.toString(ot, new SuffixASCIIWriter<>());

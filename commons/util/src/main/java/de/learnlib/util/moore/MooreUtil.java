@@ -54,7 +54,7 @@ public final class MooreUtil {
         return NO_MISMATCH;
     }
 
-    public static <I, O> @Nullable DefaultQuery<I, O> reduceCounterExample(MooreMachine<?, I, ?, O> hypothesis,
+    public static <I, O> DefaultQuery<I, O> reduceCounterExample(MooreMachine<?, I, ?, O> hypothesis,
                                                                            DefaultQuery<I, Word<O>> ceQuery) {
         Word<I> cePrefix = ceQuery.getPrefix(), ceSuffix = ceQuery.getSuffix();
         Word<O> hypOut = hypothesis.computeSuffixOutput(cePrefix, ceSuffix);
@@ -73,7 +73,7 @@ public final class MooreUtil {
         return new MooreLearnerWrapper<>(learner);
     }
 
-    public static <I, O> MembershipOracle<I, @Nullable O> wrapWordOracle(MembershipOracle<I, Word<O>> oracle) {
+    public static <I, O> MembershipOracle<I, O> wrapWordOracle(MembershipOracle<I, Word<O>> oracle) {
         return new SymbolOracleWrapper<>(oracle);
     }
 

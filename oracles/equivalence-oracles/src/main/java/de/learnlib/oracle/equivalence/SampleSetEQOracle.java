@@ -156,7 +156,7 @@ public class SampleSetEQOracle<I, D> implements EquivalenceOracle<SuffixOutput<I
     }
 
     @Override
-    public @Nullable DefaultQuery<I, D> findCounterExample(SuffixOutput<I, D> hypothesis,
+    public DefaultQuery<I, D> findCounterExample(SuffixOutput<I, D> hypothesis,
                                                            Collection<? extends I> inputs) {
         Iterator<DefaultQuery<I, D>> queryIt = testQueries.iterator();
 

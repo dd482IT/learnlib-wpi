@@ -19,7 +19,6 @@ import de.learnlib.api.setting.LearnLibSettingsSource;
 import net.automatalib.commons.util.settings.LocalFileSource;
 import org.kohsuke.MetaInfServices;
 
-@MetaInfServices(LearnLibSettingsSource.class)
 public class LearnLibLocalPropertiesSource extends LocalFileSource implements LearnLibSettingsSource {
 
     public LearnLibLocalPropertiesSource() {

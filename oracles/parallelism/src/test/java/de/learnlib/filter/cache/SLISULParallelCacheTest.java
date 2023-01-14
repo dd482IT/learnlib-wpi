@@ -38,7 +38,6 @@ public class SLISULParallelCacheTest
     private final ThreadSafeStateLocalInputSULCache<Character, Character> cacheRepresentative;
     private final ParallelOracle<Character, Word<Character>> parallelOracle;
 
-    @Factory(dataProvider = "caches")
     public SLISULParallelCacheTest(SLISULCacheCreator<Character, Character, ThreadSafeStateLocalInputSULCache<Character, Character>> creator) {
         this.sul = Config.getCounter(Config.TARGET_MODEL_SLI_SUL);
 
@@ -49,7 +48,6 @@ public class SLISULParallelCacheTest
         this.parallelOracle = config.getParallelOracle();
     }
 
-    @DataProvider(name = "caches")
     public static Object[][] cacheProvider() {
         return new SLISULCacheCreator<?, ?, ?>[][] {{SLISULCacheCreator.forSupplier(ThreadSafeSULCaches::createStateLocalInputCache)},
                                                     {SLISULCacheCreator.forSupplier(ThreadSafeSULCaches::createStateLocalInputTreeCache)}};

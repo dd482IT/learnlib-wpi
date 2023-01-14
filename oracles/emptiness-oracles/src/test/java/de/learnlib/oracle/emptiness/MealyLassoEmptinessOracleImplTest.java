@@ -37,10 +37,8 @@ import org.testng.annotations.BeforeMethod;
 public class MealyLassoEmptinessOracleImplTest
         extends AbstractLassoEmptinessOracleImplTest<Lasso.MealyLasso<Character, Character>, Word<Character>> {
 
-    @Mock
     private OmegaMembershipOracle.MealyOmegaMembershipOracle<Integer, Character, Character> omo;
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
 

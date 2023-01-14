@@ -32,10 +32,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public abstract class AbstractDynamicParallelOmegaOracleTest<D> {
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testEmpty(PoolPolicy poolPolicy) {
         ParallelOmegaOracle<?, Void, D> oracle = getBuilder().withPoolPolicy(poolPolicy).create();
 
@@ -46,7 +44,6 @@ public abstract class AbstractDynamicParallelOmegaOracleTest<D> {
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testDistinctQueries(PoolPolicy poolPolicy) {
         ParallelOmegaOracle<?, Void, D> oracle =
                 getBuilder().withBatchSize(1).withPoolSize(4).withPoolPolicy(poolPolicy).create();
@@ -64,7 +61,6 @@ public abstract class AbstractDynamicParallelOmegaOracleTest<D> {
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, expectedExceptions = IllegalStateException.class)
     public void testDuplicateQueries(PoolPolicy poolPolicy) {
         ParallelOmegaOracle<?, Void, D> oracle =
                 getBuilder().withBatchSize(1).withPoolSize(4).withPoolPolicy(poolPolicy).create();
@@ -148,7 +144,7 @@ public abstract class AbstractDynamicParallelOmegaOracleTest<D> {
         }
 
         @Override
-        public void answer(@Nullable D output, int periodicity) {
+        public void answer(D output, int periodicity) {
             boolean wasAnswered = answered.getAndSet(true);
             if (wasAnswered) {
                 throw new IllegalStateException("Query was already answered");

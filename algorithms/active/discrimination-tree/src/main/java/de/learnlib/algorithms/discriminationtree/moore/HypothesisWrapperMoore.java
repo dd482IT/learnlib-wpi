@@ -55,12 +55,12 @@ class HypothesisWrapperMoore<I, O>
     }
 
     @Override
-    public @Nullable HState<I, Word<O>, O, Void> getInitialState() {
+    public HState<I, Word<O>, O, Void> getInitialState() {
         return dtHypothesis.getInitialState();
     }
 
     @Override
-    public @Nullable HTransition<I, Word<O>, O, Void> getTransition(HState<I, Word<O>, O, Void> state, I input) {
+    public HTransition<I, Word<O>, O, Void> getTransition(HState<I, Word<O>, O, Void> state, I input) {
         return dtHypothesis.getTransition(state, input);
     }
 

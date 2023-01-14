@@ -41,7 +41,6 @@ public class DomainKnowledgeTest {
     /**
      * {@inheritDoc}.
      */
-    @BeforeMethod
     protected void setUp() {
         // We don't use this oracle, we directly test against the reuse tree!
         Alphabet<Integer> alphabet = Alphabets.integers(0, 10);
@@ -50,7 +49,6 @@ public class DomainKnowledgeTest {
                 Collections.singleton(0)).build();
     }
 
-    @Test
     public void testPumpSymbolsSimple() {
         // Add one entry (0,ok) where 0 is model invariant (reflexive edge)
         QueryResult<Integer, String> qr = new QueryResult<>(getOutput("ok"), 0);
@@ -70,7 +68,6 @@ public class DomainKnowledgeTest {
         return Word.fromSymbols(param);
     }
 
-    @Test(dependsOnMethods = {"testPumpSymbolsSimple"})
     public void testPumpSymbolsComplex() {
         // Add one entry (101,ok1 ok0 ok1) where 0 is model invariant
         QueryResult<Integer, String> qr = new QueryResult<>(getOutput("ok1", "ok0", "ok1"), 2);
@@ -82,7 +79,6 @@ public class DomainKnowledgeTest {
         Assert.assertEquals(known, getOutput("ok1", "ok0", "ok0", "ok0", "ok0", "ok1"));
     }
 
-    @Test
     public void testReuseNodePrefixWhileReusing() {
         QueryResult<Integer, String> qr = new QueryResult<>(getOutput("ok", "ok", "ok"), 2);
         reuseOracle.getReuseTree().insert(getInput(1, 0, 1), qr);

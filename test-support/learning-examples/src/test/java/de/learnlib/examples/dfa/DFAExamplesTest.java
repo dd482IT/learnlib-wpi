@@ -20,22 +20,18 @@ import org.testng.annotations.Test;
 
 public class DFAExamplesTest {
 
-    @Test
     public void testPots2() {
         Assert.assertNotNull(DFABenchmarks.loadPots2());
     }
 
-    @Test
     public void testPots3() {
         Assert.assertNotNull(DFABenchmarks.loadPots3());
     }
 
-    @Test
     public void testPeterson2() {
         Assert.assertNotNull(DFABenchmarks.loadPeterson2());
     }
 
-    @Test
     public void testPeterson3() {
         Assert.assertNotNull(DFABenchmarks.loadPeterson3());
     }

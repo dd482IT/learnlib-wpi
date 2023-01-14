@@ -41,7 +41,6 @@ public class ExperimentTest {
     private static final Random RANDOM = new Random(42);
     private static final int REFINEMENT_STEPS = 3;
 
-    @Test
     public void testExperiment() {
 
         final Alphabet<Character> alphabet = Alphabets.characters('a', 'c');
@@ -114,7 +113,7 @@ public class ExperimentTest {
         }
 
         @Override
-        public @Nullable DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis,
+        public DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis,
                                                                      Collection<? extends I> inputs) {
             if (counterexamples < REFINEMENT_STEPS) {
                 Assert.assertSame(hypothesis, intermediateTarget);

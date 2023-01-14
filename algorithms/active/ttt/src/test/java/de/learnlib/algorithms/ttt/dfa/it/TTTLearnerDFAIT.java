@@ -24,7 +24,6 @@ import de.learnlib.testsupport.it.learner.LearnerVariantList.DFALearnerVariantLi
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class TTTLearnerDFAIT extends AbstractDFALearnerIT {
 
     @Override

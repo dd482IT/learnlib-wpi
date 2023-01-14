@@ -28,7 +28,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public interface OmegaQueryAnswerer<S, I, D> {
 
-    Pair<@Nullable D, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat);
+    Pair<D, Integer> answerQuery(Word<I> prefix, Word<I> loop, int repeat);
 
     OmegaMembershipOracle<S, I, D> asOracle();
 }

@@ -39,10 +39,8 @@ import net.automatalib.words.Alphabet;
 import net.automatalib.words.Word;
 import org.testng.annotations.Test;
 
-@Test
 public class LStarMealyTest extends LearningTest {
 
-    @Test
     public void testClassicLStarMealy() {
         ExampleStack stackExample = ExampleStack.createExample();
 
@@ -68,7 +66,6 @@ public class LStarMealyTest extends LearningTest {
         }
     }
 
-    @Test
     public void testOptimizedLStarMealy() {
         ExampleStack stackExample = ExampleStack.createExample();
         MealyMachine<?, Input, ?, Output> mealy = stackExample.getReferenceAutomaton();

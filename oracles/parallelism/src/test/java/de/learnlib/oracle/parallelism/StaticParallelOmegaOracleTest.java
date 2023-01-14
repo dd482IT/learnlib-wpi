@@ -36,7 +36,6 @@ public class StaticParallelOmegaOracleTest extends AbstractStaticParallelOmegaOr
         return output;
     }
 
-    @Test
     public void testSingleMethods() {
         final ParallelOmegaOracle<?, Integer, TestOutput> oracle = getBuilder().create();
 

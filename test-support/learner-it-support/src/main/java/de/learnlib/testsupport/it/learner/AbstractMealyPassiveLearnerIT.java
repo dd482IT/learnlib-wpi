@@ -39,7 +39,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractMealyPassiveLearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<LearningExample.MealyLearningExample<?, ?>> examples = LearningExamples.createMealyExamples();
         final List<PassiveLearnerVariantITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

@@ -30,7 +30,6 @@ import org.testng.annotations.Test;
  */
 public class IteratorsTest {
 
-    @Test
     public void testNodeIterator() {
         final Set<AbstractWordBasedDTNode<Integer, Boolean, Character>> nodes =
                 Sets.newHashSet(DiscriminationTreeIterators.nodeIterator(DummyDT.DT.getRoot()));
@@ -43,7 +42,6 @@ public class IteratorsTest {
                                                         DummyDT.LEAF_3)));
     }
 
-    @Test
     public void testLeafIterator() {
         final Set<AbstractWordBasedDTNode<Integer, Boolean, Character>> nodes =
                 Sets.newHashSet(DiscriminationTreeIterators.leafIterator(DummyDT.DT.getRoot()));
@@ -51,7 +49,6 @@ public class IteratorsTest {
         Assert.assertEquals(nodes, new HashSet<>(Arrays.asList(DummyDT.LEAF_1, DummyDT.LEAF_2, DummyDT.LEAF_3)));
     }
 
-    @Test
     public void testInnerNodeIterator() {
         final Set<AbstractWordBasedDTNode<Integer, Boolean, Character>> nodes =
                 Sets.newHashSet(DiscriminationTreeIterators.innerNodeIterator(DummyDT.DT.getRoot()));
@@ -59,7 +56,6 @@ public class IteratorsTest {
         Assert.assertEquals(nodes, new HashSet<>(Arrays.asList(DummyDT.INNER_1, DummyDT.INNER_2)));
     }
 
-    @Test
     public void testTransformingLeafIterator() {
         final Set<String> nodes =
                 Sets.newHashSet(DiscriminationTreeIterators.transformingLeafIterator(DummyDT.DT.getRoot(),

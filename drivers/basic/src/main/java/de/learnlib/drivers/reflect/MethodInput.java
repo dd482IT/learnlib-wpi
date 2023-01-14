@@ -63,7 +63,7 @@ public class MethodInput {
         return this.method.getName() + Arrays.toString(getParameters(names));
     }
 
-    public Collection<@KeyFor("parameters") String> getParameterNames() {
+    public Collection<String> getParameterNames() {
         return this.parameters.keySet();
     }
 
@@ -77,7 +77,7 @@ public class MethodInput {
         return ret;
     }
 
-    public Class<?> getParameterType(@KeyFor("parameters") String name) {
+    public Class<?> getParameterType(String name) {
         int id = parameters.get(name);
         return this.method.getParameterTypes()[id];
     }

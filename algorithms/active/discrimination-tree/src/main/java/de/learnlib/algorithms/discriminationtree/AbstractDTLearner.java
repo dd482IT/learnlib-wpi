@@ -207,9 +207,9 @@ public abstract class AbstractDTLearner<M extends SuffixOutput<I, D>, I, D, SP, 
         }
     }
 
-    protected abstract @Nullable Query<I, D> spQuery(HState<I, D, SP, TP> state);
+    protected abstract Query<I, D> spQuery(HState<I, D, SP, TP> state);
 
-    protected abstract @Nullable Query<I, D> tpQuery(HTransition<I, D, SP, TP> transition);
+    protected abstract Query<I, D> tpQuery(HTransition<I, D, SP, TP> transition);
 
     protected HState<I, D, SP, TP> createState(HTransition<I, D, SP, TP> trans) {
         HState<I, D, SP, TP> newState = hypothesis.createState(trans);

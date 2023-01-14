@@ -65,12 +65,12 @@ public abstract class AbstractStaticBatchProcessor<Q, P extends BatchProcessor<Q
         POOL_POLICY = settings.getEnumValue(LearnLibProperty.PARALLEL_POOL_SIZE, PoolPolicy.class, PoolPolicy.CACHED);
     }
 
-    private final @NonNegative int minBatchSize;
+    private final int minBatchSize;
     private final ArrayStorage<P> oracles;
     private final ExecutorService executor;
 
     public AbstractStaticBatchProcessor(Collection<? extends P> oracles,
-                                        @NonNegative int minBatchSize,
+                                        int minBatchSize,
                                         PoolPolicy policy) {
 
         this.oracles = new ArrayStorage<>(oracles);

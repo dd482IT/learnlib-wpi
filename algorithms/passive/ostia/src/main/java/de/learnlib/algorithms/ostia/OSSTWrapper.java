@@ -71,7 +71,7 @@ class OSSTWrapper<I, O> implements SubsequentialTransducer<State, I, Edge, O> {
     }
 
     @Override
-    public @Nullable Edge getTransition(State state, I input) {
+    public Edge getTransition(State state, I input) {
         return state.transitions[inputAlphabet.getSymbolIndex(input)];
     }
 
@@ -95,11 +95,11 @@ class OSSTWrapper<I, O> implements SubsequentialTransducer<State, I, Edge, O> {
         return transition.target;
     }
 
-    private Word<O> outToWord(@Nullable Out out) {
+    private Word<O> outToWord(Out out) {
         return outToWord(out == null ? null : out.str);
     }
 
-    private Word<O> outToWord(@Nullable IntQueue out) {
+    private Word<O> outToWord(IntQueue out) {
         if (out == null) {
             return Word.epsilon();
         }

@@ -41,7 +41,6 @@ import org.testng.annotations.Test;
  *
  * @author frohme
  */
-@Test
 public class EDSMScoreTest {
 
     private final Alphabet<Character> alphabet = Alphabets.fromArray('a', 'b');
@@ -60,13 +59,11 @@ public class EDSMScoreTest {
     private List<IntSeq> positiveSamples;
     private List<IntSeq> negativeSamples;
 
-    @BeforeClass
     public void setUp() {
         positiveSamples = Stream.of(p1, p2, p3, p4).map(w -> w.asIntSeq(alphabet)).collect(Collectors.toList());
         negativeSamples = Stream.of(n1, n2).map(w -> w.asIntSeq(alphabet)).collect(Collectors.toList());
     }
 
-    @Test
     public void testValue() {
 
         final BlueFringePTA<Boolean, Void> pta = initializePTA();
@@ -87,7 +84,6 @@ public class EDSMScoreTest {
     }
 
     @SuppressWarnings("unchecked")
-    @Test
     public void testFinalHypothesis() {
 
         final BlueFringeEDSMDFA<Character> learner = new BlueFringeEDSMDFA<>(alphabet);

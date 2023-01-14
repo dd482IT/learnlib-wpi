@@ -40,8 +40,8 @@ public class ExtensionResult<S, I, O> {
 
     private static final ExtensionResult<?, ?, ?> EMPTY = new ExtensionResult<>();
 
-    private final @Nullable DefaultQuery<I, Word<O>> counterExample;
-    private final @Nullable ADTNode<S, I, O> replacement;
+    private final DefaultQuery<I, Word<O>> counterExample;
+    private final ADTNode<S, I, O> replacement;
 
     private ExtensionResult() {
         this.replacement = null;
@@ -89,7 +89,7 @@ public class ExtensionResult<S, I, O> {
      *
      * @return the counterexample
      */
-    public @Nullable DefaultQuery<I, Word<O>> getCounterExample() {
+    public DefaultQuery<I, Word<O>> getCounterExample() {
         return counterExample;
     }
 
@@ -107,7 +107,7 @@ public class ExtensionResult<S, I, O> {
      *
      * @return the replacement
      */
-    public @Nullable ADTNode<S, I, O> getReplacement() {
+    public ADTNode<S, I, O> getReplacement() {
         return replacement;
     }
 }

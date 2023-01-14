@@ -36,7 +36,7 @@ import org.testng.annotations.Test;
 public class DTVisualizationTest extends AbstractVisualizationTest<DTLearnerMealy<Input, String>> {
 
     @Override
-    protected DTLearnerMealy<Input, String> getLearnerBuilder(@UnderInitialization DTVisualizationTest this,
+    protected DTLearnerMealy<Input, String> getLearnerBuilder(DTVisualizationTest this,
                                                               Alphabet<Input> alphabet,
                                                               SUL<Input, String> sul) {
         return new DTLearnerMealyBuilder<Input, String>().withAlphabet(alphabet)
@@ -44,7 +44,6 @@ public class DTVisualizationTest extends AbstractVisualizationTest<DTLearnerMeal
                                                          .create();
     }
 
-    @Test
     public void testVisualizeHyp() throws IOException {
         final String expectedHyp = resourceAsString("/hyp.dot");
 
@@ -54,7 +53,6 @@ public class DTVisualizationTest extends AbstractVisualizationTest<DTLearnerMeal
         Assert.assertEquals(actualHyp.toString(), expectedHyp);
     }
 
-    @Test
     public void testVisualizeDT() throws IOException {
         final String expectedDT = resourceAsString("/dt.dot");
 

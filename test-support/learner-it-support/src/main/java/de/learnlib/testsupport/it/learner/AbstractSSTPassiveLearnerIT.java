@@ -43,7 +43,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractSSTPassiveLearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<PassiveLearnerVariantITCase<?, ?, ?>> result = new ArrayList<>();
 

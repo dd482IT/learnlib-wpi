@@ -49,7 +49,7 @@ public class OmegaQuery<I, D> {
     private final Word<I> loop;
     private final int repeat;
 
-    private @Nullable D output;
+    private D output;
     private int periodicity;
 
     public OmegaQuery(Word<I> prefix, Word<I> loop, int repeat) {
@@ -58,7 +58,7 @@ public class OmegaQuery<I, D> {
         this.repeat = repeat;
     }
 
-    public void answer(@Nullable D output, int periodicity) {
+    public void answer(D output, int periodicity) {
         this.output = output;
         this.periodicity = periodicity;
     }
@@ -75,7 +75,7 @@ public class OmegaQuery<I, D> {
         return repeat;
     }
 
-    public @Nullable D getOutput() {
+    public D getOutput() {
         return output;
     }
 
@@ -87,7 +87,7 @@ public class OmegaQuery<I, D> {
         return periodicity > 0;
     }
 
-    public DefaultQuery<I, @Nullable D> asDefaultQuery() {
+    public DefaultQuery<I, D> asDefaultQuery() {
         final WordBuilder<I> wb = new WordBuilder<>(prefix.length() + loop.length() * periodicity);
         wb.append(prefix);
         wb.repeatAppend(periodicity, loop);
@@ -101,7 +101,7 @@ public class OmegaQuery<I, D> {
     }
 
     @Override
-    public final boolean equals(@Nullable Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }

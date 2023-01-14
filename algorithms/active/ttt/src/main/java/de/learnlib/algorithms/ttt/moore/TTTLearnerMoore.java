@@ -46,7 +46,6 @@ import net.automatalib.words.WordBuilder;
 public class TTTLearnerMoore<I, O> extends AbstractTTTLearner<MooreMachine<?, I, ?, O>, I, Word<O>>
         implements MooreLearner<I, O> {
 
-    @GenerateBuilder(defaults = AbstractTTTLearner.BuilderDefaults.class)
     public TTTLearnerMoore(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle, AcexAnalyzer analyzer) {
         super(alphabet,
               oracle,

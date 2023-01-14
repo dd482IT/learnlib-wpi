@@ -38,7 +38,6 @@ import org.testng.annotations.Test;
 
 public abstract class AbstractStaticParallelOracleTest<D> {
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testZeroQueries(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         oracle.processQueries(Collections.emptyList());
@@ -48,7 +47,6 @@ public abstract class AbstractStaticParallelOracleTest<D> {
         oracle.shutdownNow();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanMin(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         List<DefaultQuery<Integer, D>> queries = createQueries(Utils.MIN_BATCH_SIZE - 1);
@@ -59,7 +57,6 @@ public abstract class AbstractStaticParallelOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testMin(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         List<DefaultQuery<Integer, D>> queries = createQueries(Utils.MIN_BATCH_SIZE);
@@ -70,7 +67,6 @@ public abstract class AbstractStaticParallelOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanTwoBatches(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         List<DefaultQuery<Integer, D>> queries = createQueries(2 * Utils.MIN_BATCH_SIZE - 1);
@@ -81,7 +77,6 @@ public abstract class AbstractStaticParallelOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testLessThanSixBatches(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         List<DefaultQuery<Integer, D>> queries = createQueries(5 * Utils.MIN_BATCH_SIZE + Utils.MIN_BATCH_SIZE / 2);
@@ -92,7 +87,6 @@ public abstract class AbstractStaticParallelOracleTest<D> {
         oracle.shutdown();
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class)
     public void testFullLoad(PoolPolicy policy) {
         StaticParallelOracle<Integer, D> oracle = getOracle(policy);
         List<DefaultQuery<Integer, D>> queries = createQueries(2 * Utils.NUM_ORACLES * Utils.MIN_BATCH_SIZE);

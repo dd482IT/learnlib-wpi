@@ -33,7 +33,7 @@ public abstract class AbstractMealyCacheTest
         extends AbstractCacheTest<MealyCacheOracle<Character, Integer>, MealyMachine<?, Character, ?, Integer>, Character, Word<Integer>> {
 
     private final MealyCounterOracle<Character, Integer> counter;
-    protected final Mapping<Integer, @Nullable Integer> errorMapper;
+    protected final Mapping<Integer, Integer> errorMapper;
 
     public AbstractMealyCacheTest() {
         counter = new MealyCounterOracle<>(new MealySimulatorOracle<>(CacheTestUtils.MEALY), "counterOracle");

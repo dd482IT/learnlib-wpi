@@ -30,10 +30,8 @@ import org.testng.annotations.BeforeMethod;
 
 public class DFABFInclusionOracleTest extends AbstractBFInclusionOracleTest<DFA<?, Character>, Boolean> {
 
-    @Mock
     private MembershipOracle.DFAMembershipOracle<Character> mo;
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
 

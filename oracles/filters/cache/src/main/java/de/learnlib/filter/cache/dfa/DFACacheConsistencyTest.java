@@ -49,7 +49,7 @@ final class DFACacheConsistencyTest<I> implements DFAEquivalenceOracle<I> {
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
+    public DefaultQuery<I, Boolean> findCounterExample(DFA<?, I> hypothesis, Collection<? extends I> inputs) {
         final Word<I> w = incDfa.findSeparatingWord(hypothesis, inputs, false);
 
         if (w == null) {

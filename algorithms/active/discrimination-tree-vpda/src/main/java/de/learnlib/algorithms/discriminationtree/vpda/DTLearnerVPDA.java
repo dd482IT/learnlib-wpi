@@ -45,7 +45,6 @@ public class DTLearnerVPDA<I> extends AbstractVPDALearner<I> {
 
     protected final AcexAnalyzer analyzer;
 
-    @GenerateBuilder
     public DTLearnerVPDA(VPDAlphabet<I> alphabet, MembershipOracle<I, Boolean> oracle, AcexAnalyzer analyzer) {
         super(alphabet, oracle);
         this.analyzer = analyzer;
@@ -59,11 +58,11 @@ public class DTLearnerVPDA<I> extends AbstractVPDALearner<I> {
         return transformAccessSequence(state.getStackContents(), state.getLocation());
     }
 
-    protected Word<I> transformAccessSequence(@Nullable StackContents contents) {
+    protected Word<I> transformAccessSequence(StackContents contents) {
         return transformAccessSequence(contents, hypothesis.getInitialLocation());
     }
 
-    protected Word<I> transformAccessSequence(@Nullable StackContents contents, HypLoc<I> loc) {
+    protected Word<I> transformAccessSequence(StackContents contents, HypLoc<I> loc) {
         List<Integer> stackElems = new ArrayList<>();
         if (contents != null) {
             StackContents iter = contents;

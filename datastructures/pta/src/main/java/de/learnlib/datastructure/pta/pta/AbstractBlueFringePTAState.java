@@ -25,9 +25,9 @@ public abstract class AbstractBlueFringePTAState<SP, TP, S extends AbstractBlueF
 
     protected boolean isCopy;
     protected Color color = Color.WHITE;
-    protected @Nullable S parent;
+    protected S parent;
     protected int parentInput = -1;
-    protected int @Nullable [] access;
+    protected int[] access;
 
     public Color getColor() {
         return color;

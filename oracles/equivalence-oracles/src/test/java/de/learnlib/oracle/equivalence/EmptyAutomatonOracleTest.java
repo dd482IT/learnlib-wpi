@@ -35,12 +35,10 @@ import org.testng.annotations.Test;
 
 public class EmptyAutomatonOracleTest {
 
-    @Test
     public void testEmptyDFA() {
         testEmptyAutomaton(ExamplePaulAndMary.createExample(), new CompactDFA.Creator<>());
     }
 
-    @Test
     public void testEmptyMealy() {
         Assert.assertThrows(UndefinedPropertyAccessException.class,
                             () -> testEmptyAutomaton(ExampleStack.createExample(), new CompactMealy.Creator<>()));

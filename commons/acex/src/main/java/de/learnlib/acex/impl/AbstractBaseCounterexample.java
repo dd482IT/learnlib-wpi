@@ -55,7 +55,7 @@ public abstract class AbstractBaseCounterexample<E> implements AbstractCounterex
 
     protected abstract E computeEffect(int index);
 
-    public void setEffect(@UnknownInitialization(AbstractBaseCounterexample.class) AbstractBaseCounterexample<E> this,
+    public void setEffect(AbstractBaseCounterexample<E> this,
                           int index,
                           E effect) {
         values.set(index, effect);

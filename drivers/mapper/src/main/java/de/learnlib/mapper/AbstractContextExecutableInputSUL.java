@@ -36,7 +36,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class AbstractContextExecutableInputSUL<I extends ContextExecutableInput<? extends O, ? super C>, O, C>
         implements SUL<I, O> {
 
-    private @Nullable C currentContext;
+    private C currentContext;
 
     @Override
     public void pre() {

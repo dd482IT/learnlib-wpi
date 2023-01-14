@@ -46,7 +46,6 @@ public class LearningTest {
     /**
      * {@inheritDoc}.
      */
-    @BeforeClass
     protected void setUp() {
         sigma = Alphabets.integers(0, 3);
 
@@ -55,7 +54,6 @@ public class LearningTest {
                 "error")).withInvariantInputs(Collections.singleton(0)).build();
     }
 
-    @Test
     public void simpleTest() throws IOException {
 
         MealyLearner<Integer, String> learner =

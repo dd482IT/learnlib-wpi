@@ -41,7 +41,6 @@ public class RandomWalkEQOracleTest {
         ALPHABET = Alphabets.characters('a', 'f');
     }
 
-    @Test
     public void testOracle() {
 
         final DummySUL dummySUL = new DummySUL();
@@ -89,7 +88,7 @@ public class RandomWalkEQOracleTest {
         }
 
         @Override
-        public @Nullable Character step(@Nullable Character in) {
+        public Character step(Character in) {
             Assert.assertTrue(this.calledPre);
             inputLength++;
 

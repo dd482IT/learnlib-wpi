@@ -325,7 +325,7 @@ public class SPALearner<I, L extends DFALearner<I> & SupportsGrowingAlphabet<I> 
                 // whenever we extract a terminating sequence, we can also instantiate a learner.
                 // Therefore the existence of the hypothesis is guaranteed.
                 @SuppressWarnings("assignment.type.incompatible")
-                final @NonNull DFA<?, I> hyp = hypotheses.get(sym);
+                final DFA<?, I> hyp = hypotheses.get(sym);
 
                 if (!hyp.accepts(projectedRun)) {
                     refinement = true;

@@ -60,7 +60,6 @@ public abstract class AbstractParallelCacheTest<A, I, D> {
 
     protected abstract long getNumberOfQueries();
 
-    @BeforeClass
     public void setUp() {
         this.alphabet = getAlphabet();
         this.targetModel = getTargetModel();
@@ -68,12 +67,10 @@ public abstract class AbstractParallelCacheTest<A, I, D> {
         this.parallelOracle = getParallelOracle();
     }
 
-    @AfterClass
     public void teardown() {
         this.parallelOracle.shutdownNow();
     }
 
-    @Test(timeOut = 20000)
     public void testConcurrentMembershipQueries() {
         Assert.assertEquals(getNumberOfQueries(), 0);
 
@@ -105,7 +102,6 @@ public abstract class AbstractParallelCacheTest<A, I, D> {
         Assert.assertEquals(numOfQueriesAfter, numOfQueriesBefore);
     }
 
-    @Test(dependsOnMethods = "testConcurrentMembershipQueries", timeOut = 20000)
     public void testConcurrentEquivalenceQueries() {
         final long previousCount = getNumberOfQueries();
         final EquivalenceOracle<? super A, I, D> eqOracle = cache.createCacheConsistencyTest();

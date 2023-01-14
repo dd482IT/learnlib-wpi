@@ -36,7 +36,6 @@ public class SULSymbolQueryOracleTest {
     private ExampleRandomMealy<Character, Integer> example;
     private SUL<Character, Integer> sul;
 
-    @BeforeClass
     public void setUp() {
         final Alphabet<Character> inputs = Alphabets.characters('a', 'c');
         final Alphabet<Integer> outputs = Alphabets.integers(0, 2);
@@ -44,7 +43,6 @@ public class SULSymbolQueryOracleTest {
         sul = new MealySimulatorSUL<>(example.getReferenceAutomaton());
     }
 
-    @Test
     public void testResetIdempotency() {
         final SUL<Character, Integer> mock = Mockito.spy(sul);
 
@@ -61,7 +59,6 @@ public class SULSymbolQueryOracleTest {
         Mockito.verify(mock, Mockito.times(0)).post();
     }
 
-    @Test
     public void testQueriesAndCleanUp() {
         final SUL<Character, Integer> mock = Mockito.spy(sul);
 

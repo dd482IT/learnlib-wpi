@@ -39,7 +39,6 @@ public class SULMapperCompositionTest {
     private OuterWrappedMapper outerWrappedMapper;
     private SUL<Character, Character> mappedSUL;
 
-    @BeforeClass
     public void setUp() {
 
         innerUnwrappedMapper = new InnerUnwrappedMapper();
@@ -51,7 +50,6 @@ public class SULMapperCompositionTest {
         this.mappedSUL = SULMappers.apply(toUpperCase, new MockSUL());
     }
 
-    @Test
     public void testComposition() {
 
         mappedSUL.pre();

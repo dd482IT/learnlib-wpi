@@ -90,12 +90,12 @@ public class RandomWalkEQOracle<I, O> implements MealyEquivalenceOracle<I, O> {
     }
 
     @Override
-    public @Nullable DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
+    public DefaultQuery<I, Word<O>> findCounterExample(MealyMachine<?, I, ?, O> hypothesis,
                                                                  Collection<? extends I> inputs) {
         return doFindCounterExample(hypothesis, inputs);
     }
 
-    private <S, T> @Nullable DefaultQuery<I, Word<O>> doFindCounterExample(MealyMachine<S, I, T, O> hypothesis,
+    private <S, T> DefaultQuery<I, Word<O>> doFindCounterExample(MealyMachine<S, I, T, O> hypothesis,
                                                                            Collection<? extends I> inputs) {
         // reset termination counter?
         if (resetStepCount) {

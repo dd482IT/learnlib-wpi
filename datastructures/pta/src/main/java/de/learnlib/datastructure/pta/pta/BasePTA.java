@@ -60,7 +60,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
         implements UniversalDeterministicAutomaton<S, Integer, PTATransition<S>, SP, TP> {
 
-    protected final @NonNegative int alphabetSize;
+    protected final int alphabetSize;
     protected final S root;
 
     /**
@@ -71,7 +71,7 @@ public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
      * @param root
      *         the root state
      */
-    public BasePTA(@NonNegative int alphabetSize, S root) {
+    public BasePTA(int alphabetSize, S root) {
         this.alphabetSize = alphabetSize;
         this.root = Objects.requireNonNull(root);
     }
@@ -85,7 +85,7 @@ public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
      *
      * @return the state reached by this word, or {@code null} if there is no path for the given word in the PTA
      */
-    public @Nullable S getState(int[] word) {
+    public S getState(int[] word) {
         S curr = root;
         int len = word.length;
         for (int i = 0; i < len && curr != null; i++) {
@@ -347,7 +347,7 @@ public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
     }
 
     @Override
-    public @Nullable S getSuccessor(S state, Integer input) {
+    public S getSuccessor(S state, Integer input) {
         return state.getSuccessor(input);
     }
 
@@ -372,7 +372,7 @@ public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
      * @return the number of states in the PTA reachable from the root state
      */
 
-    public @NonNegative int countStates() {
+    public int countStates() {
         return Iterators.size(bfsIterator());
     }
 
@@ -382,7 +382,7 @@ public class BasePTA<SP, TP, S extends AbstractBasePTAState<SP, TP, S>>
     }
 
     @Override
-    public @Nullable PTATransition<S> getTransition(S state, Integer input) {
+    public PTATransition<S> getTransition(S state, Integer input) {
         if (input == null || state.getSuccessor(input) == null) {
             return null;
         }

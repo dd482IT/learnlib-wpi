@@ -35,7 +35,6 @@ import org.testng.annotations.Factory;
  */
 public abstract class AbstractSPALearnerIT {
 
-    @Factory
     public Object[] createExampleITCases() {
         final List<SPALearningExample<?>> examples = LearningExamples.createSPAExamples();
         final List<AbstractLearnerVariantITCase<?, ?, ?>> result = new ArrayList<>(examples.size());

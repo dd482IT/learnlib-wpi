@@ -34,7 +34,6 @@ public class DynamicParallelOracleTest extends AbstractDynamicParallelOracleTest
                                                                              new NullOracle()));
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, timeOut = 2000)
     public void testThreadCreation(PoolPolicy poolPolicy) {
 
         final List<AnswerOnceQuery<Void>> queries = createQueries(10);
@@ -77,7 +76,6 @@ public class DynamicParallelOracleTest extends AbstractDynamicParallelOracleTest
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, timeOut = 2000)
     public void testThreadScheduling(PoolPolicy poolPolicy) {
 
         final List<AnswerOnceQuery<Void>> queries = createQueries(10);

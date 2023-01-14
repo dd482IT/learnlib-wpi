@@ -24,7 +24,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public interface Children<I, D> {
 
-    @Nullable AbstractDTNode<I, D> child(D out);
+    AbstractDTNode<I, D> child(D out);
 
     D key(AbstractDTNode<I, D> child);
 

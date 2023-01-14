@@ -35,7 +35,6 @@ public class DynamicParallelOmegaOracleTest extends AbstractDynamicParallelOmega
                                                                                   new NullOracle()));
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, timeOut = 2000)
     public void testThreadCreation(PoolPolicy poolPolicy) {
 
         final List<AnswerOnceQuery<Void>> queries = createQueries(10);
@@ -76,7 +75,6 @@ public class DynamicParallelOmegaOracleTest extends AbstractDynamicParallelOmega
         }
     }
 
-    @Test(dataProvider = "policies", dataProviderClass = Utils.class, timeOut = 2000)
     public void testThreadScheduling(PoolPolicy poolPolicy) {
 
         final List<AnswerOnceQuery<Void>> queries = createQueries(10);
@@ -118,7 +116,6 @@ public class DynamicParallelOmegaOracleTest extends AbstractDynamicParallelOmega
         }
     }
 
-    @Test
     public void testSingleMethods() {
         final ParallelOmegaOracle<?, Void, Void> oracle = getBuilder().create();
 

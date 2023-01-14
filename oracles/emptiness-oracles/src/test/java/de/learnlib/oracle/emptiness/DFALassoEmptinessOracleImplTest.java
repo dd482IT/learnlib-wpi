@@ -37,10 +37,8 @@ import org.testng.annotations.BeforeMethod;
 public class DFALassoEmptinessOracleImplTest
         extends AbstractLassoEmptinessOracleImplTest<Lasso.DFALasso<Character>, Boolean> {
 
-    @Mock
     private OmegaMembershipOracle.DFAOmegaMembershipOracle<Integer, Character> omo;
 
-    @BeforeMethod
     public void setUp() {
         super.setUp();
 

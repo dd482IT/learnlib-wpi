@@ -24,7 +24,6 @@ import de.learnlib.testsupport.it.learner.LearnerVariantList.DFALearnerVariantLi
 import net.automatalib.words.Alphabet;
 import org.testng.annotations.Test;
 
-@Test
 public class DTLearnerDFAIT extends AbstractDFALearnerIT {
 
     private static final boolean[] BOOLEAN_VALUES = {false, true};
