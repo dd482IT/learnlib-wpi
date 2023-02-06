@@ -61,10 +61,12 @@ public class ExtensibleLStarDFA<I>
                               ClosingStrategy<? super I, ? super Boolean> closingStrategy) {
         this(alphabet, oracle, Collections.singletonList(Word.epsilon()), initialSuffixes, cexHandler, closingStrategy);
     }
-
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public ExtensibleLStarDFA(Alphabet<I> alphabet,
                               MembershipOracle<I, Boolean> oracle,
                               List<Word<I>> initialPrefixes,
+
+                              
                               List<Word<I>> initialSuffixes,
                               ObservationTableCEXHandler<? super I, ? super Boolean> cexHandler,
                               ClosingStrategy<? super I, ? super Boolean> closingStrategy) {

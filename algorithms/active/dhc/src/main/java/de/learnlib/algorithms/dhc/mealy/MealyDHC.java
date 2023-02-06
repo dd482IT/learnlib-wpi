@@ -94,6 +94,7 @@ public class MealyDHC<I, O> implements MealyLearner<I, O>,
      *         the initial set of splitters, {@code null} or an empty collection will result in the set of splitters
      *         being initialized as the set of alphabet symbols (interpreted as {@link Word}s)
      */
+    @GenerateBuilder(defaults = BuilderDefaults.class, builderFinal = false)
     public MealyDHC(Alphabet<I> alphabet,
                     MembershipOracle<I, Word<O>> oracle,
                     GlobalSuffixFinder<? super I, ? super Word<O>> suffixFinder,
