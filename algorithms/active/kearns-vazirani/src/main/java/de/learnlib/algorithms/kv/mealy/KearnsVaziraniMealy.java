@@ -69,7 +69,7 @@ public class KearnsVaziraniMealy<I, O>
     private MultiDTree<I, Word<O>, StateInfo<I, Word<O>>> discriminationTree;
     protected List<StateInfo<I, Word<O>>> stateInfos = new ArrayList<>();
     private CompactMealy<I, O> hypothesis;
-
+    @GenerateBuilder
     public KearnsVaziraniMealy(Alphabet<I> alphabet,
                                MembershipOracle<I, Word<O>> oracle,
                                boolean repeatedCounterexampleEvaluation,

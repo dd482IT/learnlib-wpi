@@ -32,7 +32,7 @@ public class RivestSchapireMoore<I, O> extends ExtensibleLStarMoore<I, O> {
     public RivestSchapireMoore(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle) {
         this(alphabet, oracle, Collections.emptyList(), ClosingStrategies.CLOSE_FIRST);
     }
-
+    @GenerateBuilder(defaults = BuilderDefaults.class)
     public RivestSchapireMoore(Alphabet<I> alphabet,
                                MembershipOracle<I, Word<O>> oracle,
                                List<Word<I>> initialSuffixes,

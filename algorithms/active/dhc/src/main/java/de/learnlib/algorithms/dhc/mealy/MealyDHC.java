@@ -76,6 +76,7 @@ public class MealyDHC<I, O> implements MealyLearner<I, O>,
      * @param oracle
      *         the learning membership oracle
      */
+    @GenerateBuilder(defaults = BuilderDefaults.class, builderFinal = false)
     public MealyDHC(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle) {
         this(alphabet, oracle, GlobalSuffixFinders.RIVEST_SCHAPIRE, Collections.emptyList());
     }

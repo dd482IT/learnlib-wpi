@@ -39,6 +39,29 @@ import net.automatalib.modelchecking.Lasso.MealyLasso;
 import net.automatalib.words.Word;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+@GenerateRefinement(name = "DFALassoEmptinessOracleImpl",
+                    generics = {"S", "I"},
+                    parentGenerics = {@Generic(clazz = DFALasso.class, generics = "I"),
+                                      @Generic("S"),
+                                      @Generic("I"),
+                                      @Generic(clazz = Boolean.class)},
+                    parameterMapping = @Map(from = OmegaMembershipOracle.class,
+                                            to = DFAOmegaMembershipOracle.class,
+                                            withGenerics = {"S", "I"}),
+                    interfaces = {@Interface(clazz = DFALassoEmptinessOracle.class, generics = "I"),
+                                  @Interface(clazz = DFALassoOracle.class, generics = "I")})
+@GenerateRefinement(name = "MealyLassoEmptinessOracleImpl",
+                    generics = {"S", "I", "O"},
+                    parentGenerics = {@Generic(clazz = MealyLasso.class, generics = {"I", "O"}),
+                                      @Generic("S"),
+                                      @Generic("I"),
+                                      @Generic(clazz = Word.class, generics = "O")},
+                    parameterMapping = @Map(from = OmegaMembershipOracle.class,
+                                            to = MealyOmegaMembershipOracle.class,
+                                            withGenerics = {"S", "I", "O"}),
+                    interfaces = {@Interface(clazz = MealyLassoEmptinessOracle.class, generics = {"I", "O"}),
+                                  @Interface(clazz = MealyLassoOracle.class, generics = {"I", "O"})})
+
 public class LassoEmptinessOracleImpl<L extends Lasso<I, D>, S, I, D>
         implements LassoEmptinessOracle<L, I, D>, LassoOracle<L, I, D> {
 

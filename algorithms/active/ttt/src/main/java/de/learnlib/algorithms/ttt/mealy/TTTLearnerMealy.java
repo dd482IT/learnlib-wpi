@@ -36,7 +36,7 @@ import net.automatalib.words.WordBuilder;
 
 public class TTTLearnerMealy<I, O> extends AbstractTTTLearner<MealyMachine<?, I, ?, O>, I, Word<O>>
         implements LearningAlgorithm.MealyLearner<I, O> {
-
+    @GenerateBuilder(defaults = AbstractTTTLearner.BuilderDefaults.class)         
     public TTTLearnerMealy(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle, AcexAnalyzer analyzer) {
         super(alphabet,
               oracle,

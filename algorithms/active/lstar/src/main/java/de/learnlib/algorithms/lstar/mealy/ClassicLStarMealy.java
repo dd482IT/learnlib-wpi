@@ -67,7 +67,7 @@ public class ClassicLStarMealy<I, O>
              cexHandler,
              closingStrategy);
     }
-
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public ClassicLStarMealy(Alphabet<I> alphabet,
                              MembershipOracle<I, O> oracle,
                              List<Word<I>> initialPrefixes,

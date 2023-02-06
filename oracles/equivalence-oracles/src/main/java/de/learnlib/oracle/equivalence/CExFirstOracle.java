@@ -56,6 +56,28 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @author Jeroen Meijer
  * @see DisproveFirstOracle
  */
+
+ @GenerateRefinement(name = "DFACExFirstOracle",
+                    generics = "I",
+                    parentGenerics = {@Generic(clazz = DFA.class, generics = {"?", "I"}),
+                                      @Generic("I"),
+                                      @Generic(clazz = Boolean.class)},
+                    parameterMapping = @Map(from = PropertyOracle.class,
+                                            to = DFAPropertyOracle.class,
+                                            withGenerics = {"I", "?"}),
+                    interfaces = {@Interface(clazz = DFABlackBoxOracle.class, generics = "I"),
+                                  @Interface(clazz = DFAEquivalenceOracle.class, generics = "I")})
+@GenerateRefinement(name = "MealyCExFirstOracle",
+                    generics = {"I", "O"},
+                    parentGenerics = {@Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
+                                      @Generic("I"),
+                                      @Generic(clazz = Word.class, generics = "O")},
+                    parameterMapping = @Map(from = PropertyOracle.class,
+                                            to = MealyPropertyOracle.class,
+                                            withGenerics = {"I", "O", "?"}),
+                    interfaces = {@Interface(clazz = MealyBlackBoxOracle.class, generics = {"I", "O"}),
+                                  @Interface(clazz = MealyEquivalenceOracle.class, generics = {"I", "O"})})
+                                  
 public class CExFirstOracle<A extends Output<I, D>, I, D> implements BlackBoxOracle<A, I, D> {
 
     private final List<PropertyOracle<I, ? super A, ?, D>> propertyOracles;

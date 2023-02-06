@@ -43,7 +43,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class DTLearnerMoore<I, O> extends AbstractDTLearner<MooreMachine<?, I, ?, O>, I, Word<O>, O, Void>
         implements MooreLearner<I, O> {
-
+    @GenerateBuilder(defaults = AbstractDTLearner.BuilderDefaults.class)
     public DTLearnerMoore(Alphabet<I> alphabet,
                           MembershipOracle<I, Word<O>> oracle,
                           LocalSuffixFinder<? super I, ? super Word<O>> suffixFinder,

@@ -58,7 +58,8 @@ public class TTTLearnerVPDA<I> extends DTLearnerVPDA<I> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TTTLearnerVPDA.class);
 
     private final BlockList<I> blockList = new BlockList<>();
-
+    @GenerateBuilder
+    
     public TTTLearnerVPDA(VPDAlphabet<I> alphabet, MembershipOracle<I, Boolean> oracle, AcexAnalyzer analyzer) {
         super(alphabet, oracle, analyzer);
     }

@@ -51,6 +51,7 @@ public class DTLearnerMealy<I, O> extends AbstractDTLearner<MealyMachine<?, I, ?
      * @param suffixFinder
      *         method to use for analyzing counterexamples
      */
+    @GenerateBuilder(defaults = AbstractDTLearner.BuilderDefaults.class)
     public DTLearnerMealy(Alphabet<I> alphabet,
                           MembershipOracle<I, Word<O>> oracle,
                           LocalSuffixFinder<? super I, ? super Word<O>> suffixFinder,

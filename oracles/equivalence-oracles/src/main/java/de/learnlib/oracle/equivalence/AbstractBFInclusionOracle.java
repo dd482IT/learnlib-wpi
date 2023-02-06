@@ -44,6 +44,28 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @see InclusionOracle
  * @see AbstractBFOracle
  */
+
+ @GenerateRefinement(name = "DFABFInclusionOracle",
+                     generics = "I",
+                     parentGenerics = {@Generic(clazz = DFA.class, generics = {"?", "I"}),
+                                       @Generic("I"),
+                                       @Generic(clazz = Boolean.class)},
+                     parameterMapping = @Map(from = MembershipOracle.class,
+                                             to = DFAMembershipOracle.class,
+                                             withGenerics = "I"),
+                     interfaces = {@Interface(clazz = DFAInclusionOracle.class, generics = "I"),
+                                   @Interface(clazz = DFAOracle.class, generics = "I")})
+ @GenerateRefinement(name = "MealyBFInclusionOracle",
+                     generics = {"I", "O"},
+                     parentGenerics = {@Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
+                                       @Generic("I"),
+                                       @Generic(clazz = Word.class, generics = "O")},
+                     parameterMapping = @Map(from = MembershipOracle.class,
+                                             to = MealyMembershipOracle.class,
+                                             withGenerics = {"I", "O"}),
+                     interfaces = {@Interface(clazz = MealyInclusionOracle.class, generics = {"I", "O"}),
+                                   @Interface(clazz = MealyOracle.class, generics = {"I", "O"})})
+
 public abstract class AbstractBFInclusionOracle<A extends DetOutputAutomaton<?, I, ?, D>, I, D>
         extends AbstractBFOracle<A, I, D> implements InclusionOracle<A, I, D> {
 

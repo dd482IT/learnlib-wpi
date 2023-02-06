@@ -54,6 +54,7 @@ public class NLStarLearner<I> implements NFALearner<I> {
      * @param oracle
      *         the membership oracle
      */
+    @GenerateBuilder
     public NLStarLearner(Alphabet<I> alphabet, MembershipOracle<I, Boolean> oracle) {
         this.alphabet = alphabet;
         this.table = new ObservationTable<>(alphabet, oracle);

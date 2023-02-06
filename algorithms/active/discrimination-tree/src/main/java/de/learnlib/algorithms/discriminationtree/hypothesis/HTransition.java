@@ -63,11 +63,11 @@ public class HTransition<I, O, SP, TP> {
         assert isTree();
         return treeTgt;
     }
-
+    @EnsuresNonNullIf(expression = "treeTgt", result = true)
     public boolean isTree() {
         return treeTgt != null;
     }
-
+    @EnsuresNonNullIf(expression = "dt", result = true)
     public boolean isNonTree() {
         return dt != null;
     }

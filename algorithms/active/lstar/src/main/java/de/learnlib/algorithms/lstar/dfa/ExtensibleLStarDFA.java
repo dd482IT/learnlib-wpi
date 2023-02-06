@@ -53,6 +53,7 @@ public class ExtensibleLStarDFA<I>
      * @param oracle
      *         the DFA oracle.
      */
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public ExtensibleLStarDFA(Alphabet<I> alphabet,
                               MembershipOracle<I, Boolean> oracle,
                               List<Word<I>> initialSuffixes,

@@ -44,7 +44,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DTLearnerVPDA<I> extends AbstractVPDALearner<I> {
 
     protected final AcexAnalyzer analyzer;
-
+    @GenerateBuilder
     public DTLearnerVPDA(VPDAlphabet<I> alphabet, MembershipOracle<I, Boolean> oracle, AcexAnalyzer analyzer) {
         super(alphabet, oracle);
         this.analyzer = analyzer;

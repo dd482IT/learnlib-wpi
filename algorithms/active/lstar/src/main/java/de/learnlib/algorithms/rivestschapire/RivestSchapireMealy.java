@@ -33,7 +33,7 @@ public class RivestSchapireMealy<I, O> extends ExtensibleLStarMealy<I, O> {
     public RivestSchapireMealy(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle) {
         this(alphabet, oracle, Collections.emptyList(), ClosingStrategies.CLOSE_FIRST);
     }
-
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public RivestSchapireMealy(Alphabet<I> alphabet,
                                MembershipOracle<I, Word<O>> oracle,
                                List<Word<I>> initialSuffixes,

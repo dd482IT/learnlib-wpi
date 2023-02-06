@@ -33,11 +33,12 @@ import net.automatalib.words.Alphabet;
 import net.automatalib.words.Word;
 
 public class TTTLearnerDFA<I> extends AbstractTTTLearner<DFA<?, I>, I, Boolean> implements DFALearner<I> {
-
+    
+    @GenerateBuilder(defaults = AbstractTTTLearner.BuilderDefaults.class)
     public TTTLearnerDFA(Alphabet<I> alphabet, MembershipOracle<I, Boolean> oracle, AcexAnalyzer analyzer) {
         this(alphabet, oracle, analyzer, TTTDTNodeDFA::new);
     }
-
+    
     protected TTTLearnerDFA(Alphabet<I> alphabet,
                             MembershipOracle<I, Boolean> oracle,
                             AcexAnalyzer analyzer,

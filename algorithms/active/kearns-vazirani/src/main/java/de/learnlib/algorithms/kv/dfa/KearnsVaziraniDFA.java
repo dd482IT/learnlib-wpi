@@ -75,6 +75,7 @@ public class KearnsVaziraniDFA<I>
      * @param oracle
      *         the membership oracle
      */
+    @GenerateBuilder
     public KearnsVaziraniDFA(Alphabet<I> alphabet,
                              MembershipOracle<I, Boolean> oracle,
                              boolean repeatedCounterexampleEvaluation,

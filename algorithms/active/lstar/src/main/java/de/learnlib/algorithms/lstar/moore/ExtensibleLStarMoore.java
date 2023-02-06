@@ -54,7 +54,7 @@ public class ExtensibleLStarMoore<I, O>
                                 ClosingStrategy<? super I, ? super Word<O>> closingStrategy) {
         this(alphabet, oracle, Collections.singletonList(Word.epsilon()), initialSuffixes, cexHandler, closingStrategy);
     }
-
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public ExtensibleLStarMoore(Alphabet<I> alphabet,
                                 MembershipOracle<I, Word<O>> oracle,
                                 List<Word<I>> initialPrefixes,

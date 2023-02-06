@@ -33,7 +33,7 @@ public class MalerPnueliMealy<I, O> extends ExtensibleLStarMealy<I, O> {
     public MalerPnueliMealy(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle) {
         this(alphabet, oracle, Collections.emptyList(), ClosingStrategies.CLOSE_FIRST);
     }
-
+    @GenerateBuilder(defaults = AbstractExtensibleAutomatonLStar.BuilderDefaults.class)
     public MalerPnueliMealy(Alphabet<I> alphabet,
                             MembershipOracle<I, Word<O>> oracle,
                             List<Word<I>> initialSuffixes,

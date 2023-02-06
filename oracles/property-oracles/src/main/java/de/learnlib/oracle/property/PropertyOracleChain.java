@@ -49,6 +49,26 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author Jeroen Meijer
  */
+@GenerateRefinement(name = "DFAPropertyOracleChain",
+                    generics = {"I", "P"},
+                    parentGenerics = {@Generic("I"),
+                                      @Generic(clazz = DFA.class, generics = {"?", "I"}),
+                                      @Generic("P"),
+                                      @Generic(clazz = Boolean.class)},
+                    parameterMapping = @Map(from = PropertyOracle.class,
+                                            to = DFAPropertyOracle.class,
+                                            withGenerics = {"I", "P"}),
+                    interfaces = @Interface(clazz = DFAPropertyOracle.class, generics = {"I", "P"}))
+@GenerateRefinement(name = "MealyPropertyOracleChain",
+                    generics = {"I", "O", "P"},
+                    parentGenerics = {@Generic("I"),
+                                      @Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
+                                      @Generic("P"),
+                                      @Generic(clazz = Word.class, generics = "O")},
+                    parameterMapping = @Map(from = PropertyOracle.class,
+                                            to = MealyPropertyOracle.class,
+                                            withGenerics = {"I", "O", "P"}),
+                    interfaces = @Interface(clazz = MealyPropertyOracle.class, generics = {"I", "O", "P"}))
 public class PropertyOracleChain<I, A extends Output<I, D>, P, D> implements PropertyOracle<I, A, P, D> {
 
     private P property;

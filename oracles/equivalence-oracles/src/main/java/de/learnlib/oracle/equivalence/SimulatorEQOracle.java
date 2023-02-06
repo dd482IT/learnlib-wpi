@@ -35,6 +35,34 @@ import net.automatalib.util.automata.Automata;
 import net.automatalib.words.Word;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+@GenerateRefinement(name = "DFASimulatorEQOracle",
+                    generics = "I",
+                    parentGenerics = {@Generic(clazz = DFA.class, generics = {"?", "I"}),
+                                      @Generic("I"),
+                                      @Generic(clazz = Boolean.class)},
+                    parameterMapping = @Map(from = UniversalDeterministicAutomaton.class,
+                                            to = DFA.class,
+                                            withGenerics = {"?", "I"}),
+                    interfaces = @Interface(clazz = DFAEquivalenceOracle.class, generics = "I"))
+@GenerateRefinement(name = "MealySimulatorEQOracle",
+                    generics = {"I", "O"},
+                    parentGenerics = {@Generic(clazz = MealyMachine.class, generics = {"?", "I", "?", "O"}),
+                                      @Generic("I"),
+                                      @Generic(clazz = Word.class, generics = "O")},
+                    parameterMapping = @Map(from = UniversalDeterministicAutomaton.class,
+                                            to = MealyMachine.class,
+                                            withGenerics = {"?", "I", "?", "O"}),
+                    interfaces = @Interface(clazz = MealyEquivalenceOracle.class, generics = {"I", "O"}))
+@GenerateRefinement(name = "MooreSimulatorEQOracle",
+                    generics = {"I", "O"},
+                    parentGenerics = {@Generic(clazz = MooreMachine.class, generics = {"?", "I", "?", "O"}),
+                                      @Generic("I"),
+                                      @Generic(clazz = Word.class, generics = "O")},
+                    parameterMapping = @Map(from = UniversalDeterministicAutomaton.class,
+                                            to = MooreMachine.class,
+                                            withGenerics = {"?", "I", "?", "O"}),
+                    interfaces = @Interface(clazz = MooreEquivalenceOracle.class, generics = {"I", "O"}))
+
 public class SimulatorEQOracle<A extends UniversalDeterministicAutomaton<?, I, ?, ?, ?>, I, D>
         implements EquivalenceOracle<A, I, D> {
 
