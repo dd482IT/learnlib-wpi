@@ -236,7 +236,7 @@ limitations under the License.
                                     <!--
                                     <annotationProcessors>
                                         <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
-                                    </annotationProcessors>-->
+                                    </annotationProcessors> -->
                                     <compilerArgs>
                                         <arg>-J-Xbootclasspath/p:${com.google.errorprone:javac:jar}</arg>
                                         <arg>-AskipDefs=^de.learnlib.algorithms.adt.*|\
@@ -253,6 +253,9 @@ limitations under the License.
                                         </arg>
                                         <arg>-AsuppressWarnings=uninitialized</arg>
                                         <arg>-AassumeAssertionsAreEnabled</arg>
+                                        <arg></arg> 
+                                        <arg>-Aannotations</arg> 
+                                        <arg>-Anolocations</arg> 
                                         <arg>-Astubs=jdk8.astub:collection-object-parameters-may-be-null.astub</arg>
                                         <arg>-Aannotations</arg> 
                                         <arg>-Anolocations</arg> 
