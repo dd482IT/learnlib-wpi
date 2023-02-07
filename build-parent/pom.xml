@@ -229,9 +229,14 @@ limitations under the License.
                                             <version>${checkerframework.version}</version>
                                         </path>
                                     </annotationProcessorPaths>
+
+                                    <annotationProcessors>
+                                        <annotationProcessor>org.checkerframework.common.util.count.AnnotationStatistics</annotationProcessor>
+                                    </annotationProcessors>
+                                    <!--
                                     <annotationProcessors>
                                         <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
-                                    </annotationProcessors>
+                                    </annotationProcessors>-->
                                     <compilerArgs>
                                         <arg>-J-Xbootclasspath/p:${com.google.errorprone:javac:jar}</arg>
                                         <arg>-AskipDefs=^de.learnlib.algorithms.adt.*|\
@@ -249,7 +254,10 @@ limitations under the License.
                                         <arg>-AsuppressWarnings=uninitialized</arg>
                                         <arg>-AassumeAssertionsAreEnabled</arg>
                                         <arg>-Astubs=jdk8.astub:collection-object-parameters-may-be-null.astub</arg>
+                                        <arg>-Aannotations</arg> 
+                                        <arg>-Anolocations</arg> 
                                     </compilerArgs>
+                                    <showWarnings>true</showWarnings>
                                 </configuration>
                             </execution>
                             <execution>
