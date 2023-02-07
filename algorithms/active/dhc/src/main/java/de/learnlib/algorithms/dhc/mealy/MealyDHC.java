@@ -76,7 +76,6 @@ public class MealyDHC<I, O> implements MealyLearner<I, O>,
      * @param oracle
      *         the learning membership oracle
      */
-    @GenerateBuilder(defaults = BuilderDefaults.class, builderFinal = false)
     public MealyDHC(Alphabet<I> alphabet, MembershipOracle<I, Word<O>> oracle) {
         this(alphabet, oracle, GlobalSuffixFinders.RIVEST_SCHAPIRE, Collections.emptyList());
     }
@@ -317,16 +316,16 @@ public class MealyDHC<I, O> implements MealyLearner<I, O>,
 
     static final class QueueElement<I, O> {
 
-        private final Integer parentState;
-        private final QueueElement<I, O> parentElement;
-        private final I transIn;
-        private final O transOut;
+        private final @Nullable Integer parentState;
+        private final @Nullable QueueElement<I, O> parentElement;
+        private final @Nullable I transIn;
+        private final @Nullable O transOut;
         private final int depth;
 
-        QueueElement(Integer parentState,
-                     QueueElement<I, O> parentElement,
-                     I transIn,
-                     O transOut) {
+        QueueElement(@Nullable Integer parentState,
+                     @Nullable QueueElement<I, O> parentElement,
+                     @Nullable I transIn,
+                     @Nullable O transOut) {
             this.parentState = parentState;
             this.parentElement = parentElement;
             this.transIn = transIn;

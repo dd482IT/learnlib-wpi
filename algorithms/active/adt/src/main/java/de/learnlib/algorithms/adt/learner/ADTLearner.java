@@ -93,8 +93,7 @@ public class ADTLearner<I, O> implements LearningAlgorithm.MealyLearner<I, O>,
     private final ObservationTree<ADTState<I, O>, I, O> observationTree;
     private ADTHypothesis<I, O> hypothesis;
     private ADT<ADTState<I, O>, I, O> adt;
-    
-    @GenerateBuilder(defaults = BuilderDefaults.class)      
+
     public ADTLearner(final Alphabet<I> alphabet,
                       final SymbolQueryOracle<I, O> oracle,
                       final LeafSplitter leafSplitter,
@@ -102,6 +101,7 @@ public class ADTLearner<I, O> implements LearningAlgorithm.MealyLearner<I, O>,
                       final SubtreeReplacer subtreeReplacer) {
         this(alphabet, oracle, leafSplitter, adtExtender, subtreeReplacer, true);
     }
+
     @GenerateBuilder(defaults = BuilderDefaults.class)
     public ADTLearner(final Alphabet<I> alphabet,
                       final SymbolQueryOracle<I, O> oracle,
