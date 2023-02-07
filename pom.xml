@@ -237,7 +237,7 @@ limitations under the License.
         <automatalib.version>0.11.0-SNAPSHOT</automatalib.version>
         <buildergen.version>0.1</buildergen.version>
         <cacio.version>1.10</cacio.version>
-        <checkerframework.version>3.29.1-SNAPSHOT</checkerframework.version>
+        <checkerframework.version>3.30.1-SNAPSHOT</checkerframework.version>
         <checkstyle.version>8.36.2</checkstyle.version>
         <error-prone.version>9+181-r4173-1</error-prone.version> <!-- required by checkerframework, keep in sync -->
         <guava.version>30.1.1-jre</guava.version>
