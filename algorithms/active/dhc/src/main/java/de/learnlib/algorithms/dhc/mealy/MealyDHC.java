@@ -316,16 +316,16 @@ public class MealyDHC<I, O> implements MealyLearner<I, O>,
 
     static final class QueueElement<I, O> {
 
-        private final @Nullable Integer parentState;
-        private final @Nullable QueueElement<I, O> parentElement;
-        private final @Nullable I transIn;
-        private final @Nullable O transOut;
+        private final Integer parentState;
+        private final QueueElement<I, O> parentElement;
+        private final I transIn;
+        private final O transOut;
         private final int depth;
 
-        QueueElement(@Nullable Integer parentState,
-                     @Nullable QueueElement<I, O> parentElement,
-                     @Nullable I transIn,
-                     @Nullable O transOut) {
+        QueueElement(Integer parentState,
+                        QueueElement<I, O> parentElement,
+                        I transIn,
+                        O transOut) {
             this.parentState = parentState;
             this.parentElement = parentElement;
             this.transIn = transIn;
